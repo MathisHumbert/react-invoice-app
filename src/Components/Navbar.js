@@ -65,6 +65,7 @@ const Wrapper = styled.nav`
     display: flex;
     align-items: center;
     gap: 24px;
+    margin-right: 24px;
 
     .vr {
       width: 1px;
