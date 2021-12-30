@@ -24,7 +24,8 @@ const Wrapper = styled.aside`
   bottom: 0;
   width: 100%;
   background: var(--main-bcg);
-  padding-top: 2rem;
+  padding: 2rem 0;
+  overflow: scroll;
 
   .container {
     padding: 0 24px;

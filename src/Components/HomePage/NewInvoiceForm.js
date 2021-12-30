@@ -1,11 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
+import ClientInputs from './ClientInputs';
 import SenderInputs from './SenderInputs';
 
 const NewInvoiceForm = () => {
   return (
     <Wrapper>
       <SenderInputs />
+      <ClientInputs />
     </Wrapper>
   );
 };
@@ -31,6 +33,8 @@ const Wrapper = styled.form`
     font-size: 16px;
     font-weight: 700;
     color: var(--primary-color);
+    line-height: 0;
+    display: flex;
 
     &:focus {
       outline: none;

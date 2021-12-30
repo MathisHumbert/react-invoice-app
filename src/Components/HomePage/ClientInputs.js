@@ -1,7 +1,19 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  handleClientInfo,
+  handleGeneralInfo,
+} from '../../redux/actions/formActions';
 
-const ClientInput = () => {
+const ClientInputs = () => {
+  const dispatch = useDispatch();
+  const { clientAddress, clientName, clientEmail } = useSelector(
+    (state) => state.formReducer
+  );
+
+  console.log(clientName, clientEmail);
+
   return (
     <Wrapper>
       <h4>Bill To</h4>
@@ -10,32 +22,32 @@ const ClientInput = () => {
         <label htmlFor="name">Client's Name</label>
         <input
           type="text"
-          name="name"
+          name="clientName"
           id="name"
-          // value={sender.name}
-          // onChange={(e) => dispatch(handleSenderInfo(e))}
+          value={clientName}
+          onChange={(e) => dispatch(handleGeneralInfo(e))}
         />
       </div>
       {/* Email */}
       <div className="single-input">
-        <label htmlFor="email">Client's email</label>
+        <label htmlFor="email">Client's Email</label>
         <input
           type="text"
-          name="email"
+          name="clientEmail"
           id="email"
-          // value={sender.street}
-          // onChange={(e) => dispatch(handleSenderInfo(e))}
+          value={clientEmail}
+          onChange={(e) => dispatch(handleGeneralInfo(e))}
         />
       </div>
       {/* Street Address */}
       <div className="single-input">
-        <label htmlFor="street">Street Adress</label>
+        <label htmlFor="street">Street Address</label>
         <input
           type="text"
           name="street"
           id="street"
-          value={sender.street}
-          onChange={(e) => dispatch(handleSenderInfo(e))}
+          value={clientAddress.street}
+          onChange={(e) => dispatch(handleClientInfo(e))}
         />
       </div>
       {/* 3 inputs */}
@@ -47,8 +59,8 @@ const ClientInput = () => {
             type="text"
             name="city"
             id="city"
-            value={sender.city}
-            onChange={(e) => dispatch(handleSenderInfo(e))}
+            value={clientAddress.city}
+            onChange={(e) => dispatch(handleClientInfo(e))}
           />
         </div>
         {/* Post Code */}
@@ -58,8 +70,8 @@ const ClientInput = () => {
             type="text"
             name="postCode"
             id="postCode"
-            value={sender.postCode}
-            onChange={(e) => dispatch(handleSenderInfo(e))}
+            value={clientAddress.postCode}
+            onChange={(e) => dispatch(handleClientInfo(e))}
           />
         </div>
         {/* Country */}
@@ -69,8 +81,8 @@ const ClientInput = () => {
             type="text"
             name="country"
             id="country"
-            value={sender.country}
-            onChange={(e) => dispatch(handleSenderInfo(e))}
+            value={clientAddress.country}
+            onChange={(e) => dispatch(handleClientInfo(e))}
           />
         </div>
       </div>
@@ -78,5 +90,17 @@ const ClientInput = () => {
   );
 };
 
-const Wrapper = styled.div``;
-export default ClientInput;
+const Wrapper = styled.div`
+  margin-top: 40px;
+
+  .input-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 24px;
+
+    .single-input:last-child {
+      grid-column: 1 / 3;
+    }
+  }
+`;
+export default ClientInputs;

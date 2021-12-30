@@ -1,23 +1,23 @@
 import React from 'react';
 import styled from 'styled-components';
-import { handleSenderInfo } from '../../redux/actions/formActions';
 import { useDispatch, useSelector } from 'react-redux';
+import { handleSenderInfo } from '../../redux/actions/formActions';
 
 const SenderInputs = () => {
   const dispatch = useDispatch();
-  const { sender } = useSelector((state) => state.formReducer);
+  const { senderAddress } = useSelector((state) => state.formReducer);
 
   return (
     <Wrapper>
       <h4>Bill From</h4>
       {/* Street Address */}
       <div className="single-input">
-        <label htmlFor="street">Street Adress</label>
+        <label htmlFor="street">Street Address</label>
         <input
           type="text"
           name="street"
           id="street"
-          value={sender.street}
+          value={senderAddress.street}
           onChange={(e) => dispatch(handleSenderInfo(e))}
         />
       </div>
@@ -30,7 +30,7 @@ const SenderInputs = () => {
             type="text"
             name="city"
             id="city"
-            value={sender.city}
+            value={senderAddress.city}
             onChange={(e) => dispatch(handleSenderInfo(e))}
           />
         </div>
@@ -41,7 +41,7 @@ const SenderInputs = () => {
             type="text"
             name="postCode"
             id="postCode"
-            value={sender.postCode}
+            value={senderAddress.postCode}
             onChange={(e) => dispatch(handleSenderInfo(e))}
           />
         </div>
@@ -52,7 +52,7 @@ const SenderInputs = () => {
             type="text"
             name="country"
             id="country"
-            value={sender.country}
+            value={senderAddress.country}
             onChange={(e) => dispatch(handleSenderInfo(e))}
           />
         </div>
