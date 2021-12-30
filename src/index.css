@@ -37,6 +37,12 @@ h1 {
   color: var(--primary-color);
 }
 
+h3 {
+}
+
+h4 {
+}
+
 p {
   font-size: 12px;
   letter-spacing: -0.25px;
