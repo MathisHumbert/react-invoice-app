@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 import logo from '../assets/logo.svg';
 import userImage from '../assets/image-avatar.jpg';
 import { BsFillSunFill, BsFillMoonFill } from 'react-icons/bs';
@@ -8,9 +9,11 @@ const Navbar = () => {
   const light = true;
   return (
     <Wrapper>
-      <div className="left">
-        <img src={logo} alt="main-logo" />
-      </div>
+      <Link to="/">
+        <div className="left">
+          <img src={logo} alt="main-logo" />
+        </div>
+      </Link>
       <div className="right">
         {light ? (
           <BsFillMoonFill className="icon" />
@@ -82,6 +85,12 @@ const Wrapper = styled.nav`
     .icon {
       font-size: 20px;
       color: var(--secondary-color);
+      transition: color 0.3s linear;
+      cursor: pointer;
+
+      &:hover {
+        color: #dfe3fa;
+      }
     }
   }
 `;

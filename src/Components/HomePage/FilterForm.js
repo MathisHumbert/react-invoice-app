@@ -1,21 +1,34 @@
 import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { toggleFilters } from '../../redux/actions/toggleActions';
 import styled from 'styled-components';
 
+const data = ['draft', 'pending', 'paid'];
 const FilterForm = () => {
+  const handleSubmit = (e) => {
+    console.log(e.target.name);
+    setTimeout(() => {
+      dispatch(toggleFilters());
+    }, 400);
+  };
+  const dispatch = useDispatch();
+  const { isFiltersOpen } = useSelector((state) => state.toggleReducer);
   return (
-    <Wrapper>
-      <div className="single-input">
-        <input type="checkbox" name="draft" id="draft" />
-        <label htmlFor="draft">Draft</label>
-      </div>
-      <div className="single-input">
-        <input type="checkbox" name="draft" id="draft" />
-        <label htmlFor="draft">Draft</label>
-      </div>
-      <div className="single-input">
-        <input type="checkbox" name="draft" id="draft" />
-        <label htmlFor="draft">Draft</label>
-      </div>
+    <Wrapper className={isFiltersOpen ? 'active' : null}>
+      {data.map((item, index) => {
+        return (
+          <div className="single-input" key={index}>
+            <input
+              type="checkbox"
+              name={item}
+              id={item}
+              onChange={handleSubmit}
+              // checked={false}
+            />
+            <label htmlFor={item}>{item}</label>
+          </div>
+        );
+      })}
     </Wrapper>
   );
 };
@@ -29,16 +42,42 @@ const Wrapper = styled.form`
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  width: 140px;
-  border-radius: 8px;
+  width: 160px;
   height: 0;
-  padding: 0;
+  border-radius: 8px;
   overflow: hidden;
- 
+  z-index: 2;
+  padding: 0 24px;
+  opacity: 0;
+  transition: height 0.4s linear, opacity 0.4s linear;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+    rgba(0, 0, 0, 0.22) 0px 15px 12px;
+
+  &:first-child {
+    padding-top: 2rem;
+  }
+
+  &.active {
+    height: 131px;
+    opacity: 1;
+  }
+
   .single-input {
     display: flex;
     align-items: center;
     gap: 12px;
+
+    &:first-child {
+      padding-top: 24px;
+    }
+    &:last-child {
+      padding-bottom: 24px;
+    }
+  }
+
+  input,
+  label {
+    cursor: pointer;
   }
 
   label {

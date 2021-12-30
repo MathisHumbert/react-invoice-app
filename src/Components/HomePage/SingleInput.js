@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 import StatusButton from '../StatusButton';
+
 const months = {
   '01': 'January',
   '02': 'February',
@@ -22,16 +24,18 @@ const SingleInput = ({ id, clientName, createdAt, items, status }) => {
   const date = `Due ${splitDate[2]} ${months[splitDate[1]]} ${splitDate[0]}`;
 
   return (
-    <Wrapper>
-      <h4>
-        <span>#</span>
-        {id}
-      </h4>
-      <p className="date">{date}</p>
-      <p className="name">{clientName}</p>
-      <h3>£{total}</h3>
-      <StatusButton status={status} />
-    </Wrapper>
+    <Link to={`/invoice/${id}`}>
+      <Wrapper>
+        <h4>
+          <span>#</span>
+          {id}
+        </h4>
+        <p className="date">{date}</p>
+        <p className="name">{clientName}</p>
+        <h3>£{total}</h3>
+        <StatusButton status={status} />
+      </Wrapper>
+    </Link>
   );
 };
 
@@ -41,7 +45,22 @@ const Wrapper = styled.article`
   width: 100%;
   position: relative;
   border-radius: 8px;
-  box-shadow: 0px 10px 20px 0px rgba(72, 84, 159, 0, 25);
+  box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+  border: 2px solid transparent;
+  transition: border 0.3s linear;
+
+  &:hover {
+    border-color: var(--purple-color);
+  }
+
+  a {
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
 
   h4 {
     position: absolute;
@@ -71,6 +90,7 @@ const Wrapper = styled.article`
     position: absolute;
     right: 24px;
     bottom: 24px;
+    cursor: inherit;
   }
 `;
 export default SingleInput;

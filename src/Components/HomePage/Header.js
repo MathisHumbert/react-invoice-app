@@ -1,10 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { FaChevronDown, FaChevronUp, FaPlus } from 'react-icons/fa';
+import { useSelector, useDispatch } from 'react-redux';
+import { toggleFilters } from '../../redux/actions/toggleActions';
 import FilterForm from './FilterForm';
+import NewButton from './NewButton';
 
 const Header = () => {
-  const [isActive, setIsActive] = useState(false);
+  const dispatch = useDispatch();
+  const { isFiltersOpen } = useSelector((state) => state.toggleReducer);
 
   return (
     <Wrapper>
@@ -14,9 +18,13 @@ const Header = () => {
       </div>
       <div className="right">
         <div>
-          <button type="button" className="filter-btn">
+          <button
+            type="button"
+            className="filter-btn"
+            onClick={() => dispatch(toggleFilters())}
+          >
             <p>Filter</p>
-            {isActive ? (
+            {isFiltersOpen ? (
               <FaChevronUp className="icon" />
             ) : (
               <FaChevronDown className="icon" />
@@ -24,12 +32,7 @@ const Header = () => {
           </button>
           <FilterForm />
         </div>
-        <button type="button" className="new-btn">
-          <span>
-            <FaPlus className="icon" />
-          </span>
-          <p>New</p>
-        </button>
+        <NewButton />
       </div>
     </Wrapper>
   );
@@ -67,37 +70,6 @@ const Wrapper = styled.header`
     .icon {
       font-size: 9px;
       color: var(--purple-color);
-    }
-  }
-
-  .new-btn {
-    background: var(--purple-color);
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    color: var(--white-color);
-    border-radius: 20px;
-    line-height: 0;
-    padding: 6px;
-    padding-right: 10px;
-
-    p {
-      color: var(--white-color);
-    }
-
-    span {
-      width: 32px;
-      height: 32px;
-      background: var(--white-color);
-      color: var(--purple-color);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      .icon {
-        font-size: 12px;
-      }
     }
   }
 `;

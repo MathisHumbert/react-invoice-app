@@ -1,2 +1,6 @@
-export const OPEN_FILTERS = 'OPEN_FILTERS';
-export const CLOSE_FILTERS = 'CLOSE_FILTERS';
+// toggleActions:
+export const TOGGLE_FILTERS = 'TOGGLE_FILTERS';
+export const OPEN_EDIT_SIDEBAR = 'OPEN_EDIT_SIDEBAR';
+export const CLOSE_EDIT_SIDEBAR = 'CLOSE_EDIT_SIDEBAR';
+export const OPEN_NEW_SIDEBAR = 'OPEN_NEW_SIDEBAR';
+export const CLOSE_NEW_SIDEBAR = 'CLOSE_NEW_SIDEBAR';
