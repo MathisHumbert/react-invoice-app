@@ -41,6 +41,7 @@ const Wrapper = styled.article`
   width: 100%;
   position: relative;
   border-radius: 8px;
+  box-shadow: 0px 10px 20px 0px rgba(72, 84, 159, 0, 25);
 
   h4 {
     position: absolute;

@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import HomePage from './Pages/HomePage';
-import InvoicePage from './Pages/InvoicePage';
-import Navbar from './Components/Navbar';
+import HomePage from './pages/HomePage';
+import InvoicePage from './pages/InvoicePage';
+import Navbar from './components/Navbar';
 
 function App() {
   return (

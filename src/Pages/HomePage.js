@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import Header from '../Components/HomePage/Header';
-import Inputs from '../Components/HomePage/Inputs';
+import Header from '../components/HomePage/Header';
+import Inputs from '../components/HomePage/Inputs';
 
 const HomePage = () => {
   return (
