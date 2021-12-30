@@ -5,6 +5,7 @@ import {
 } from '../actions/actions';
 
 const initialState = {
+  createdAt: '',
   clientName: '',
   clientEmail: '',
   senderAddress: {

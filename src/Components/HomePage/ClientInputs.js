@@ -5,6 +5,8 @@ import {
   handleClientInfo,
   handleGeneralInfo,
 } from '../../redux/actions/formActions';
+import DateInput from './DateInput';
+import TermInput from './TermInput';
 
 const ClientInputs = () => {
   const dispatch = useDispatch();
@@ -86,6 +88,19 @@ const ClientInputs = () => {
           />
         </div>
       </div>
+      {/* 2 inputs */}
+      <div className="input-container">
+        {/* Date */}
+        <div className="single-input">
+          <label htmlFor="date">Issue Date</label>
+          <DateInput />
+        </div>
+        {/* Terms */}
+        <div className="single-input">
+          <label>Payement Terms</label>
+          <TermInput />
+        </div>
+      </div>
     </Wrapper>
   );
 };
@@ -97,10 +112,10 @@ const Wrapper = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr;
     column-gap: 24px;
+  }
 
-    .single-input:last-child {
-      grid-column: 1 / 3;
-    }
+  #country {
+    grid-column: 1 / 3;
   }
 `;
 export default ClientInputs;
