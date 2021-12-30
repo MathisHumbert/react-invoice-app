@@ -11,6 +11,7 @@
   --red-color: #ec5757;
   --purple-color: #7c5dfa;
   --orange-color: #ff8f00;
+  --green-color: #33d69f;
 }
 
 * {
@@ -38,15 +39,24 @@ h1 {
 }
 
 h3 {
+  font-size: 16px;
+  letter-spacing: -0.8px;
+  line-height: 24px;
+  color: var(--primary-color);
 }
 
 h4 {
+  font-size: 12px;
+  letter-spacing: -0.25px;
+  line-height: 15px;
+  color: var(--primary-color);
 }
 
 p {
   font-size: 12px;
   letter-spacing: -0.25px;
   line-height: 15px;
+  color: var(--secondary-color);
 }
 
 button {

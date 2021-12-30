@@ -22,5 +22,6 @@ const Wrapper = styled.section`
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  margin-bottom: 2rem;
 `;
 export default Inputs;

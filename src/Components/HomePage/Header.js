@@ -59,7 +59,10 @@ const Wrapper = styled.header`
     align-items: center;
     line-height: 0;
     gap: 8px;
-    color: var(--primary-color);
+
+    p {
+      color: var(--primary-color);
+    }
 
     .icon {
       font-size: 9px;
@@ -77,6 +80,10 @@ const Wrapper = styled.header`
     line-height: 0;
     padding: 6px;
     padding-right: 10px;
+
+    p {
+      color: var(--white-color);
+    }
 
     span {
       width: 32px;

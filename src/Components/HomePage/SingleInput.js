@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import StatusButton from '../StatusButton';
 const months = {
   '01': 'January',
   '02': 'February',
@@ -26,13 +27,49 @@ const SingleInput = ({ id, clientName, createdAt, items, status }) => {
         <span>#</span>
         {id}
       </h4>
-      <p>{date}</p>
-      <p>{clientName}</p>
+      <p className="date">{date}</p>
+      <p className="name">{clientName}</p>
       <h3>£{total}</h3>
-      <button>{status}</button>
+      <StatusButton status={status} />
     </Wrapper>
   );
 };
 
-const Wrapper = styled.article``;
+const Wrapper = styled.article`
+  background: var(--main-bcg);
+  height: 134px;
+  width: 100%;
+  position: relative;
+  border-radius: 8px;
+
+  h4 {
+    position: absolute;
+    left: 24px;
+    top: 24px;
+  }
+
+  .name {
+    position: absolute;
+    right: 24px;
+    top: 24px;
+  }
+
+  .date {
+    position: absolute;
+    left: 24px;
+    bottom: 52px;
+  }
+
+  h3 {
+    position: absolute;
+    left: 24px;
+    bottom: 24px;
+  }
+
+  button {
+    position: absolute;
+    right: 24px;
+    bottom: 24px;
+  }
+`;
 export default SingleInput;
