@@ -1,21 +1,23 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { toggleFilters } from '../../redux/actions/toggleActions';
+import { filtersData } from '../../utils/constants';
 import styled from 'styled-components';
 
-const data = ['draft', 'pending', 'paid'];
 const FilterForm = () => {
+  const dispatch = useDispatch();
+  const { isFiltersOpen } = useSelector((state) => state.toggleReducer);
+
   const handleSubmit = (e) => {
     console.log(e.target.name);
     setTimeout(() => {
       dispatch(toggleFilters());
     }, 400);
   };
-  const dispatch = useDispatch();
-  const { isFiltersOpen } = useSelector((state) => state.toggleReducer);
+
   return (
     <Wrapper className={isFiltersOpen ? 'active' : null}>
-      {data.map((item, index) => {
+      {filtersData.map((item, index) => {
         return (
           <div className="single-input" key={index}>
             <input

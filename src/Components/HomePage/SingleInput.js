@@ -2,26 +2,10 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import StatusButton from '../StatusButton';
-
-const months = {
-  '01': 'January',
-  '02': 'February',
-  '03': 'March',
-  '04': 'April',
-  '05': 'May',
-  '06': 'June',
-  '07': 'July',
-  '08': 'August',
-  '09': 'September',
-  10: 'October',
-  11: 'November',
-  12: 'December',
-};
+import { formatDate, formatPrice } from '../../utils/helpers';
 
 const SingleInput = ({ id, clientName, createdAt, items, status }) => {
   const { total } = items[0];
-  const splitDate = createdAt.split('-');
-  const date = `Due ${splitDate[2]} ${months[splitDate[1]]} ${splitDate[0]}`;
 
   return (
     <Link to={`/invoice/${id}`}>
@@ -30,9 +14,9 @@ const SingleInput = ({ id, clientName, createdAt, items, status }) => {
           <span>#</span>
           {id}
         </h4>
-        <p className="date">{date}</p>
+        <p className="date">{formatDate(createdAt)}</p>
         <p className="name">{clientName}</p>
-        <h3>£{total}</h3>
+        <h3>{formatPrice(total)}</h3>
         <StatusButton status={status} />
       </Wrapper>
     </Link>
@@ -66,6 +50,10 @@ const Wrapper = styled.article`
     position: absolute;
     left: 24px;
     top: 24px;
+
+    span {
+      color: var(--secondary-color);
+    }
   }
 
   .name {

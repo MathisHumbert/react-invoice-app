@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import data from '../../data.json';
 import NoInputs from './NoInputs';
 import SingleInput from './SingleInput';
+
 // const data = [];
 const Inputs = () => {
   if (data.length === 0) {
