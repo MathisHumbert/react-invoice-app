@@ -20,6 +20,7 @@ const Wrapper = styled.button`
 
   h4 {
     color: var(--primary-color);
+    margin-top: 3px;
   }
 
   .icon {

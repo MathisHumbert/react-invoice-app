@@ -14,7 +14,7 @@ const TermInput = () => {
 
   return (
     <Wrapper>
-      <button type="button" onClick={() => setIsAsideOpen(!isAsideOpen)}>
+      <button type="button" onMouseEnter={() => setIsAsideOpen(!isAsideOpen)}>
         <h3>
           Next {activeTerm} Day{activeTerm > 1 ? 's' : ''}
         </h3>
@@ -24,14 +24,16 @@ const TermInput = () => {
           <FaChevronDown className="icon" />
         )}
       </button>
-      <aside className={isAsideOpen ? 'open' : null}>
+      <aside
+        className={isAsideOpen ? 'open' : null}
+        onMouseLeave={() => setIsAsideOpen(false)}
+      >
         {termsData.map((item, index) => {
           return (
             <div className="single-item" key={index}>
               <h3
                 className={item.term === activeTerm ? 'active' : null}
                 onClick={() => handleClick(item.term)}
-                onMouseLeave={() => console.log('leave')}
               >
                 {item.text}
               </h3>

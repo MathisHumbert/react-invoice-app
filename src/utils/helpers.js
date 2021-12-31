@@ -11,3 +11,13 @@ export const formatPrice = (price) => {
     currency: 'GBP',
   }).format(price);
 };
+
+export const getTodayDate = () => {
+  const month = new Date().getMonth();
+  const day = new Date().getDay();
+  const year = new Date().getFullYear();
+
+  return `${year}-${month > 10 ? month : `0${month}`}-${
+    day > 10 ? day : `0${day}`
+  }`;
+};
