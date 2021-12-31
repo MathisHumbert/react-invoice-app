@@ -1,3 +1,4 @@
+import { getTodayDate } from '../../utils/helpers';
 import {
   HANDLE_CLIENT_INFO,
   HANDLE_GENERAL_INFO,
@@ -5,7 +6,8 @@ import {
 } from '../actions/actions';
 
 const initialState = {
-  createdAt: '',
+  createdAt: getTodayDate(),
+  paymentDue: getTodayDate(),
   clientName: '',
   clientEmail: '',
   senderAddress: {

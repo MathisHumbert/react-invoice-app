@@ -14,7 +14,11 @@ const TermInput = () => {
 
   return (
     <Wrapper>
-      <button type="button" onMouseEnter={() => setIsAsideOpen(!isAsideOpen)}>
+      <button
+        type="button"
+        onClick={() => setIsAsideOpen(true)}
+        className={isAsideOpen ? 'open' : null}
+      >
         <h3>
           Next {activeTerm} Day{activeTerm > 1 ? 's' : ''}
         </h3>
@@ -61,6 +65,10 @@ const Wrapper = styled.div`
     line-height: 0;
     max-height: 55px;
     border-radius: 4px;
+
+    &.open {
+      border: 1px solid var(--purple-color);
+    }
 
     h3 {
       letter-spacing: -0.25px;

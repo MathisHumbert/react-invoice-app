@@ -39,6 +39,7 @@ const Wrapper = styled.form`
 
     &:focus {
       outline: none;
+      border: 1px solid var(--purple-color);
     }
   }
 
