@@ -14,8 +14,6 @@ const ClientInputs = () => {
     (state) => state.formReducer
   );
 
-  console.log(clientName, clientEmail);
-
   return (
     <Wrapper>
       <h4>Bill To</h4>
@@ -116,6 +114,10 @@ const Wrapper = styled.div`
 
   #country {
     grid-column: 1 / 3;
+  }
+
+  #date {
+    cursor: pointer;
   }
 `;
 export default ClientInputs;

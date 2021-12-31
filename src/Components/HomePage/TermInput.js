@@ -1,22 +1,32 @@
 import React, { useState } from 'react';
 import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
 import styled from 'styled-components';
+import { useDispatch, useSelector } from 'react-redux';
 import { termsData } from '../../utils/constants';
+import { getFullDate, getUpdatedDate } from '../../utils/helpers';
+import { handleDateInfo } from '../../redux/actions/formActions';
 
 const TermInput = () => {
+  const dispatch = useDispatch();
+  const { createdAt } = useSelector((state) => state.formReducer);
+
   const [activeTerm, setActiveTerm] = useState(30);
   const [isAsideOpen, setIsAsideOpen] = useState(false);
 
   const handleClick = (term) => {
     setActiveTerm(term);
     setIsAsideOpen(false);
+    // dispatch term
+    dispatch(
+      handleDateInfo(getUpdatedDate(getFullDate(createdAt), term), 'paymentDue')
+    );
   };
 
   return (
     <Wrapper>
       <button
         type="button"
-        onClick={() => setIsAsideOpen(true)}
+        onClick={() => setIsAsideOpen(!isAsideOpen)}
         className={isAsideOpen ? 'open' : null}
       >
         <h3>

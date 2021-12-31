@@ -41,6 +41,10 @@ const Wrapper = styled.form`
       outline: none;
       border: 1px solid var(--purple-color);
     }
+
+    &.error {
+      border: 1px solid var(--red-color);
+    }
   }
 
   label {
