@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { FaChevronDown, FaChevronUp, FaPlus } from 'react-icons/fa';
+import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
 import { useSelector, useDispatch } from 'react-redux';
 import { toggleFilters } from '../../redux/actions/toggleActions';
 import FilterForm from './FilterForm';

@@ -14,6 +14,7 @@ const NewInvoiceForm = () => {
 
 const Wrapper = styled.form`
   padding-top: 33px;
+  padding-bottom: 20rem;
 
   .single-input {
     padding-top: 24px;
@@ -29,12 +30,12 @@ const Wrapper = styled.form`
     border: 1px solid var(--border-color);
     padding: 17px 0 17px 20px;
     border-radius: 4px;
-    font-family: inherit;
     font-size: 16px;
-    font-weight: 700;
+    font-weight: 400;
     color: var(--primary-color);
     line-height: 0;
-    display: flex;
+    letter-spacing: -0.25px;
+    font-family: 'Spartan', sans-serif;
 
     &:focus {
       outline: none;
