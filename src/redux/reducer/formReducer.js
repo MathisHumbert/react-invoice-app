@@ -6,6 +6,7 @@ import {
   HANDLE_SENDER_INFO,
 } from '../actions/actions';
 
+// term state and dispatch
 const initialState = {
   createdAt: getTodayDate(new Date()),
   paymentDue: getUpdatedDate(new Date(), 30),
