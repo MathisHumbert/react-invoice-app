@@ -7,6 +7,9 @@ import {
 } from '../actions/actions';
 
 // term state and dispatch
+// sattus
+// description
+// items
 const initialState = {
   createdAt: getTodayDate(new Date()),
   paymentDue: getUpdatedDate(new Date(), 30),
