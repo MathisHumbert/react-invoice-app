@@ -7,11 +7,11 @@ import {
   HANDLE_TERM_INFO,
 } from '../actions/actions';
 
-// term state and dispatch
-// sattus
+// satus
 // description
 // items
 // send all the data
+// refactor all off the code for less action ?
 
 const initialState = {
   createdAt: getTodayDate(new Date()),
