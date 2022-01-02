@@ -4,12 +4,15 @@ import {
   HANDLE_DATE_INFO,
   HANDLE_GENERAL_INFO,
   HANDLE_SENDER_INFO,
+  HANDLE_TERM_INFO,
 } from '../actions/actions';
 
 // term state and dispatch
 // sattus
 // description
 // items
+// send all the data
+
 const initialState = {
   createdAt: getTodayDate(new Date()),
   paymentDue: getUpdatedDate(new Date(), 30),
@@ -71,6 +74,9 @@ const formReducer = (state = initialState, { type, payload }) => {
     } else {
       return { ...state, paymentDue: payload.date };
     }
+  }
+  if (type === HANDLE_TERM_INFO) {
+    return { ...state, term: payload };
   }
   return state;
 };

@@ -3,6 +3,7 @@ import {
   HANDLE_DATE_INFO,
   HANDLE_GENERAL_INFO,
   HANDLE_SENDER_INFO,
+  HANDLE_TERM_INFO,
 } from './actions';
 
 export const handleSenderInfo = (e) => {
@@ -32,4 +33,8 @@ export const handleGeneralInfo = (e) => {
 export const handleDateInfo = (date, type) => {
   return (dispatch) =>
     dispatch({ type: HANDLE_DATE_INFO, payload: { date, type } });
+};
+
+export const handleTermInfo = (term) => {
+  return (dispatch) => dispatch({ type: HANDLE_TERM_INFO });
 };
