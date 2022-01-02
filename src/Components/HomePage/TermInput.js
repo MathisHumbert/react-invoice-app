@@ -4,7 +4,10 @@ import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
 import { termsData } from '../../utils/constants';
 import { getFullDate, getUpdatedDate } from '../../utils/helpers';
-import { handleDateInfo } from '../../redux/actions/formActions';
+import {
+  handleDateInfo,
+  handleTermInfo,
+} from '../../redux/actions/formActions';
 
 const TermInput = () => {
   const dispatch = useDispatch();
@@ -16,7 +19,7 @@ const TermInput = () => {
   const handleClick = (term) => {
     setActiveTerm(term);
     setIsAsideOpen(false);
-    // dispatch term
+    dispatch(handleTermInfo(term));
     dispatch(
       handleDateInfo(getUpdatedDate(getFullDate(createdAt), term), 'paymentDue')
     );

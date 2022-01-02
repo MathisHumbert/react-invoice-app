@@ -36,5 +36,5 @@ export const handleDateInfo = (date, type) => {
 };
 
 export const handleTermInfo = (term) => {
-  return (dispatch) => dispatch({ type: HANDLE_TERM_INFO });
+  return (dispatch) => dispatch({ type: HANDLE_TERM_INFO, payload: term });
 };
