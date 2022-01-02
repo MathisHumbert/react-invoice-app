@@ -59,7 +59,6 @@ const formReducer = (state = initialState, { type, payload }) => {
   }
 
   if (type === HANDLE_DATE_INFO) {
-    console.log(state.paymentTerms);
     if (payload.type === 'createdAt') {
       const paymentDue = getUpdatedDate(
         getFullDate(payload.date),
