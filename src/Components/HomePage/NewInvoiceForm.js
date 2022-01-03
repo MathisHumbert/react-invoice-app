@@ -2,12 +2,14 @@ import React from 'react';
 import styled from 'styled-components';
 import ClientInputs from './ClientInputs';
 import SenderInputs from './SenderInputs';
+import ItemInputs from './ItemInputs';
 
 const NewInvoiceForm = () => {
   return (
     <Wrapper>
       <SenderInputs />
       <ClientInputs />
+      <ItemInputs />
     </Wrapper>
   );
 };

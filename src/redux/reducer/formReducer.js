@@ -16,6 +16,7 @@ import {
 const initialState = {
   createdAt: getTodayDate(new Date()),
   paymentDue: getUpdatedDate(new Date(), 30),
+  description: '',
   paymentTerms: 30,
   clientName: '',
   clientEmail: '',

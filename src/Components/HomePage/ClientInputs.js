@@ -10,7 +10,7 @@ import TermInput from './TermInput';
 
 const ClientInputs = () => {
   const dispatch = useDispatch();
-  const { clientAddress, clientName, clientEmail } = useSelector(
+  const { clientAddress, clientName, clientEmail, description } = useSelector(
     (state) => state.formReducer
   );
 
@@ -98,6 +98,17 @@ const ClientInputs = () => {
           <label>Payement Terms</label>
           <TermInput />
         </div>
+      </div>
+      {/* Description */}
+      <div className="single-input">
+        <label htmlFor="description">Project Description</label>
+        <input
+          type="text"
+          name="description"
+          id="description"
+          value={description}
+          onChange={(e) => dispatch(handleGeneralInfo(e))}
+        />
       </div>
     </Wrapper>
   );
