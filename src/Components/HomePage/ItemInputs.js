@@ -34,6 +34,8 @@ const ItemInput = () => {
                 name="quantity"
                 id="quantity"
                 placeholder="1"
+                value={quantity}
+                onChange={(e) => dispatch(handleItemInfo(e, id))}
               />
             </div>
             {/* Price */}
@@ -44,12 +46,14 @@ const ItemInput = () => {
                 name="price"
                 id="price"
                 placeholder="156.99"
+                value={price}
+                onChange={(e) => dispatch(handleItemInfo(e, id))}
               />
             </div>
             {/* Total */}
             <div className="single-input" className="total">
               <p>Total</p>
-              <p>00</p>
+              <p>{total}</p>
             </div>
             <div className="icon-container">
               <FaTrash className="icon" />

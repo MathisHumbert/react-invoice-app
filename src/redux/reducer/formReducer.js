@@ -9,9 +9,9 @@ import {
   HANDLE_TERM_INFO,
 } from '../actions/actions';
 
+// items => create new item + delete item
 // satus
 // description
-// items
 // send all the data
 // refactor all off the code for less action ?
 
@@ -38,8 +38,8 @@ const initialState = {
     {
       id: uniqid(),
       name: '',
-      quantity: 1,
-      price: 0,
+      quantity: '',
+      price: '',
       total: 0,
     },
   ],
@@ -96,6 +96,10 @@ const formReducer = (state = initialState, { type, payload }) => {
     const items = state.items.map((item) => {
       if (item.id === id) {
         item[name] = value;
+        if (name === 'price') {
+          item.total = item.quantity * value;
+        }
+        if (name === 'quantity') item.total = item.price * value;
       }
       return item;
     });
