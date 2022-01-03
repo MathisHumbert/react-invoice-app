@@ -1,8 +1,10 @@
+import uniqid from 'uniqid';
 import { getFullDate, getTodayDate, getUpdatedDate } from '../../utils/helpers';
 import {
   HANDLE_CLIENT_INFO,
   HANDLE_DATE_INFO,
   HANDLE_GENERAL_INFO,
+  HANDLE_ITEM_INFO,
   HANDLE_SENDER_INFO,
   HANDLE_TERM_INFO,
 } from '../actions/actions';
@@ -34,6 +36,7 @@ const initialState = {
   },
   items: [
     {
+      id: uniqid(),
       name: '',
       quantity: 1,
       price: 0,
@@ -83,8 +86,21 @@ const formReducer = (state = initialState, { type, payload }) => {
       return { ...state, paymentDue: payload.date };
     }
   }
+
   if (type === HANDLE_TERM_INFO) {
     return { ...state, paymentTerms: payload };
+  }
+
+  if (type === HANDLE_ITEM_INFO) {
+    const { name, value, id } = payload;
+    const items = state.items.map((item) => {
+      if (item.id === id) {
+        item[name] = value;
+      }
+      return item;
+    });
+
+    return { ...state, items };
   }
   return state;
 };

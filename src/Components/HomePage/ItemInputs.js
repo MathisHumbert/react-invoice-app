@@ -1,22 +1,30 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { FaTrash } from 'react-icons/fa';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { handleItemInfo } from '../../redux/actions/formActions';
 
 const ItemInput = () => {
+  const dispatch = useDispatch();
   const { items } = useSelector((state) => state.formReducer);
 
   return (
     <Wrapper>
       <h2>Item List</h2>
-      {items.map((item, index) => {
-        console.log(item);
+      {items.map((item) => {
+        const { id, name, price, quantity, total } = item;
         return (
-          <div className="input-container" key={index}>
+          <div className="input-container" key={id}>
             {/* Name */}
             <div className="single-input">
               <label htmlFor="name">Item Name</label>
-              <input type="text" name="name" id="name" />
+              <input
+                type="text"
+                name="name"
+                id="name"
+                value={name}
+                onChange={(e) => dispatch(handleItemInfo(e, id))}
+              />
             </div>
             {/* Quantity */}
             <div className="single-input">
