@@ -47,6 +47,11 @@ const Wrapper = styled.form`
     &.error {
       border: 1px solid var(--red-color);
     }
+
+    &::placeholder {
+      color: var(--primary-color);
+      opacity: 0.5;
+    }
   }
 
   label {
