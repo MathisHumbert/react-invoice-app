@@ -87,10 +87,10 @@ const ClientInputs = () => {
         </div>
       </div>
       {/* 2 inputs */}
-      <div className="input-container">
+      <div className="input-two-container">
         {/* Date */}
         <div className="single-input">
-          <label htmlFor="date">Issue Date</label>
+          <label htmlFor="date">Invoice Date</label>
           <DateInput />
         </div>
         {/* Terms */}
@@ -121,10 +121,14 @@ const Wrapper = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr;
     column-gap: 24px;
+
+    .single-input:last-child {
+      grid-column: 1 / 3;
+    }
   }
 
-  #country {
-    grid-column: 1 / 3;
+  .input-two-container {
+    margin-top: 16px;
   }
 
   #date {

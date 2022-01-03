@@ -32,6 +32,14 @@ const initialState = {
     postCode: '',
     country: '',
   },
+  items: [
+    {
+      name: '',
+      quantity: 1,
+      price: 0,
+      total: 0,
+    },
+  ],
 };
 
 const formReducer = (state = initialState, { type, payload }) => {

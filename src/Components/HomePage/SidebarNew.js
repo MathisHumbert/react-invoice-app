@@ -34,6 +34,9 @@ const Wrapper = styled.aside`
   header {
     h1 {
       margin-top: 24px;
+      letter-spacing: -0.5;
+      line-height: 32px;
+      font-size: 24px;
     }
   }
 `;
