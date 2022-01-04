@@ -15,3 +15,5 @@ export const HANDLE_TERM_INFO = 'HANDLE_TERM_INFO';
 export const HANDLE_ITEM_INFO = 'HANDLE_ITEM_INFO';
 export const CREATE_NEW_ITEM = 'CREATE_NEW_ITEM';
 export const DELETE_ITEM = 'DELETE_ITEM';
+export const SET_ITEM = 'SET_ITEM';
+export const RESET_ITEM = 'RESET_ITEM';

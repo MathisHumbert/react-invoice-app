@@ -1,13 +1,25 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
-import { toggleDeletion } from '../../redux/actions/toggleActions';
+import {
+  toggleDeletion,
+  openEditSidebar,
+} from '../../redux/actions/toggleActions';
+import { setItem } from '../../redux/actions/formActions';
 
-const Footer = () => {
+const Footer = ({ invoice }) => {
   const dispatch = useDispatch();
   return (
     <Wrapper>
-      <button className="sidebar-btn edit">Edit</button>
+      <button
+        className="sidebar-btn edit"
+        onClick={() => {
+          dispatch(openEditSidebar());
+          dispatch(setItem(invoice));
+        }}
+      >
+        Edit
+      </button>
       <button
         className="sidebar-btn delete"
         onClick={() => dispatch(toggleDeletion())}

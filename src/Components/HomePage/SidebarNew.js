@@ -54,4 +54,5 @@ const Wrapper = styled.aside`
     }
   }
 `;
+
 export default SidebarNew;

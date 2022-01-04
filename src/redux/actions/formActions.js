@@ -7,6 +7,8 @@ import {
   HANDLE_ITEM_INFO,
   HANDLE_SENDER_INFO,
   HANDLE_TERM_INFO,
+  RESET_ITEM,
+  SET_ITEM,
 } from './actions';
 
 export const handleSenderInfo = (e) => {
@@ -56,4 +58,12 @@ export const createNewItem = () => {
 
 export const deleteItem = (id) => {
   return (dispatch) => dispatch({ type: DELETE_ITEM, payload: id });
+};
+
+export const setItem = (item) => {
+  return (dispatch) => dispatch({ type: SET_ITEM, payload: item });
+};
+
+export const resetItem = (item) => {
+  return (dispatch) => dispatch({ type: RESET_ITEM });
 };

@@ -18,9 +18,9 @@ const InvoicePage = () => {
       <GoHome />
       <Header status={item.status} />
       <Invoice invoice={item} />
-      <Footer />
+      <Footer invoice={item} />
       <DeleteAside />
-      <SidebarEdit />
+      <SidebarEdit id={id} />
     </Wrapper>
   );
 };

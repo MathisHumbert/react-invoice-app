@@ -16,6 +16,8 @@ import {
   HANDLE_ITEM_INFO,
   HANDLE_SENDER_INFO,
   HANDLE_TERM_INFO,
+  RESET_ITEM,
+  SET_ITEM,
 } from '../actions/actions';
 
 // updateStatus => pending / draft / paid
@@ -141,6 +143,16 @@ const formReducer = (state = initialState, { type, payload }) => {
 
     return { ...state, items, total };
   }
+
+  if (type === SET_ITEM) {
+    console.log(payload);
+    return payload;
+  }
+
+  if (type === RESET_ITEM) {
+    return initialState;
+  }
+
   return state;
 };
 
