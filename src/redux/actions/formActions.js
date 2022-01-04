@@ -1,4 +1,6 @@
 import {
+  CREATE_NEW_ITEM,
+  DELETE_ITEM,
   HANDLE_CLIENT_INFO,
   HANDLE_DATE_INFO,
   HANDLE_GENERAL_INFO,
@@ -46,4 +48,12 @@ export const handleItemInfo = (e, id) => {
       type: HANDLE_ITEM_INFO,
       payload: { name: e.target.name, value: e.target.value, id },
     });
+};
+
+export const createNewItem = () => {
+  return (dispatch) => dispatch({ type: CREATE_NEW_ITEM });
+};
+
+export const deleteItem = (id) => {
+  return (dispatch) => dispatch({ type: DELETE_ITEM, payload: id });
 };

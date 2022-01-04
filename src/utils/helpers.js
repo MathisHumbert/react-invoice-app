@@ -36,6 +36,13 @@ export const getUpdatedDate = (date, day) => {
   );
 };
 
+export const getTotalAmount = (items) => {
+  return items.reduce((acc, curr) => {
+    acc += curr.total;
+    return acc;
+  }, 0);
+};
+
 // input text date helper function
 // export const checkValidDate = (date) => {
 //   let splitDate = date.split('-');

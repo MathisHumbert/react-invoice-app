@@ -2,7 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 import { FaTrash } from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux';
-import { handleItemInfo } from '../../redux/actions/formActions';
+import {
+  handleItemInfo,
+  createNewItem,
+  deleteItem,
+} from '../../redux/actions/formActions';
 
 const ItemInput = () => {
   const dispatch = useDispatch();
@@ -11,10 +15,15 @@ const ItemInput = () => {
   return (
     <Wrapper>
       <h2>Item List</h2>
-      {items.map((item) => {
+      {items.map((item, index) => {
         const { id, name, price, quantity, total } = item;
         return (
-          <div className="input-container" key={id}>
+          <div
+            className={
+              index === 0 ? 'first input-container' : 'input-container'
+            }
+            key={id}
+          >
             {/* Name */}
             <div className="single-input">
               <label htmlFor="name">Item Name</label>
@@ -55,12 +64,22 @@ const ItemInput = () => {
               <p>Total</p>
               <p>{total}</p>
             </div>
-            <div className="icon-container">
+            <div
+              className="icon-container"
+              onClick={() => dispatch(deleteItem(id))}
+            >
               <FaTrash className="icon" />
             </div>
           </div>
         );
       })}
+      <button
+        type="button"
+        className="sidebar-btn"
+        onClick={() => dispatch(createNewItem())}
+      >
+        + Add New Item
+      </button>
     </Wrapper>
   );
 };
@@ -79,9 +98,14 @@ const Wrapper = styled.div`
     display: grid;
     grid-template-columns: 1fr 2fr 1fr 1fr;
     column-gap: 1rem;
+    padding-top: 24px;
 
     .single-input:first-child {
       grid-column: 1 / 5;
+    }
+
+    &.first {
+      padding-top: 0;
     }
   }
 
@@ -115,6 +139,12 @@ const Wrapper = styled.div`
   /* Firefox */
   input[type='number'] {
     -moz-appearance: textfield;
+  }
+
+  .sidebar-btn {
+    margin-top: 48px;
+    background: var(--ternary-bcg);
+    color: var(--secondary-color);
   }
 `;
 export default ItemInput;

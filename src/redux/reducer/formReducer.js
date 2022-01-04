@@ -1,6 +1,15 @@
 import uniqid from 'uniqid';
-import { getFullDate, getTodayDate, getUpdatedDate } from '../../utils/helpers';
+
 import {
+  getFullDate,
+  getTodayDate,
+  getTotalAmount,
+  getUpdatedDate,
+} from '../../utils/helpers';
+
+import {
+  CREATE_NEW_ITEM,
+  DELETE_ITEM,
   HANDLE_CLIENT_INFO,
   HANDLE_DATE_INFO,
   HANDLE_GENERAL_INFO,
@@ -9,11 +18,8 @@ import {
   HANDLE_TERM_INFO,
 } from '../actions/actions';
 
-// items => create new item + delete item
 // satus
-// description
 // send all the data
-// refactor all off the code for less action ?
 
 const initialState = {
   createdAt: getTodayDate(new Date()),
@@ -43,6 +49,7 @@ const initialState = {
       total: 0,
     },
   ],
+  total: 0,
 };
 
 const formReducer = (state = initialState, { type, payload }) => {
@@ -97,14 +104,40 @@ const formReducer = (state = initialState, { type, payload }) => {
       if (item.id === id) {
         item[name] = value;
         if (name === 'price') {
-          item.total = item.quantity * value;
+          item.total = (item.quantity * value).toFixed(2);
         }
-        if (name === 'quantity') item.total = item.price * value;
+        if (name === 'quantity') item.total = (item.price * value).toFixed(2);
       }
       return item;
     });
 
-    return { ...state, items };
+    const total = getTotalAmount(items);
+
+    return { ...state, items, total };
+  }
+
+  if (type === CREATE_NEW_ITEM) {
+    return {
+      ...state,
+      items: [
+        ...state.items,
+        {
+          id: uniqid(),
+          name: '',
+          quantity: '',
+          price: '',
+          total: 0,
+        },
+      ],
+    };
+  }
+
+  if (type === DELETE_ITEM) {
+    const items = state.items.filter((item) => item.id !== payload);
+
+    const total = getTotalAmount(items);
+
+    return { ...state, items, total };
   }
   return state;
 };
