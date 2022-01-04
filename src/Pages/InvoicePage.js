@@ -6,6 +6,7 @@ import Footer from '../components/InvoicePage/Footer';
 import GoHome from '../components/InvoicePage/GoHome';
 import Header from '../components/InvoicePage/Header';
 import Invoice from '../components/InvoicePage/Invoice';
+import SidebarEdit from '../components/InvoicePage/SidebarEdit';
 import data from '../data.json';
 
 const InvoicePage = () => {
@@ -19,6 +20,7 @@ const InvoicePage = () => {
       <Invoice invoice={item} />
       <Footer />
       <DeleteAside />
+      <SidebarEdit />
     </Wrapper>
   );
 };

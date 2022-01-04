@@ -60,7 +60,7 @@ const ItemInput = () => {
               />
             </div>
             {/* Total */}
-            <div className="single-input" className="total">
+            <div className="single-input total">
               <p>Total</p>
               <p>{total}</p>
             </div>

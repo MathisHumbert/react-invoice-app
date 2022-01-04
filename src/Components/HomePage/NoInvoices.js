@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import image from '../../assets/illustration-empty.svg';
 
-const NoInputs = () => {
+const NoInvoices = () => {
   return (
     <Wrapper>
       <img src={image} alt="no-input-img" />
@@ -40,4 +40,4 @@ const Wrapper = styled.article`
     width: 70%;
   }
 `;
-export default NoInputs;
+export default NoInvoices;

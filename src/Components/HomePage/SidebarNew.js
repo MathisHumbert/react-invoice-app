@@ -1,9 +1,8 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 import GoBack from './GoBack';
-import NewInvoiceForm from './NewInvoiceForm';
-import { closeNewSidebar } from '../../redux/actions/toggleActions';
+import InvoiceForm from '../Inputs/InvoiceForm';
 
 const SidebarNew = () => {
   const { isNewSidebarOpen } = useSelector((state) => state.toggleReducer);
@@ -15,7 +14,7 @@ const SidebarNew = () => {
           <GoBack />
           <h1>New Invoice</h1>
         </header>
-        <NewInvoiceForm />
+        <InvoiceForm />
       </div>
     </Wrapper>
   );

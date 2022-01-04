@@ -1,13 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 import data from '../../data.json';
-import NoInputs from './NoInputs';
+import NoInvoices from './NoInvoices';
 import SingleInput from './SingleInput';
 
 // const data = [];
 const Inputs = () => {
   if (data.length === 0) {
-    return <NoInputs />;
+    return <NoInvoices />;
   } else {
     return (
       <Wrapper>

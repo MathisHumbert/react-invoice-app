@@ -4,7 +4,7 @@ import ClientInputs from './ClientInputs';
 import SenderInputs from './SenderInputs';
 import ItemInputs from './ItemInputs';
 
-const NewInvoiceForm = () => {
+const InvoiceForm = () => {
   return (
     <Wrapper>
       <SenderInputs />
@@ -61,4 +61,4 @@ const Wrapper = styled.form`
     letter-spacing: -0.25px;
   }
 `;
-export default NewInvoiceForm;
+export default InvoiceForm;
