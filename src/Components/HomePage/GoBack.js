@@ -3,12 +3,18 @@ import styled from 'styled-components';
 import { FaChevronLeft } from 'react-icons/fa';
 import { useDispatch } from 'react-redux';
 import { closeNewSidebar } from '../../redux/actions/toggleActions';
+import { resetItem } from '../../redux/actions/formActions';
 
 const GoBack = () => {
   const dispatch = useDispatch();
 
   return (
-    <Wrapper onClick={() => dispatch(closeNewSidebar())}>
+    <Wrapper
+      onClick={() => {
+        dispatch(closeNewSidebar());
+        dispatch(resetItem());
+      }}
+    >
       <FaChevronLeft className="icon" />
       <h4>Go back</h4>
     </Wrapper>

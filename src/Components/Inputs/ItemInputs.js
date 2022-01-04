@@ -145,6 +145,8 @@ const Wrapper = styled.div`
     margin-top: 48px;
     background: var(--ternary-bcg);
     color: var(--secondary-color);
+    padding: 0;
+    width: 100%;
   }
 `;
 export default ItemInput;

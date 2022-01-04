@@ -9,11 +9,9 @@ const Navbar = () => {
   const light = true;
   return (
     <Wrapper>
-      <Link to="/">
-        <div className="left">
-          <img src={logo} alt="main-logo" />
-        </div>
-      </Link>
+      <div className="left">
+        <img src={logo} alt="main-logo" />
+      </div>
       <div className="right">
         {light ? (
           <BsFillMoonFill className="icon" />

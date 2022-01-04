@@ -3,20 +3,22 @@ import styled from 'styled-components';
 import ClientInputs from './ClientInputs';
 import SenderInputs from './SenderInputs';
 import ItemInputs from './ItemInputs';
+import NewBtn from './NewBtn';
+import EditBtn from './EditBtn';
 
-const InvoiceForm = () => {
+const InvoiceForm = ({ type }) => {
   return (
-    <Wrapper>
+    <Wrapper onSubmit={(e) => e.preventDefault()}>
       <SenderInputs />
       <ClientInputs />
       <ItemInputs />
+      {type === 'new' ? <NewBtn /> : <EditBtn />}
     </Wrapper>
   );
 };
 
 const Wrapper = styled.form`
   padding-top: 33px;
-  padding-bottom: 20rem;
 
   .single-input {
     padding-top: 24px;

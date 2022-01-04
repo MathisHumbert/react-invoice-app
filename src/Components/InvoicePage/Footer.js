@@ -37,8 +37,7 @@ const Wrapper = styled.footer`
   left: -24px;
   width: calc(100% + 48px);
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr 2fr;
+  display: flex;
   gap: 8px;
   background: var(--main-bcg);
   padding: 24px;

@@ -14,7 +14,7 @@ const SidebarNew = () => {
           <GoBack />
           <h1>New Invoice</h1>
         </header>
-        <InvoiceForm />
+        <InvoiceForm type="new" />
       </div>
     </Wrapper>
   );
@@ -27,8 +27,9 @@ const Wrapper = styled.aside`
   bottom: 0;
   width: 0;
   background: var(--main-bcg);
-  padding: 2rem 0;
+  padding-top: 2rem;
   overflow: scroll;
+  overflow-x: hidden;
   transition: width 0.5s linear;
 
   &.open {
