@@ -18,7 +18,7 @@ import {
   HANDLE_TERM_INFO,
 } from '../actions/actions';
 
-// satus
+// updateStatus => pending / draft / paid
 // send all the data
 
 const initialState = {
@@ -28,6 +28,8 @@ const initialState = {
   paymentTerms: 30,
   clientName: '',
   clientEmail: '',
+  status: '',
+
   senderAddress: {
     street: '',
     city: '',

@@ -1,10 +1,17 @@
 import React from 'react';
 import styled from 'styled-components';
 import { FaPlus } from 'react-icons/fa';
+import { useDispatch } from 'react-redux';
+import { openNewSidebar } from '../../redux/actions/toggleActions';
 
 const NewButton = () => {
+  const dispatch = useDispatch();
   return (
-    <Wrapper type="button" className="new-btn">
+    <Wrapper
+      type="button"
+      className="new-btn"
+      onClick={() => dispatch(openNewSidebar())}
+    >
       <span>
         <FaPlus className="icon" />
       </span>
