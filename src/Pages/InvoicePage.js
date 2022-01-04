@@ -1,6 +1,7 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
+import DeleteAside from '../components/InvoicePage/DeleteAside';
 import Footer from '../components/InvoicePage/Footer';
 import GoHome from '../components/InvoicePage/GoHome';
 import Header from '../components/InvoicePage/Header';
@@ -17,6 +18,7 @@ const InvoicePage = () => {
       <Header status={item.status} />
       <Invoice invoice={item} />
       <Footer />
+      <DeleteAside />
     </Wrapper>
   );
 };
@@ -27,7 +29,6 @@ const Wrapper = styled.main`
   margin: 0 auto;
   padding-top: 2rem;
   padding-bottom: 150px;
-
   position: relative;
 `;
 export default InvoicePage;
