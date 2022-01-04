@@ -1,12 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useSelector } from 'react-redux';
 
-const TopInfo = ({ invoice }) => {
+const TopInfo = () => {
+  const { single_invoice } = useSelector((state) => state.dataReducer);
   const {
     id,
     description,
     senderAddress: { city, country, postCode, street },
-  } = invoice;
+  } = single_invoice;
   return (
     <Wrapper>
       <div className="right">

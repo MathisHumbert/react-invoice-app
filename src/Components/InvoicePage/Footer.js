@@ -1,5 +1,5 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 import {
   toggleDeletion,
@@ -7,15 +7,17 @@ import {
 } from '../../redux/actions/toggleActions';
 import { setItem } from '../../redux/actions/formActions';
 
-const Footer = ({ invoice }) => {
+const Footer = () => {
   const dispatch = useDispatch();
+  const { single_invoice } = useSelector((state) => state.dataReducer);
+
   return (
     <Wrapper>
       <button
         className="sidebar-btn edit"
         onClick={() => {
           dispatch(openEditSidebar());
-          dispatch(setItem(invoice));
+          dispatch(setItem(single_invoice));
         }}
       >
         Edit

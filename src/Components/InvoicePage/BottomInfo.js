@@ -1,15 +1,17 @@
 import React from 'react';
 import styled from 'styled-components';
 import { formatDate } from '../../utils/helpers';
+import { useSelector } from 'react-redux';
 
-const BottomInfo = ({ invoice }) => {
+const BottomInfo = () => {
+  const { single_invoice } = useSelector((state) => state.dataReducer);
   const {
     createdAt,
     paymentDue,
     clientName,
     clientAddress: { city, country, postCode, street },
     clientEmail,
-  } = invoice;
+  } = single_invoice;
 
   return (
     <Wrapper>

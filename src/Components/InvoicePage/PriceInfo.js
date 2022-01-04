@@ -1,9 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 import { formatPrice } from '../../utils/helpers';
+import { useSelector } from 'react-redux';
 
-const PriceInfo = ({ invoice }) => {
-  const { items, total } = invoice;
+const PriceInfo = () => {
+  const { single_invoice } = useSelector((state) => state.dataReducer);
+  const { items, total } = single_invoice;
   return (
     <Wrapper>
       <div className="top">

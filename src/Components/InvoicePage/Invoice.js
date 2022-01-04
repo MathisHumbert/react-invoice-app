@@ -4,12 +4,12 @@ import TopInfo from './TopInfo';
 import BottomInfo from './BottomInfo';
 import PriceInfo from './PriceInfo';
 
-const Invoice = ({ invoice }) => {
+const Invoice = () => {
   return (
     <Wrapper>
-      <TopInfo invoice={invoice} />
-      <BottomInfo invoice={invoice} />
-      <PriceInfo invoice={invoice} />
+      <TopInfo />
+      <BottomInfo />
+      <PriceInfo />
     </Wrapper>
   );
 };

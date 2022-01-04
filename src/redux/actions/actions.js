@@ -17,3 +17,8 @@ export const CREATE_NEW_ITEM = 'CREATE_NEW_ITEM';
 export const DELETE_ITEM = 'DELETE_ITEM';
 export const SET_ITEM = 'SET_ITEM';
 export const RESET_ITEM = 'RESET_ITEM';
+
+// dataActions
+export const START_FETCH = 'START_FETCH';
+export const GET_ALL_ITEMS = 'GET_ALL_ITEMS';
+export const GET_SINGLE_ITEM = 'GET_SINGLE_ITEM';
