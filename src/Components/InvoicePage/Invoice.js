@@ -15,6 +15,7 @@ const Invoice = ({ invoice }) => {
 };
 
 const Wrapper = styled.section`
+  height: 100%;
   background: var(--main-bcg);
   padding: 24px;
   margin-top: 13px;

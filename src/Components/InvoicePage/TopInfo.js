@@ -10,10 +10,10 @@ const TopInfo = ({ invoice }) => {
   return (
     <Wrapper>
       <div className="right">
-        <h4>
+        <h3>
           <span>#</span>
           {id}
-        </h4>
+        </h3>
         <p>{description}</p>
       </div>
       <div className="left">
@@ -32,10 +32,11 @@ const Wrapper = styled.article`
 
     p {
       line-height: 18px;
+      font-size: 11px;
     }
   }
 
-  h4 {
+  h3 {
     span {
       color: var(--secondary-color);
     }

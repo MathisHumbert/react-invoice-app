@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import { formatDate } from '../../utils/helpers';
 
 const BottomInfo = ({ invoice }) => {
-  console.log(invoice);
   const {
     createdAt,
     paymentDue,
@@ -11,6 +10,7 @@ const BottomInfo = ({ invoice }) => {
     clientAddress: { city, country, postCode, street },
     clientEmail,
   } = invoice;
+
   return (
     <Wrapper>
       <div className="one">
@@ -65,6 +65,11 @@ const Wrapper = styled.article`
 
     p {
       line-height: 18px;
+      font-size: 11px;
+
+      &:first-child {
+        font-size: 12px;
+      }
     }
   }
 `;
