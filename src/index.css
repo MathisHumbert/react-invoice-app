@@ -21,6 +21,11 @@
   box-sizing: border-box;
 }
 
+.stop-scrolling {
+  height: 100vh;
+  overflow: hidden;
+}
+
 body {
   font-family: 'Spartan', sans-serif;
   background: var(--primary-bcg);

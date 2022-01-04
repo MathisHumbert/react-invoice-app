@@ -1,12 +1,13 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
-import GoBack from '../GoBack';
+import GoBack from './GoBack';
 import NewInvoiceForm from './NewInvoiceForm';
+import { closeNewSidebar } from '../../redux/actions/toggleActions';
 
 const SidebarNew = () => {
   const { isNewSidebarOpen } = useSelector((state) => state.toggleReducer);
-  console.log(isNewSidebarOpen);
+
   return (
     <Wrapper className={isNewSidebarOpen ? 'open' : null}>
       <div className="container">
@@ -33,10 +34,16 @@ const Wrapper = styled.aside`
 
   &.open {
     width: 100%;
+
+    .container {
+      opacity: 1;
+    }
   }
 
   .container {
     padding: 0 24px;
+    opacity: 0;
+    transition: opacity 0.3s linear;
   }
 
   header {

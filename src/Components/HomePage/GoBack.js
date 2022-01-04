@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { FaChevronLeft } from 'react-icons/fa';
 import { useDispatch } from 'react-redux';
-import { closeNewSidebar } from '../redux/actions/toggleActions';
+import { closeNewSidebar } from '../../redux/actions/toggleActions';
 
 const GoBack = () => {
   const dispatch = useDispatch();

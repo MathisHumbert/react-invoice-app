@@ -5,9 +5,13 @@ export const toggleFilters = () => {
 };
 
 export const openNewSidebar = () => {
+  const root = document.getElementById('root');
+  root.classList.add('stop-scrolling');
   return (dispatch) => dispatch({ type: OPEN_NEW_SIDEBAR });
 };
 
 export const closeNewSidebar = () => {
+  const root = document.getElementById('root');
+  root.classList.remove('stop-scrolling');
   return (dispatch) => dispatch({ type: CLOSE_NEW_SIDEBAR });
 };
