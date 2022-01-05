@@ -6,6 +6,7 @@ import {
   START_FETCH,
   UPDATE_INVOICE,
   DELETE_INVOICE,
+  CREATE_INVOICE,
 } from './actions';
 import { url } from '../../utils/constants';
 
@@ -54,6 +55,19 @@ export const deleteInvoice = (id) => {
       .delete(`${url}/${id}`)
       .then((response) => {
         dispatch({ type: DELETE_INVOICE });
+      })
+      .catch((error) => console.log(error));
+  };
+};
+
+export const createInvoice = (data) => {
+  return (dispatch) => {
+    // PUT METHOD
+    axios
+      .post(url, data)
+      .then((response) => {
+        console.log(response);
+        dispatch({ type: CREATE_INVOICE, payload: response.data });
       })
       .catch((error) => console.log(error));
   };

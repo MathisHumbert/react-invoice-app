@@ -1,4 +1,5 @@
 import {
+  CREATE_INVOICE,
   DELETE_INVOICE,
   ERROR_FETCH,
   GET_ALL_INVOICES,
@@ -32,6 +33,9 @@ const dataReducer = (state = initialState, { type, payload }) => {
   }
   if (type === DELETE_INVOICE) {
     return { ...state, single_invoice: [] };
+  }
+  if (type === CREATE_INVOICE) {
+    return { ...state, all_invoices: [...state.all_invoices, payload] };
   }
   return state;
 };

@@ -30,7 +30,7 @@ const initialState = {
   paymentTerms: 30,
   clientName: '',
   clientEmail: '',
-  status: '',
+  status: 'draft',
   senderAddress: {
     street: '',
     city: '',

@@ -1,12 +1,50 @@
 import React from 'react';
 import styled from 'styled-components';
+import { closeNewSidebar } from '../../redux/actions/toggleActions';
+import { resetItem } from '../../redux/actions/formActions';
+import { createInvoice } from '../../redux/actions/dataActions';
+import { useDispatch, useSelector } from 'react-redux';
+import { checkEmptyInput } from '../../utils/helpers';
 
 const NewBtn = () => {
+  const dispatch = useDispatch();
+  const data = useSelector((state) => state.formReducer);
+  console.log(data);
+
   return (
     <Wrapper>
-      <button className="sidebar-btn discard">Discard</button>
-      <button className="sidebar-btn draft">Save as Draft</button>
-      <button className="sidebar-btn send">Save & Send</button>
+      <button
+        className="sidebar-btn discard"
+        onClick={() => {
+          dispatch(resetItem());
+          dispatch(closeNewSidebar());
+        }}
+      >
+        Discard
+      </button>
+      <button
+        className="sidebar-btn draft"
+        onClick={() => {
+          dispatch(createInvoice(data));
+          dispatch(resetItem());
+          dispatch(closeNewSidebar());
+        }}
+      >
+        Save as Draft
+      </button>
+      <button
+        className="sidebar-btn send"
+        onClick={() => {
+          if (!checkEmptyInput(data.items)) {
+            const invoice = { ...data, status: 'pending' };
+            dispatch(createInvoice(invoice));
+            dispatch(closeNewSidebar());
+            dispatch(resetItem());
+          }
+        }}
+      >
+        Save & Send
+      </button>
     </Wrapper>
   );
 };
