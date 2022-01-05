@@ -74,6 +74,15 @@ export const checkEmptyInput = (items) => {
   return emptyFlag;
 };
 
+export const resetBorder = () => {
+  const inputs = document.querySelectorAll('.input');
+  const emptyField = document.querySelector('.empty-field');
+  const noItem = document.querySelector('.no-item');
+
+  inputs.forEach((input) => input.classList.remove('empty'));
+  emptyField.classList.remove('active');
+  noItem.classList.remove('active');
+};
 // input text date helper function
 // export const checkValidDate = (date) => {
 //   let splitDate = date.split('-');

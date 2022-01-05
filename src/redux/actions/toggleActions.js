@@ -1,3 +1,4 @@
+import { resetBorder } from '../../utils/helpers';
 import {
   OPEN_NEW_SIDEBAR,
   CLOSE_NEW_SIDEBAR,
@@ -20,6 +21,7 @@ export const openNewSidebar = () => {
 export const closeNewSidebar = () => {
   const root = document.getElementById('root');
   root.classList.remove('stop-scrolling');
+  resetBorder();
   return (dispatch) => dispatch({ type: CLOSE_NEW_SIDEBAR });
 };
 
@@ -32,6 +34,7 @@ export const openEditSidebar = () => {
 export const closeEditSidebar = () => {
   const root = document.getElementById('root');
   root.classList.remove('stop-scrolling');
+  resetBorder();
   return (dispatch) => dispatch({ type: CLOSE_EDIT_SIDEBAR });
 };
 

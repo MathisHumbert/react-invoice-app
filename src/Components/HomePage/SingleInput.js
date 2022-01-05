@@ -15,7 +15,7 @@ const SingleInput = ({ _id, clientName, createdAt, items, status }) => {
           {_id.substring(18, 24).toUpperCase()}
         </h4>
         <p className="date">{formatDate(createdAt)}</p>
-        <p className="name">{clientName}</p>
+        <p className="name">{clientName === '' ? 'unknown' : clientName}</p>
         <h3>{formatPrice(total)}</h3>
         <StatusButton status={status} />
       </Wrapper>
