@@ -11,9 +11,9 @@ import {
 
 const TermInput = () => {
   const dispatch = useDispatch();
-  const { createdAt } = useSelector((state) => state.formReducer);
+  const { createdAt, paymentTerms } = useSelector((state) => state.formReducer);
 
-  const [activeTerm, setActiveTerm] = useState(30);
+  const [activeTerm, setActiveTerm] = useState(paymentTerms);
   const [isAsideOpen, setIsAsideOpen] = useState(false);
 
   const handleClick = (term) => {
@@ -24,6 +24,10 @@ const TermInput = () => {
       handleDateInfo(getUpdatedDate(getFullDate(createdAt), term), 'paymentDue')
     );
   };
+
+  React.useEffect(() => {
+    setActiveTerm(paymentTerms);
+  }, [paymentTerms]);
 
   return (
     <Wrapper>
@@ -105,6 +109,7 @@ const Wrapper = styled.div`
     transition: height 0.3s linear;
     box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
       rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    z-index: 2;
 
     &.open {
       height: 228px;

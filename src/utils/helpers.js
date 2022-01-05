@@ -53,7 +53,6 @@ export const checkEmptyInput = (items) => {
     if (!input.value) {
       input.classList.add('empty');
       emptyFlag = true;
-      console.log(input);
     } else {
       input.classList.remove('empty');
     }

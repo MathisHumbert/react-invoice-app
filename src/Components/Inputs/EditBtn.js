@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { closeEditSidebar } from '../../redux/actions/toggleActions';
 import { resetItem } from '../../redux/actions/formActions';
 import { checkEmptyInput } from '../../utils/helpers';
+import { updateInvoice } from '../../redux/actions/dataActions';
 
 const EditBtn = () => {
   const dispatch = useDispatch();
@@ -25,10 +26,10 @@ const EditBtn = () => {
         className="sidebar-btn send"
         type="button"
         onClick={() => {
-          const update = checkEmptyInput(data.items);
-
           if (!checkEmptyInput(data.items)) {
-            console.log('save and change');
+            const invoice = { ...data, status: 'pending' };
+            dispatch(updateInvoice(data._id, invoice));
+            dispatch(closeEditSidebar());
           }
         }}
       >
