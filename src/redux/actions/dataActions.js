@@ -41,7 +41,6 @@ export const updateInvoice = (id, data) => {
     axios
       .patch(`${url}/${id}`, data)
       .then((response) => {
-        console.log(response.data);
         dispatch({ type: UPDATE_INVOICE, payload: response.data });
       })
       .catch((error) => console.log(error));
@@ -54,7 +53,6 @@ export const deleteInvoice = (id) => {
     axios
       .delete(`${url}/${id}`)
       .then((response) => {
-        console.log(response);
         dispatch({ type: DELETE_INVOICE });
       })
       .catch((error) => console.log(error));

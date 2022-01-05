@@ -40,13 +40,14 @@ const Wrapper = styled.form`
     line-height: 0;
     letter-spacing: -0.25px;
     font-family: 'Spartan', sans-serif;
+    transition: border 0.3s linear;
 
     &:focus {
       outline: none;
       border: 1px solid var(--purple-color);
     }
 
-    &.error {
+    &.empty {
       border: 1px solid var(--red-color);
     }
 

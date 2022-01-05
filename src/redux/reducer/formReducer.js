@@ -113,7 +113,6 @@ const formReducer = (state = initialState, { type, payload }) => {
       }
       return item;
     });
-
     const total = getTotalAmount(items);
 
     return { ...state, items, total };

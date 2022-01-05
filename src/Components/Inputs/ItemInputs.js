@@ -83,12 +83,18 @@ const ItemInput = () => {
       >
         + Add New Item
       </button>
+
+      <div className="empty-container">
+        <span className="empty-field">- All fields must be added</span>
+        <span className="no-item">- An item must be added</span>
+      </div>
     </Wrapper>
   );
 };
 
 const Wrapper = styled.div`
   margin-top: 66px;
+  position: relative;
 
   h2 {
     font-size: 18px;
@@ -150,6 +156,27 @@ const Wrapper = styled.div`
     color: var(--secondary-color);
     padding: 0;
     width: 100%;
+  }
+
+  .empty-container {
+    position: absolute;
+    bottom: -3rem;
+    display: flex;
+    flex-direction: column;
+
+    span {
+      opacity: 0;
+      font-weight: 600;
+      color: var(--red-color);
+      font-size: 10px;
+      line-height: 15px;
+      letter-spacing: -0.21px;
+      transition: opacity 0.3s linear;
+
+      &.active {
+        opacity: 1;
+      }
+    }
   }
 `;
 export default ItemInput;

@@ -38,14 +38,17 @@ export const getUpdatedDate = (date, day) => {
 
 export const getTotalAmount = (items) => {
   return items.reduce((acc, curr) => {
-    acc += curr.total;
+    acc += Number(curr.total);
     return acc;
   }, 0);
 };
 
-export const checkEmptyInput = () => {
+export const checkEmptyInput = (items) => {
   let emptyFlag = false;
   const inputs = document.querySelectorAll('.input');
+  const emptyField = document.querySelector('.empty-field');
+  const noItem = document.querySelector('.no-item');
+
   inputs.forEach((input) => {
     if (!input.value) {
       input.classList.add('empty');
@@ -55,6 +58,20 @@ export const checkEmptyInput = () => {
       input.classList.remove('empty');
     }
   });
+
+  if (emptyFlag) {
+    emptyField.classList.add('active');
+  } else {
+    emptyField.classList.remove('active');
+  }
+
+  if (items.length === 0) {
+    noItem.classList.add('active');
+    emptyFlag = true;
+  } else {
+    noItem.classList.remove('active');
+  }
+
   return emptyFlag;
 };
 

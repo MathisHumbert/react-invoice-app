@@ -1,12 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { closeEditSidebar } from '../../redux/actions/toggleActions';
 import { resetItem } from '../../redux/actions/formActions';
 import { checkEmptyInput } from '../../utils/helpers';
 
 const EditBtn = () => {
   const dispatch = useDispatch();
+  const data = useSelector((state) => state.formReducer);
 
   return (
     <Wrapper>
@@ -24,7 +25,11 @@ const EditBtn = () => {
         className="sidebar-btn send"
         type="button"
         onClick={() => {
-          checkEmptyInput();
+          const update = checkEmptyInput(data.items);
+
+          if (!checkEmptyInput(data.items)) {
+            console.log('save and change');
+          }
         }}
       >
         Save & Send
