@@ -36,7 +36,7 @@ export const getSingleItem = (id) => {
 
 export const markAsPaid = (id, data) => {
   return (dispatch) => {
-    console.log(id, data);
+    // PATCH METHOD
     axios
       .patch(`${url}/${id}`, data)
       .then((response) => {
