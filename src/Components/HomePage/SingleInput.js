@@ -4,15 +4,15 @@ import { Link } from 'react-router-dom';
 import StatusButton from '../StatusButton';
 import { formatDate, formatPrice } from '../../utils/helpers';
 
-const SingleInput = ({ id, clientName, createdAt, items, status }) => {
+const SingleInput = ({ _id, clientName, createdAt, items, status }) => {
   const { total } = items[0];
 
   return (
-    <Link to={`/invoice/${id}`}>
+    <Link to={`/invoice/${_id}`}>
       <Wrapper>
         <h4>
           <span>#</span>
-          {id}
+          {_id.substring(18, 24).toUpperCase()}
         </h4>
         <p className="date">{formatDate(createdAt)}</p>
         <p className="name">{clientName}</p>

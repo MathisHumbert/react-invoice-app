@@ -4,14 +4,15 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getAllItems } from '../../redux/actions/dataActions';
 import NoInvoices from './NoInvoices';
 import SingleInput from './SingleInput';
-import data from '../../data.json';
 
 const Inputs = () => {
   const dispatch = useDispatch();
-  const { all_invoices, isLoading } = useSelector((state) => state.dataReducer);
+  const { all_invoices, isLoading, isError } = useSelector(
+    (state) => state.dataReducer
+  );
 
   React.useEffect(() => {
-    dispatch(getAllItems(data));
+    dispatch(getAllItems());
     // eslint-disable-next-line
   }, []);
 
@@ -19,14 +20,18 @@ const Inputs = () => {
     return <h1>Loading...</h1>;
   }
 
-  if (data.length === 0) {
+  if (isError) {
+    return <h1>Error</h1>;
+  }
+
+  if (all_invoices.length === 0) {
     return <NoInvoices />;
   }
 
   return (
     <Wrapper>
       {all_invoices.map((item) => {
-        return <SingleInput key={item.id} {...item} />;
+        return <SingleInput key={item._id} {...item} />;
       })}
     </Wrapper>
   );

@@ -5,6 +5,7 @@ import {
   toggleDeletion,
   openEditSidebar,
 } from '../../redux/actions/toggleActions';
+import { markAsPaid } from '../../redux/actions/dataActions';
 import { setItem } from '../../redux/actions/formActions';
 
 const Footer = () => {
@@ -13,22 +14,33 @@ const Footer = () => {
 
   return (
     <Wrapper>
-      <button
-        className="sidebar-btn edit"
-        onClick={() => {
-          dispatch(openEditSidebar());
-          dispatch(setItem(single_invoice));
-        }}
-      >
-        Edit
-      </button>
+      {single_invoice.status !== 'paid' && (
+        <button
+          className="sidebar-btn edit"
+          onClick={() => {
+            dispatch(openEditSidebar());
+            dispatch(setItem(single_invoice));
+          }}
+        >
+          Edit
+        </button>
+      )}
       <button
         className="sidebar-btn delete"
         onClick={() => dispatch(toggleDeletion())}
       >
         Delete
       </button>
-      <button className="sidebar-btn paid">Mark as Paid</button>
+      {single_invoice.status === 'pending' && (
+        <button
+          className="sidebar-btn paid"
+          onClick={() =>
+            dispatch(markAsPaid(single_invoice._id, { status: 'paid' }))
+          }
+        >
+          Mark as Paid
+        </button>
+      )}
     </Wrapper>
   );
 };

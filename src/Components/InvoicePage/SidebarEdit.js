@@ -14,7 +14,7 @@ const SidebarEdit = ({ id }) => {
           <GoBack />
           <h1>
             Edit <span>#</span>
-            {id}
+            {id.substring(18, 24).toUpperCase()}
           </h1>
         </header>
         <InvoiceForm type="edit" />
@@ -54,6 +54,10 @@ const Wrapper = styled.aside`
       letter-spacing: -0.5;
       line-height: 32px;
       font-size: 24px;
+
+      span {
+        color: var(--secondary-color);
+      }
     }
   }
 `;

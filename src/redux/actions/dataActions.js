@@ -1,19 +1,48 @@
-import { GET_ALL_ITEMS, GET_SINGLE_ITEM, START_FETCH } from './actions';
+import axios from 'axios';
+import {
+  ERROR_FETCH,
+  GET_ALL_ITEMS,
+  GET_SINGLE_ITEM,
+  START_FETCH,
+  UPDATE_ITEM,
+} from './actions';
+import { url } from '../../utils/constants';
 
-export const getAllItems = (url) => {
+export const getAllItems = () => {
   return (dispatch) => {
     dispatch({ type: START_FETCH });
     // GET METHOD
-    dispatch({ type: GET_ALL_ITEMS, payload: url });
+    axios
+      .get(url)
+      .then((response) =>
+        dispatch({ type: GET_ALL_ITEMS, payload: response.data })
+      )
+      .catch((error) => dispatch({ type: ERROR_FETCH, payload: error }));
   };
 };
 
-export const getSingleItem = (data, id) => {
+export const getSingleItem = (id) => {
   return (dispatch) => {
     dispatch({ type: START_FETCH });
-    const tempData = data.filter((item) => item.id === id)[0];
-    console.log(tempData);
     // GET METHOD
-    dispatch({ type: GET_SINGLE_ITEM, payload: tempData });
+    axios
+      .get(`${url}/${id}`)
+      .then((response) =>
+        dispatch({ type: GET_SINGLE_ITEM, payload: response.data })
+      )
+      .catch((error) => dispatch({ type: ERROR_FETCH, payload: error }));
+  };
+};
+
+export const markAsPaid = (id, data) => {
+  return (dispatch) => {
+    console.log(id, data);
+    axios
+      .patch(`${url}/${id}`, data)
+      .then((response) => {
+        console.log(response.data);
+        dispatch({ type: UPDATE_ITEM, payload: response.data });
+      })
+      .catch((error) => console.log(error));
   };
 };

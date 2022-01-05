@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 const TopInfo = () => {
   const { single_invoice } = useSelector((state) => state.dataReducer);
   const {
-    id,
+    _id,
     description,
     senderAddress: { city, country, postCode, street },
   } = single_invoice;
@@ -14,7 +14,7 @@ const TopInfo = () => {
       <div className="right">
         <h3>
           <span>#</span>
-          {id}
+          {_id.substring(18, 24).toUpperCase()}
         </h3>
         <p>{description}</p>
       </div>

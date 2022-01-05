@@ -9,24 +9,25 @@ import GoHome from '../components/InvoicePage/GoHome';
 import Header from '../components/InvoicePage/Header';
 import Invoice from '../components/InvoicePage/Invoice';
 import SidebarEdit from '../components/InvoicePage/SidebarEdit';
-import data from '../data.json';
 
 const InvoicePage = () => {
   const dispatch = useDispatch();
-  const { single_invoice, isLoading } = useSelector(
+  const { single_invoice, isLoading, isError } = useSelector(
     (state) => state.dataReducer
   );
   const { id } = useParams();
 
   React.useEffect(() => {
-    dispatch(getSingleItem(data, id));
+    dispatch(getSingleItem(id));
     // eslint-disable-next-line
   }, []);
 
-  console.log(single_invoice);
-
-  if (isLoading) {
+  if (isLoading || single_invoice.length === 0) {
     return <h1>Loading...</h1>;
+  }
+
+  if (isError) {
+    return <h1>Error</h1>;
   }
 
   return (
