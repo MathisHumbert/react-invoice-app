@@ -1,11 +1,34 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useDispatch } from 'react-redux';
+import { closeEditSidebar } from '../../redux/actions/toggleActions';
+import { resetItem } from '../../redux/actions/formActions';
+import { checkEmptyInput } from '../../utils/helpers';
 
 const EditBtn = () => {
+  const dispatch = useDispatch();
+
   return (
     <Wrapper>
-      <button className="sidebar-btn cancel">Cancel</button>
-      <button className="sidebar-btn send">Save & Send</button>
+      <button
+        type="button"
+        className="sidebar-btn cancel"
+        onClick={() => {
+          dispatch(closeEditSidebar());
+          dispatch(resetItem());
+        }}
+      >
+        Cancel
+      </button>
+      <button
+        className="sidebar-btn send"
+        type="button"
+        onClick={() => {
+          checkEmptyInput();
+        }}
+      >
+        Save & Send
+      </button>
     </Wrapper>
   );
 };

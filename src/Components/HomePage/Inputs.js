@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
-import { getAllItems } from '../../redux/actions/dataActions';
+import { getAllInvoices } from '../../redux/actions/dataActions';
 import NoInvoices from './NoInvoices';
 import SingleInput from './SingleInput';
 
@@ -12,7 +12,7 @@ const Inputs = () => {
   );
 
   React.useEffect(() => {
-    dispatch(getAllItems());
+    dispatch(getAllInvoices());
     // eslint-disable-next-line
   }, []);
 

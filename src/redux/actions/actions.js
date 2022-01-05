@@ -21,6 +21,7 @@ export const RESET_ITEM = 'RESET_ITEM';
 // dataActions
 export const START_FETCH = 'START_FETCH';
 export const ERROR_FETCH = 'ERRPR_FETCH';
-export const GET_ALL_ITEMS = 'GET_ALL_ITEMS';
-export const GET_SINGLE_ITEM = 'GET_SINGLE_ITEM';
-export const UPDATE_ITEM = 'UPDATE_ITEM';
+export const GET_ALL_INVOICES = 'GET_ALL_INVOICES';
+export const GET_SINGLE_INVOICE = 'GET_SINGLE_INVOICE';
+export const UPDATE_INVOICE = 'UPDATE_INVOICE';
+export const DELETE_INVOICE = 'DELETE_INVOICE';

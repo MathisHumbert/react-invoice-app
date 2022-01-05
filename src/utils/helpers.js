@@ -43,6 +43,21 @@ export const getTotalAmount = (items) => {
   }, 0);
 };
 
+export const checkEmptyInput = () => {
+  let emptyFlag = false;
+  const inputs = document.querySelectorAll('.input');
+  inputs.forEach((input) => {
+    if (!input.value) {
+      input.classList.add('empty');
+      emptyFlag = true;
+      console.log(input);
+    } else {
+      input.classList.remove('empty');
+    }
+  });
+  return emptyFlag;
+};
+
 // input text date helper function
 // export const checkValidDate = (date) => {
 //   let splitDate = date.split('-');

@@ -19,6 +19,7 @@ const SenderInputs = () => {
           id="street"
           value={senderAddress.street}
           onChange={(e) => dispatch(handleSenderInfo(e))}
+          className="input"
         />
       </div>
       {/* 3 inputs */}
@@ -32,6 +33,7 @@ const SenderInputs = () => {
             id="city"
             value={senderAddress.city}
             onChange={(e) => dispatch(handleSenderInfo(e))}
+            className="input"
           />
         </div>
         {/* Post Code */}
@@ -43,6 +45,7 @@ const SenderInputs = () => {
             id="postCode"
             value={senderAddress.postCode}
             onChange={(e) => dispatch(handleSenderInfo(e))}
+            className="input"
           />
         </div>
         {/* Country */}
@@ -54,6 +57,7 @@ const SenderInputs = () => {
             id="country"
             value={senderAddress.country}
             onChange={(e) => dispatch(handleSenderInfo(e))}
+            className="input"
           />
         </div>
       </div>

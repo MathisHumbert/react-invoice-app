@@ -1,11 +1,14 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { toggleDeletion } from '../../redux/actions/toggleActions';
+import { deleteInvoice } from '../../redux/actions/dataActions';
 
 const DeleteAside = () => {
   const dispatch = useDispatch();
   const { isDeletionOpen } = useSelector((state) => state.toggleReducer);
+  const { single_invoice } = useSelector((state) => state.dataReducer);
 
   return (
     <Wrapper className={isDeletionOpen ? 'open' : null}>
@@ -22,7 +25,17 @@ const DeleteAside = () => {
           >
             Cancel
           </button>
-          <button className="sidebar-btn delete">Delete</button>
+          <Link to="/">
+            <button
+              className="sidebar-btn delete"
+              onClick={() => {
+                dispatch(deleteInvoice(single_invoice._id));
+                dispatch(toggleDeletion());
+              }}
+            >
+              Delete
+            </button>
+          </Link>
         </div>
       </div>
     </Wrapper>
@@ -69,6 +82,10 @@ const Wrapper = styled.aside`
     width: 91px;
     background: var(--ternary-bcg);
     color: var(--secondary-color);
+  }
+
+  a {
+    text-decoration: none;
   }
 
   .delete {

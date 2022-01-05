@@ -33,6 +33,7 @@ const ItemInput = () => {
                 id="name"
                 value={name}
                 onChange={(e) => dispatch(handleItemInfo(e, id))}
+                className="input"
               />
             </div>
             {/* Quantity */}
@@ -45,6 +46,7 @@ const ItemInput = () => {
                 placeholder="1"
                 value={quantity}
                 onChange={(e) => dispatch(handleItemInfo(e, id))}
+                className="input"
               />
             </div>
             {/* Price */}
@@ -57,6 +59,7 @@ const ItemInput = () => {
                 placeholder="156.99"
                 value={price}
                 onChange={(e) => dispatch(handleItemInfo(e, id))}
+                className="input"
               />
             </div>
             {/* Total */}

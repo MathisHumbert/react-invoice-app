@@ -5,7 +5,7 @@ import {
   toggleDeletion,
   openEditSidebar,
 } from '../../redux/actions/toggleActions';
-import { markAsPaid } from '../../redux/actions/dataActions';
+import { updateInvoice } from '../../redux/actions/dataActions';
 import { setItem } from '../../redux/actions/formActions';
 
 const Footer = () => {
@@ -35,7 +35,7 @@ const Footer = () => {
         <button
           className="sidebar-btn paid"
           onClick={() =>
-            dispatch(markAsPaid(single_invoice._id, { status: 'paid' }))
+            dispatch(updateInvoice(single_invoice._id, { status: 'paid' }))
           }
         >
           Mark as Paid

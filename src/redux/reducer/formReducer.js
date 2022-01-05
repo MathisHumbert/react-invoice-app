@@ -31,7 +31,6 @@ const initialState = {
   clientName: '',
   clientEmail: '',
   status: '',
-
   senderAddress: {
     street: '',
     city: '',
@@ -138,14 +137,11 @@ const formReducer = (state = initialState, { type, payload }) => {
 
   if (type === DELETE_ITEM) {
     const items = state.items.filter((item) => item.id !== payload);
-
     const total = getTotalAmount(items);
-
     return { ...state, items, total };
   }
 
   if (type === SET_ITEM) {
-    console.log(payload);
     return payload;
   }
 

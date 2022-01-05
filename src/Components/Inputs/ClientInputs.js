@@ -26,6 +26,7 @@ const ClientInputs = () => {
           id="name"
           value={clientName}
           onChange={(e) => dispatch(handleGeneralInfo(e))}
+          className="input"
         />
       </div>
       {/* Email */}
@@ -37,6 +38,7 @@ const ClientInputs = () => {
           id="email"
           value={clientEmail}
           onChange={(e) => dispatch(handleGeneralInfo(e))}
+          className="input"
         />
       </div>
       {/* Street Address */}
@@ -48,6 +50,7 @@ const ClientInputs = () => {
           id="street"
           value={clientAddress.street}
           onChange={(e) => dispatch(handleClientInfo(e))}
+          className="input"
         />
       </div>
       {/* 3 inputs */}
@@ -61,6 +64,7 @@ const ClientInputs = () => {
             id="city"
             value={clientAddress.city}
             onChange={(e) => dispatch(handleClientInfo(e))}
+            className="input"
           />
         </div>
         {/* Post Code */}
@@ -72,6 +76,7 @@ const ClientInputs = () => {
             id="postCode"
             value={clientAddress.postCode}
             onChange={(e) => dispatch(handleClientInfo(e))}
+            className="input"
           />
         </div>
         {/* Country */}
@@ -83,6 +88,7 @@ const ClientInputs = () => {
             id="country"
             value={clientAddress.country}
             onChange={(e) => dispatch(handleClientInfo(e))}
+            className="input"
           />
         </div>
       </div>
@@ -108,6 +114,7 @@ const ClientInputs = () => {
           id="description"
           value={description}
           onChange={(e) => dispatch(handleGeneralInfo(e))}
+          className="input"
         />
       </div>
     </Wrapper>

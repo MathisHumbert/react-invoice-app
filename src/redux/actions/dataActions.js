@@ -1,47 +1,61 @@
 import axios from 'axios';
 import {
   ERROR_FETCH,
-  GET_ALL_ITEMS,
-  GET_SINGLE_ITEM,
+  GET_ALL_INVOICES,
+  GET_SINGLE_INVOICE,
   START_FETCH,
-  UPDATE_ITEM,
+  UPDATE_INVOICE,
+  DELETE_INVOICE,
 } from './actions';
 import { url } from '../../utils/constants';
 
-export const getAllItems = () => {
+export const getAllInvoices = () => {
   return (dispatch) => {
     dispatch({ type: START_FETCH });
     // GET METHOD
     axios
       .get(url)
       .then((response) =>
-        dispatch({ type: GET_ALL_ITEMS, payload: response.data })
+        dispatch({ type: GET_ALL_INVOICES, payload: response.data })
       )
       .catch((error) => dispatch({ type: ERROR_FETCH, payload: error }));
   };
 };
 
-export const getSingleItem = (id) => {
+export const getSingleInvoice = (id) => {
   return (dispatch) => {
     dispatch({ type: START_FETCH });
     // GET METHOD
     axios
       .get(`${url}/${id}`)
       .then((response) =>
-        dispatch({ type: GET_SINGLE_ITEM, payload: response.data })
+        dispatch({ type: GET_SINGLE_INVOICE, payload: response.data })
       )
       .catch((error) => dispatch({ type: ERROR_FETCH, payload: error }));
   };
 };
 
-export const markAsPaid = (id, data) => {
+export const updateInvoice = (id, data) => {
   return (dispatch) => {
     // PATCH METHOD
     axios
       .patch(`${url}/${id}`, data)
       .then((response) => {
         console.log(response.data);
-        dispatch({ type: UPDATE_ITEM, payload: response.data });
+        dispatch({ type: UPDATE_INVOICE, payload: response.data });
+      })
+      .catch((error) => console.log(error));
+  };
+};
+
+export const deleteInvoice = (id) => {
+  return (dispatch) => {
+    // DELETE METHOD
+    axios
+      .delete(`${url}/${id}`)
+      .then((response) => {
+        console.log(response);
+        dispatch({ type: DELETE_INVOICE });
       })
       .catch((error) => console.log(error));
   };

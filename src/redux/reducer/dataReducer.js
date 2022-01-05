@@ -1,9 +1,10 @@
 import {
+  DELETE_INVOICE,
   ERROR_FETCH,
-  GET_ALL_ITEMS,
-  GET_SINGLE_ITEM,
-  UPDATE_ITEM,
+  GET_ALL_INVOICES,
+  GET_SINGLE_INVOICE,
   START_FETCH,
+  UPDATE_INVOICE,
 } from '../actions/actions';
 
 const initialState = {
@@ -20,14 +21,17 @@ const dataReducer = (state = initialState, { type, payload }) => {
   if (type === ERROR_FETCH) {
     return { ...state, isLoading: true, isError: true };
   }
-  if (type === GET_ALL_ITEMS) {
+  if (type === GET_ALL_INVOICES) {
     return { ...state, all_invoices: payload, isLoading: false };
   }
-  if (type === GET_SINGLE_ITEM) {
+  if (type === GET_SINGLE_INVOICE) {
     return { ...state, single_invoice: payload, isLoading: false };
   }
-  if (type === UPDATE_ITEM) {
+  if (type === UPDATE_INVOICE) {
     return { ...state, single_invoice: payload };
+  }
+  if (type === DELETE_INVOICE) {
+    return { ...state, single_invoice: [] };
   }
   return state;
 };

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { getSingleItem } from '../redux/actions/dataActions';
+import { getSingleInvoice } from '../redux/actions/dataActions';
 import styled from 'styled-components';
 import DeleteAside from '../components/InvoicePage/DeleteAside';
 import Footer from '../components/InvoicePage/Footer';
@@ -18,7 +18,7 @@ const InvoicePage = () => {
   const { id } = useParams();
 
   React.useEffect(() => {
-    dispatch(getSingleItem(id));
+    dispatch(getSingleInvoice(id));
     // eslint-disable-next-line
   }, []);
 
