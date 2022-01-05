@@ -1,21 +1,123 @@
 import React from 'react';
 import styled from 'styled-components';
-import Header from '../components/HomePage/Header';
-import Inputs from '../components/HomePage/Inputs';
-import SidebarNew from '../components/HomePage/SidebarNew';
+import { Link } from 'react-router-dom';
+import { FaTwitter, FaGithub } from 'react-icons/fa';
+import { SiFrontendmentor } from 'react-icons/si';
+import Logo from '../components/Logo';
 
 const HomePage = () => {
   return (
     <Wrapper>
-      <Header />
-      <Inputs />
-      <SidebarNew />
+      <div className="container">
+        <header>
+          <div className="logo">
+            <Logo />
+          </div>
+          <h1>Invoice App</h1>
+        </header>
+        <div className="info">
+          <p>This is a MERN project from Frontend Mentor!</p>
+          <p>
+            I coded this project using React, Redux and Styled Components for
+            the front end part.
+          </p>
+          <p>
+            I coded this project using NodeJS, Express and MongoDB for the back
+            end
+          </p>
+          <Link to="/login">
+            <button className="login" type="button">
+              Login / Register
+            </button>
+          </Link>
+        </div>
+        <ul className="icon-container">
+          <li>
+            <a href="https://twitter.com/Mathis1Humbert">
+              <FaTwitter />
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/MathisHumbert">
+              <FaGithub />
+            </a>
+          </li>
+          <li>
+            <a href="https://www.frontendmentor.io/profile/MathisHumbert">
+              <SiFrontendmentor />
+            </a>
+          </li>
+        </ul>
+        <p className="rights">
+          {new Date().getFullYear()} Mathis Humbert. All rights reserved
+        </p>
+      </div>
     </Wrapper>
   );
 };
 
 const Wrapper = styled.main`
-  width: calc(100% - 48px);
-  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  min-height: 100vh;
+  padding: 2rem 24px;
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  header {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+    margin-bottom: 3rem;
+  }
+
+  p {
+    line-height: 22px;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  .login {
+    margin-top: 24px;
+    padding: 20px;
+    border-radius: 6px;
+    text-transform: capitalize;
+    line-height: 0;
+    background: var(--purple-color);
+    color: var(--white-color);
+  }
+
+  ul {
+    display: flex;
+    gap: 24px;
+    margin-top: 24px;
+
+    li {
+      list-style-type: none;
+    }
+
+    a {
+      color: var(--primary-color);
+      font-size: 24px;
+      transition: color 0.3s linear;
+
+      &:hover {
+        color: var(--purple-color);
+      }
+    }
+  }
+
+  .rights {
+    font-weight: 600;
+    margin-top: 24px;
+  }
 `;
 export default HomePage;
