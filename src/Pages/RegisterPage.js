@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import Alert from '../components/Alert';
 import Logo from '../components/Logo';
@@ -14,7 +15,10 @@ const inititalState = {
 
 const RegisterPage = () => {
   const dispatch = useDispatch();
-  const { isLoading, showAlert } = useSelector((state) => state.userReducer);
+  const { isLoading, showAlert, user } = useSelector(
+    (state) => state.userReducer
+  );
+  const navigate = useNavigate();
   const [values, setValues] = useState(inititalState);
 
   const toggleMember = () => {
@@ -38,6 +42,14 @@ const RegisterPage = () => {
       dispatch(registerUser(formUser));
     }
   };
+
+  useEffect(() => {
+    if (user) {
+      setTimeout(() => {
+        navigate('/home');
+      }, 2500);
+    }
+  }, [user, navigate]);
 
   const handleChange = (e) => {
     setValues({ ...values, [e.target.name]: e.target.value });

@@ -6,13 +6,16 @@ import {
   START_REGISTER,
 } from '../actions/actions';
 
+const localUser = localStorage.getItem('user');
+const localToken = localStorage.getItem('token');
+
 const inititalState = {
   isLoading: false,
   showAlert: false,
   alertText: '',
   alertType: '',
-  user: null,
-  token: null,
+  user: localUser || null,
+  token: localToken || null,
 };
 
 const userReducer = (state = inititalState, { type, payload }) => {
@@ -39,7 +42,7 @@ const userReducer = (state = inititalState, { type, payload }) => {
     return {
       ...state,
       isLoading: false,
-      user: payload.name,
+      user: payload.user,
       token: payload.token,
       showAlert: true,
       alertText: 'User Created! Redirecting...',
