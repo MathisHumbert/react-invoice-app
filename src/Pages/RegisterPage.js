@@ -1,34 +1,52 @@
-import React from 'react';
+import { useState } from 'react';
 import styled from 'styled-components';
 import Logo from '../components/Logo';
-import { Link } from 'react-router-dom';
 
+const inititalState = {
+  name: '',
+  email: '',
+  password: '',
+  isMember: true,
+};
 const RegisterPage = () => {
+  const [values, setValues] = useState(inititalState);
+
+  const toggleMember = () => {
+    setValues({ ...values, isMember: !values.isMember });
+  };
+
   return (
     <Wrapper>
       <form onSubmit={(e) => e.preventDefault()}>
         <header>
-          <div className="logo">
+          <div className='logo'>
             <Logo />
           </div>
           <h1>Invoice App</h1>
         </header>
-        <h1 className="title">Register</h1>
-        <div className="input-container">
-          <label htmlFor="name">Name</label>
-          <input type="text" name="name" id="name" />
+        <h1 className='title'>{values.isMember ? 'Login' : 'Register'}</h1>
+        {!values.isMember && (
+          <div className='input-container'>
+            <label htmlFor='name'>Name</label>
+            <input type='text' name='name' />
+          </div>
+        )}
+        <div className='input-container'>
+          <label htmlFor='email'>Email</label>
+          <input type='email' name='email' />
         </div>
-        <div className="input-container">
-          <label htmlFor="email">Email</label>
-          <input type="email" name="email" id="email" />
+        <div className='input-container'>
+          <label htmlFor='password'>Password</label>
+          <input type='password' name='password' />
         </div>
-        <div className="input-container">
-          <label htmlFor="password">Password</label>
-          <input type="password" name="password" id="password" />
-        </div>
-        <button>Submit</button>
+        <button type='submit' className='submit-btn'>
+          Submit
+        </button>
         <h3>
-          Already a member ? <Link to="/login">Login</Link>
+          {values.isMember ? 'Not a member yet' : 'Already a member'} ?{' '}
+          <button type='button' className='toggle-btn' onClick={toggleMember}>
+            {values.isMember ? 'Register' : 'Login'}
+          </button>
         </h3>
       </form>
     </Wrapper>
@@ -104,7 +122,7 @@ const Wrapper = styled.main`
     margin-bottom: 8px;
   }
 
-  button {
+  .submit-btn {
     margin-top: 2rem;
     padding: 26px 0;
     border-radius: 6px;
@@ -112,6 +130,14 @@ const Wrapper = styled.main`
     line-height: 0;
     background: var(--purple-color);
     color: var(--white-color);
+  }
+
+  .toggle-btn {
+    font-size: 16px;
+    letter-spacing: -0.8px;
+    line-height: 24px;
+    background: transparent;
+    color: var(--purple-color);
   }
 
   h3 {
