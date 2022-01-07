@@ -88,3 +88,24 @@ button {
   align-items: center;
   justify-content: center;
 }
+
+.alert {
+  margin-top: 24px;
+  width: 100%;
+  padding: 20px 0;
+  border-radius: 6px;
+  text-transform: capitalize;
+  text-align: center;
+  font-size: 16;
+  color: var(--white-color);
+}
+
+.alert-danger {
+  background: rgba(236, 87, 87, 0.3);
+  color: var(--red-color);
+}
+
+.alert-success {
+  background: rgba(51, 214, 159, 0.3);
+  color: var(--green-color);
+}

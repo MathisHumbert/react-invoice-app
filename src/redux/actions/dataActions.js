@@ -15,7 +15,7 @@ export const getAllInvoices = () => {
     dispatch({ type: START_FETCH });
     // GET METHOD
     axios
-      .get(url)
+      .get('/api/v1/invoices')
       .then((response) =>
         dispatch({ type: GET_ALL_INVOICES, payload: response.data })
       )

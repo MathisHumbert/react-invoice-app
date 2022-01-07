@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 import Alert from '../components/Alert';
 import Logo from '../components/Logo';
@@ -14,6 +14,7 @@ const inititalState = {
 
 const RegisterPage = () => {
   const dispatch = useDispatch();
+  const { isLoading, showAlert } = useSelector((state) => state.userReducer);
   const [values, setValues] = useState(inititalState);
 
   const toggleMember = () => {
@@ -52,7 +53,7 @@ const RegisterPage = () => {
           <h1>Invoice App</h1>
         </header>
         <h1 className='title'>{values.isMember ? 'Login' : 'Register'}</h1>
-        {/* {showAlter && <Alert />} */}
+        {showAlert && <Alert />}
         {!values.isMember && (
           <div className='input-container'>
             <label htmlFor='name'>Name</label>
@@ -82,7 +83,7 @@ const RegisterPage = () => {
             value={values.password}
           />
         </div>
-        <button type='submit' className='submit-btn'>
+        <button type='submit' className='submit-btn' disabled={isLoading}>
           Submit
         </button>
         <h3>
