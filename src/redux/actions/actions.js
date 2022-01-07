@@ -30,6 +30,7 @@ export const CREATE_INVOICE = 'CREATE_INVOICE';
 // userActions
 export const DISPLAY_ALERT = 'DISPLAY_ALERT';
 export const CLEAR_ALERT = 'CLEAR_ALERT';
-export const START_REGISTER = 'START_REGISTER';
-export const REGISTER_USER = 'REGISTER_USER';
-export const ERROR_REGISTER = 'ERROR_REGISTER';
+export const SETUP_USER_BEGIN = 'SETUP_USER_BEGIN';
+export const SETUP_USER_SUCCESS = 'SETUP_USER_SUCCESS';
+export const SETUP_USER_ERROR = 'SETUP_USER_ERROR';
+export const LOGOUT_USER = 'LOGOUT_USER';

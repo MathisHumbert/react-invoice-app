@@ -1,25 +1,20 @@
-import React from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
-import logo from '../assets/logo.svg';
-import userImage from '../assets/image-avatar.jpg';
 import { BsFillSunFill, BsFillMoonFill } from 'react-icons/bs';
+import { UserImage, Logo } from './';
 
 const Navbar = () => {
   const light = true;
   return (
     <Wrapper>
-      <div className="left">
-        <img src={logo} alt="main-logo" />
-      </div>
-      <div className="right">
+      <Logo />
+      <div className='right'>
         {light ? (
-          <BsFillMoonFill className="icon" />
+          <BsFillMoonFill className='icon' />
         ) : (
-          <BsFillSunFill className="icon" />
+          <BsFillSunFill className='icon' />
         )}
-        <div className="vr"></div>
-        <img src={userImage} alt="user-img" />
+        <div className='vr'></div>
+        <UserImage />
       </div>
     </Wrapper>
   );
@@ -30,36 +25,6 @@ const Wrapper = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-  .left {
-    width: 72px;
-    height: 72px;
-    display: grid;
-    place-items: center;
-    background: var(--purple-color);
-    border-top-right-radius: 20px;
-    border-bottom-right-radius: 20px;
-    overflow: hidden;
-    position: relative;
-    z-index: 2;
-
-    img {
-      z-index: 2;
-    }
-
-    &::after {
-      content: '';
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      background: #9277ff;
-      bottom: 0;
-      left: 0;
-      transform: translateY(50%);
-      z-index: 1;
-      border-top-left-radius: 20px;
-    }
-  }
 
   .right {
     display: flex;

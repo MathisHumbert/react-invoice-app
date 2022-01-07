@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import Alert from '../components/Alert';
 import Logo from '../components/Logo';
-import { displayAlert, registerUser } from '../redux/actions/userActions';
+import { displayAlert, setupUser } from '../redux/actions/userActions';
 
 const inititalState = {
   name: '',
@@ -37,16 +37,18 @@ const RegisterPage = () => {
     const formUser = { name, email, password };
 
     if (isMember) {
-      console.log('login');
+      dispatch(
+        setupUser(formUser, 'login', 'Login Successful! Redirecting...')
+      );
     } else {
-      dispatch(registerUser(formUser));
+      dispatch(setupUser(formUser, 'register', 'User Created! Redirecting...'));
     }
   };
 
   useEffect(() => {
     if (user) {
       setTimeout(() => {
-        navigate('/home');
+        navigate('/');
       }, 2500);
     }
   }, [user, navigate]);

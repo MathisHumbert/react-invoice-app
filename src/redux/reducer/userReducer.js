@@ -1,9 +1,10 @@
 import {
   CLEAR_ALERT,
   DISPLAY_ALERT,
-  ERROR_REGISTER,
-  REGISTER_USER,
-  START_REGISTER,
+  LOGOUT_USER,
+  SETUP_USER_BEGIN,
+  SETUP_USER_ERROR,
+  SETUP_USER_SUCCESS,
 } from '../actions/actions';
 
 const localUser = localStorage.getItem('user');
@@ -35,27 +36,34 @@ const userReducer = (state = inititalState, { type, payload }) => {
       alertType: '',
     };
   }
-  if (type === START_REGISTER) {
+  if (type === SETUP_USER_BEGIN) {
     return { ...state, isLoading: true };
   }
-  if (type === REGISTER_USER) {
+  if (type === SETUP_USER_SUCCESS) {
     return {
       ...state,
       isLoading: false,
-      user: payload.user,
-      token: payload.token,
+      user: payload.data.user,
+      token: payload.data.token,
       showAlert: true,
-      alertText: 'User Created! Redirecting...',
+      alertText: payload.alertText,
       alertType: 'success',
     };
   }
-  if (type === ERROR_REGISTER) {
+  if (type === SETUP_USER_ERROR) {
     return {
       ...state,
       isLoading: false,
       showAlert: true,
       alertText: payload,
       alertType: 'danger',
+    };
+  }
+  if (type === LOGOUT_USER) {
+    return {
+      ...inititalState,
+      user: null,
+      token: null,
     };
   }
   return state;

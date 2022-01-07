@@ -5,17 +5,17 @@ import { FaTwitter, FaGithub } from 'react-icons/fa';
 import { SiFrontendmentor } from 'react-icons/si';
 import Logo from '../components/Logo';
 
-const HomePage = () => {
+const LandingPage = () => {
   return (
     <Wrapper>
-      <div className="container">
+      <div className='container'>
         <header>
-          <div className="logo">
+          <div className='logo'>
             <Logo />
           </div>
           <h1>Invoice App</h1>
         </header>
-        <div className="info">
+        <div className='info'>
           <p>This is a MERN project from Frontend Mentor!</p>
           <p>
             I coded this project using React, Redux and Styled Components for
@@ -25,30 +25,30 @@ const HomePage = () => {
             I coded this project using NodeJS, Express and MongoDB for the back
             end
           </p>
-          <Link to="/login">
-            <button className="login" type="button">
+          <Link to='/register'>
+            <button className='login' type='button'>
               Login / Register
             </button>
           </Link>
         </div>
-        <ul className="icon-container">
+        <ul className='icon-container'>
           <li>
-            <a href="https://twitter.com/Mathis1Humbert">
+            <a href='https://twitter.com/Mathis1Humbert'>
               <FaTwitter />
             </a>
           </li>
           <li>
-            <a href="https://github.com/MathisHumbert">
+            <a href='https://github.com/MathisHumbert'>
               <FaGithub />
             </a>
           </li>
           <li>
-            <a href="https://www.frontendmentor.io/profile/MathisHumbert">
+            <a href='https://www.frontendmentor.io/profile/MathisHumbert'>
               <SiFrontendmentor />
             </a>
           </li>
         </ul>
-        <p className="rights">
+        <p className='rights'>
           {new Date().getFullYear()} Mathis Humbert. All rights reserved
         </p>
       </div>
@@ -120,4 +120,4 @@ const Wrapper = styled.main`
     margin-top: 24px;
   }
 `;
-export default HomePage;
+export default LandingPage;
