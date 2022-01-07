@@ -33,5 +33,3 @@ export const termsData = [
     term: 30,
   },
 ];
-
-export const url = 'http://localhost:4000/api/v1/invoices';

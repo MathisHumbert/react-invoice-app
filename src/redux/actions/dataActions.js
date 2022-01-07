@@ -8,7 +8,6 @@ import {
   DELETE_INVOICE,
   CREATE_INVOICE,
 } from './actions';
-import { url } from '../../utils/constants';
 
 export const getAllInvoices = () => {
   return (dispatch) => {
@@ -28,7 +27,7 @@ export const getSingleInvoice = (id) => {
     dispatch({ type: START_FETCH });
     // GET METHOD
     axios
-      .get(`${url}/${id}`)
+      .get(`/api/v1/invoices/${id}`)
       .then((response) =>
         dispatch({ type: GET_SINGLE_INVOICE, payload: response.data })
       )
@@ -40,7 +39,7 @@ export const updateInvoice = (id, data) => {
   return (dispatch) => {
     // PATCH METHOD
     axios
-      .patch(`${url}/${id}`, data)
+      .patch(`/api/v1/invoices/${id}`, data)
       .then((response) => {
         dispatch({ type: UPDATE_INVOICE, payload: response.data });
       })
@@ -52,7 +51,7 @@ export const deleteInvoice = (id) => {
   return (dispatch) => {
     // DELETE METHOD
     axios
-      .delete(`${url}/${id}`)
+      .delete(`/api/v1/invoices/${id}`)
       .then((response) => {
         dispatch({ type: DELETE_INVOICE });
       })
@@ -64,7 +63,7 @@ export const createInvoice = (data) => {
   return (dispatch) => {
     // PUT METHOD
     axios
-      .post(url, data)
+      .post('/api/v1/invoices', data)
       .then((response) => {
         console.log(response);
         dispatch({ type: CREATE_INVOICE, payload: response.data });

@@ -51,7 +51,7 @@ const userReducer = (state = inititalState, { type, payload }) => {
       ...state,
       isLoading: false,
       showAlert: true,
-      alertText: 'test',
+      alertText: payload,
       alertType: 'danger',
     };
   }

@@ -94,7 +94,6 @@ button {
   width: 100%;
   padding: 20px 0;
   border-radius: 6px;
-  text-transform: capitalize;
   text-align: center;
   font-size: 16;
   color: var(--white-color);

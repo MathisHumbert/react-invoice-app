@@ -18,17 +18,17 @@ export const displayAlert = () => {
 
 export const registerUser = (formUser) => {
   return (dispatch) => {
-    console.log(formUser);
     dispatch({ type: START_REGISTER });
     axios
       .post('/api/v1/auth/register', formUser)
-      .then((response) => {
-        console.log(response);
-        dispatch({ type: REGISTER_USER, payload: response.data });
-      })
-      .catch((error) => {
-        console.log(error);
-        dispatch({ type: ERROR_REGISTER });
-      });
+      .then((response) =>
+        dispatch({ type: REGISTER_USER, payload: response.data })
+      )
+      .catch((error) =>
+        dispatch({ type: ERROR_REGISTER, payload: error.response.data.msg })
+      );
+    setTimeout(() => {
+      dispatch({ type: CLEAR_ALERT });
+    }, 3000);
   };
 };
