@@ -1,6 +1,9 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
+import Alert from '../components/Alert';
 import Logo from '../components/Logo';
+import { displayAlert, registerUser } from '../redux/actions/userActions';
 
 const inititalState = {
   name: '',
@@ -8,16 +11,40 @@ const inititalState = {
   password: '',
   isMember: true,
 };
+
 const RegisterPage = () => {
+  const dispatch = useDispatch();
   const [values, setValues] = useState(inititalState);
 
   const toggleMember = () => {
     setValues({ ...values, isMember: !values.isMember });
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const { name, email, password, isMember } = values;
+
+    if (!email || !password || (!isMember && !name)) {
+      dispatch(displayAlert());
+      return;
+    }
+
+    const formUser = { name, email, password };
+
+    if (isMember) {
+      console.log('login');
+    } else {
+      dispatch(registerUser(formUser));
+    }
+  };
+
+  const handleChange = (e) => {
+    setValues({ ...values, [e.target.name]: e.target.value });
+  };
+
   return (
     <Wrapper>
-      <form onSubmit={(e) => e.preventDefault()}>
+      <form onSubmit={handleSubmit}>
         <header>
           <div className='logo'>
             <Logo />
@@ -25,19 +52,35 @@ const RegisterPage = () => {
           <h1>Invoice App</h1>
         </header>
         <h1 className='title'>{values.isMember ? 'Login' : 'Register'}</h1>
+        {/* {showAlter && <Alert />} */}
         {!values.isMember && (
           <div className='input-container'>
             <label htmlFor='name'>Name</label>
-            <input type='text' name='name' />
+            <input
+              type='text'
+              name='name'
+              onChange={handleChange}
+              value={values.name}
+            />
           </div>
         )}
         <div className='input-container'>
           <label htmlFor='email'>Email</label>
-          <input type='email' name='email' />
+          <input
+            type='email'
+            name='email'
+            onChange={handleChange}
+            value={values.email}
+          />
         </div>
         <div className='input-container'>
           <label htmlFor='password'>Password</label>
-          <input type='password' name='password' />
+          <input
+            type='password'
+            name='password'
+            onChange={handleChange}
+            value={values.password}
+          />
         </div>
         <button type='submit' className='submit-btn'>
           Submit
