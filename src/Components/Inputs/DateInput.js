@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState, useEffect } from 'react';
 import DatePicker from 'react-datepicker';
 import { useDispatch, useSelector } from 'react-redux';
 import 'react-datepicker/dist/react-datepicker.css';
@@ -10,7 +10,7 @@ const DateInput = () => {
   const { createdAt } = useSelector((state) => state.formReducer);
   const [startDate, setStartDate] = useState(getFullDate(createdAt));
 
-  React.useEffect(() => {
+  useEffect(() => {
     setStartDate(getFullDate(createdAt));
   }, [createdAt]);
 
@@ -21,7 +21,7 @@ const DateInput = () => {
         setStartDate(date);
         dispatch(handleDateInfo(getTodayDate(date), 'createdAt'));
       }}
-      id="date"
+      id='date'
     />
   );
 };

@@ -15,7 +15,7 @@ const GoBack = () => {
         dispatch(resetItem());
       }}
     >
-      <FaChevronLeft className="icon" />
+      <FaChevronLeft className='icon' />
       <h4>Go back</h4>
     </Wrapper>
   );

@@ -45,44 +45,22 @@ export const getTotalAmount = (items) => {
 
 export const checkEmptyInput = (items) => {
   let emptyFlag = false;
-  const inputs = document.querySelectorAll('.input');
-  const emptyField = document.querySelector('.empty-field');
-  const noItem = document.querySelector('.no-item');
+  const inputsContainer = document.querySelectorAll('.invoice-input');
 
-  inputs.forEach((input) => {
+  inputsContainer.forEach((container) => {
+    const input = container.children[1];
     if (!input.value) {
-      input.classList.add('empty');
       emptyFlag = true;
-    } else {
-      input.classList.remove('empty');
     }
   });
 
-  if (emptyFlag) {
-    emptyField.classList.add('active');
-  } else {
-    emptyField.classList.remove('active');
-  }
-
   if (items.length === 0) {
-    noItem.classList.add('active');
     emptyFlag = true;
-  } else {
-    noItem.classList.remove('active');
   }
 
   return emptyFlag;
 };
 
-export const resetBorder = () => {
-  const inputs = document.querySelectorAll('input');
-  const emptyField = document.querySelector('.empty-field');
-  const noItem = document.querySelector('.no-item');
-
-  inputs.forEach((input) => input.classList.remove('empty'));
-  emptyField.classList.remove('active');
-  noItem.classList.remove('active');
-};
 // input text date helper function
 // export const checkValidDate = (date) => {
 //   let splitDate = date.split('-');

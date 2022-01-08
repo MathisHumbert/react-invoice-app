@@ -1,45 +1,45 @@
-import React from 'react';
 import styled from 'styled-components';
 import { closeNewSidebar } from '../../redux/actions/toggleActions';
-import { resetItem } from '../../redux/actions/formActions';
 import { createInvoice } from '../../redux/actions/dataActions';
+import { displayAlert } from '../../redux/actions/userActions';
 import { useDispatch, useSelector } from 'react-redux';
 import { checkEmptyInput } from '../../utils/helpers';
+import { resetItem } from '../../redux/actions/formActions';
 
 const NewBtn = () => {
   const dispatch = useDispatch();
   const data = useSelector((state) => state.formReducer);
-  console.log(data);
+
   const handleSaveSend = () => {
-    const EmptyInputs = checkEmptyInput(data);
-    console.log(EmptyInputs);
-    // if (!checkEmptyInput(data.items)) {
-    //   const invoice = { ...data, status: 'pending' };
-    //   dispatch(createInvoice(invoice));
-    //   dispatch(closeNewSidebar());
-    //   dispatch(resetItem());
-    // }
+    const emptyInputs = checkEmptyInput(data.items);
+    if (emptyInputs) {
+      dispatch(displayAlert());
+      return;
+    }
+
+    const invoice = { ...data, status: 'pending' };
+    dispatch(createInvoice(invoice));
+    dispatch(closeNewSidebar());
+    dispatch(resetItem());
+  };
+
+  const handleSaveDraft = () => {
+    dispatch(createInvoice(data));
+    dispatch(closeNewSidebar());
+    dispatch(resetItem());
+  };
+
+  const handleDiscard = () => {
+    dispatch(closeNewSidebar());
+    dispatch(resetItem());
   };
 
   return (
     <Wrapper>
-      <button
-        className='sidebar-btn discard'
-        onClick={() => {
-          dispatch(resetItem());
-          dispatch(closeNewSidebar());
-        }}
-      >
+      <button className='sidebar-btn discard' onClick={handleDiscard}>
         Discard
       </button>
-      <button
-        className='sidebar-btn draft'
-        onClick={() => {
-          dispatch(createInvoice(data));
-          dispatch(resetItem());
-          dispatch(closeNewSidebar());
-        }}
-      >
+      <button className='sidebar-btn draft' onClick={handleSaveDraft}>
         Save as Draft
       </button>
       <button className='sidebar-btn send' onClick={handleSaveSend}>

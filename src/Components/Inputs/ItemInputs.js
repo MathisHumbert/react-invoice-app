@@ -6,11 +6,13 @@ import {
   createNewItem,
   deleteItem,
 } from '../../redux/actions/formActions';
-import { Input } from '..';
+import { Input, Alert } from '..';
 
 const ItemInput = () => {
   const dispatch = useDispatch();
   const { items } = useSelector((state) => state.formReducer);
+  const { showAlert } = useSelector((state) => state.userReducer);
+
   const handleItemChange = (e, id) => {
     dispatch(handleItemInfo(e.target.name, e.target.value, id));
   };
@@ -76,10 +78,7 @@ const ItemInput = () => {
         + Add New Item
       </button>
 
-      <div className='empty-container'>
-        <span className='empty-field'>- All fields must be added</span>
-        <span className='no-item'>- An item must be added</span>
-      </div>
+      {showAlert && <Alert />}
     </Wrapper>
   );
 };
@@ -152,27 +151,6 @@ const Wrapper = styled.div`
     color: var(--secondary-color);
     padding: 0;
     width: 100%;
-  }
-
-  .empty-container {
-    position: absolute;
-    bottom: -3rem;
-    display: flex;
-    flex-direction: column;
-
-    span {
-      opacity: 0;
-      font-weight: 600;
-      color: var(--red-color);
-      font-size: 10px;
-      line-height: 15px;
-      letter-spacing: -0.21px;
-      transition: opacity 0.3s linear;
-
-      &.active {
-        opacity: 1;
-      }
-    }
   }
 `;
 export default ItemInput;

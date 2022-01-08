@@ -1,37 +1,46 @@
-import React from 'react';
 import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
 import { closeEditSidebar } from '../../redux/actions/toggleActions';
-import { resetItem } from '../../redux/actions/formActions';
 import { checkEmptyInput } from '../../utils/helpers';
 import { updateInvoice } from '../../redux/actions/dataActions';
+import { resetItem } from '../../redux/actions/formActions';
+import { displayAlert } from '../../redux/actions/userActions';
 
 const EditBtn = () => {
   const dispatch = useDispatch();
   const data = useSelector((state) => state.formReducer);
 
+  const handleSaveSend = () => {
+    const emptyInputs = checkEmptyInput(data.items);
+    if (emptyInputs) {
+      dispatch(displayAlert());
+      return;
+    }
+
+    const invoice = { ...data, status: 'pending' };
+    dispatch(updateInvoice(data._id, invoice));
+    dispatch(closeEditSidebar());
+    dispatch(resetItem());
+  };
+
+  const handleDiscard = () => {
+    dispatch(closeEditSidebar());
+    dispatch(resetItem());
+  };
+
   return (
     <Wrapper>
       <button
-        type="button"
-        className="sidebar-btn cancel"
-        onClick={() => {
-          dispatch(closeEditSidebar());
-          dispatch(resetItem());
-        }}
+        type='button'
+        className='sidebar-btn cancel'
+        onClick={handleDiscard}
       >
         Cancel
       </button>
       <button
-        className="sidebar-btn send"
-        type="button"
-        onClick={() => {
-          if (!checkEmptyInput(data.items)) {
-            const invoice = { ...data, status: 'pending' };
-            dispatch(updateInvoice(data._id, invoice));
-            dispatch(closeEditSidebar());
-          }
-        }}
+        className='sidebar-btn send'
+        type='button'
+        onClick={handleSaveSend}
       >
         Save & Send
       </button>
