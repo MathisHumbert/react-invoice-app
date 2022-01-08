@@ -1,14 +1,16 @@
-import React from 'react';
+import { useEffect } from 'react';
+import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { getSingleInvoice } from '../redux/actions/dataActions';
-import styled from 'styled-components';
-import DeleteAside from '../components/InvoicePage/DeleteAside';
-import Footer from '../components/InvoicePage/Footer';
-import GoHome from '../components/InvoicePage/GoHome';
-import Header from '../components/InvoicePage/Header';
-import Invoice from '../components/InvoicePage/Invoice';
-import SidebarEdit from '../components/InvoicePage/SidebarEdit';
+import {
+  DeleteAside,
+  Footer,
+  GoHome,
+  Header,
+  Invoice,
+  SidebarEdit,
+} from '../components/InvoicePage';
 
 const InvoicePage = () => {
   const dispatch = useDispatch();
@@ -17,7 +19,7 @@ const InvoicePage = () => {
   );
   const { id } = useParams();
 
-  React.useEffect(() => {
+  useEffect(() => {
     dispatch(getSingleInvoice(id));
     // eslint-disable-next-line
   }, []);

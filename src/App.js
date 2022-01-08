@@ -26,7 +26,7 @@ function App() {
         </Route>
         {/* Landing and Login/Register Routes */}
         <Route path='/register' element={<RegisterPage />} />
-        <Route path='landing' element={<LandingPage />} />
+        <Route path='/landing' element={<LandingPage />} />
       </Routes>
     </BrowserRouter>
   );
