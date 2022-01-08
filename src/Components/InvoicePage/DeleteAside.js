@@ -1,4 +1,3 @@
-import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
@@ -12,22 +11,22 @@ const DeleteAside = () => {
 
   return (
     <Wrapper className={isDeletionOpen ? 'open' : null}>
-      <div className="deletion">
+      <div className='deletion'>
         <h1>Confirm Deletion</h1>
         <p>
           Are you sure you want to delete invoice #XM9141? This action cannot be
           undone.
         </p>
-        <div className="buttons">
+        <div className='buttons'>
           <button
-            className="sidebar-btn cancel"
+            className='sidebar-btn cancel'
             onClick={() => dispatch(toggleDeletion())}
           >
             Cancel
           </button>
-          <Link to="/">
+          <Link to='/'>
             <button
-              className="sidebar-btn delete"
+              className='sidebar-btn delete'
               onClick={() => {
                 dispatch(deleteInvoice(single_invoice._id));
                 dispatch(toggleDeletion());

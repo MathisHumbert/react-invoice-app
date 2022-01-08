@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components';
 import { FaChevronLeft } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
@@ -6,8 +5,8 @@ import { Link } from 'react-router-dom';
 const GoHome = () => {
   return (
     <Wrapper>
-      <Link to="/">
-        <FaChevronLeft className="icon" />
+      <Link to='/'>
+        <FaChevronLeft className='icon' />
         <h4>Go back</h4>
       </Link>
     </Wrapper>

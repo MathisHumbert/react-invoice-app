@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components';
 import TopInfo from './TopInfo';
 import BottomInfo from './BottomInfo';

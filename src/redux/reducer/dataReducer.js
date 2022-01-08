@@ -1,4 +1,7 @@
+import uniqid from 'uniqid';
 import {
+  DISPLAY_DATA_ALERT,
+  CLEAR_DATA_ALERT,
   CREATE_INVOICE,
   DELETE_INVOICE,
   ERROR_FETCH,
@@ -13,9 +16,29 @@ const initialState = {
   single_invoice: [],
   isLoading: true,
   isError: false,
+  showAlert: false,
+  alertText: '',
+  alertType: '',
+  reset: '',
 };
 
 const dataReducer = (state = initialState, { type, payload }) => {
+  if (type === DISPLAY_DATA_ALERT) {
+    return {
+      ...state,
+      showAlert: true,
+      alertText: 'All fields are required!',
+      alertType: 'danger',
+    };
+  }
+  if (type === CLEAR_DATA_ALERT) {
+    return {
+      ...state,
+      showAlert: false,
+      alertText: '',
+      alertType: '',
+    };
+  }
   if (type === START_FETCH) {
     return { ...state, isLoading: true, isError: false };
   }
@@ -29,13 +52,28 @@ const dataReducer = (state = initialState, { type, payload }) => {
     return { ...state, single_invoice: payload, isLoading: false };
   }
   if (type === UPDATE_INVOICE) {
-    return { ...state, single_invoice: payload };
+    return {
+      ...state,
+      single_invoice: payload,
+      showAlert: true,
+      alertText: 'Invoice Updated!',
+      alertType: 'success',
+    };
   }
   if (type === DELETE_INVOICE) {
-    return { ...state, single_invoice: [] };
+    return {
+      ...state,
+      reset: uniqid(),
+    };
   }
   if (type === CREATE_INVOICE) {
-    return { ...state, all_invoices: [...state.all_invoices, payload] };
+    return {
+      ...state,
+      showAlert: true,
+      alertText: 'Invoice Created!',
+      alertType: 'success',
+      reset: uniqid(),
+    };
   }
   return state;
 };

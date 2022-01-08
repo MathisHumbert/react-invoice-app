@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components';
 import { formatDate } from '../../utils/helpers';
 import { useSelector } from 'react-redux';
@@ -15,17 +14,17 @@ const BottomInfo = () => {
 
   return (
     <Wrapper>
-      <div className="one">
-        <div className="top">
+      <div className='one'>
+        <div className='top'>
           <p>Invoice Date</p>
           <h3>{formatDate(createdAt)}</h3>
         </div>
-        <div className="bottom">
+        <div className='bottom'>
           <p>Payment Due</p>
           <h3>{formatDate(paymentDue)}</h3>
         </div>
       </div>
-      <div className="two">
+      <div className='two'>
         <p>Bill To</p>
         <h3>{clientName}</h3>
         <p>{street}</p>
@@ -33,7 +32,7 @@ const BottomInfo = () => {
         <p>{postCode}</p>
         <p>{country}</p>
       </div>
-      <div className="three">
+      <div className='three'>
         <p>Sent to</p>
         <h3>{clientEmail}</h3>
       </div>

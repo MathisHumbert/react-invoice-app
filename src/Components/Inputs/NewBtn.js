@@ -1,7 +1,9 @@
 import styled from 'styled-components';
 import { closeNewSidebar } from '../../redux/actions/toggleActions';
-import { createInvoice } from '../../redux/actions/dataActions';
-import { displayAlert } from '../../redux/actions/userActions';
+import {
+  createInvoice,
+  displayDataAlert,
+} from '../../redux/actions/dataActions';
 import { useDispatch, useSelector } from 'react-redux';
 import { checkEmptyInput } from '../../utils/helpers';
 import { resetItem } from '../../redux/actions/formActions';
@@ -13,20 +15,24 @@ const NewBtn = () => {
   const handleSaveSend = () => {
     const emptyInputs = checkEmptyInput(data.items);
     if (emptyInputs) {
-      dispatch(displayAlert());
+      dispatch(displayDataAlert());
       return;
     }
 
     const invoice = { ...data, status: 'pending' };
     dispatch(createInvoice(invoice));
-    dispatch(closeNewSidebar());
-    dispatch(resetItem());
+    setTimeout(() => {
+      dispatch(closeNewSidebar());
+      dispatch(resetItem());
+    }, 3000);
   };
 
   const handleSaveDraft = () => {
     dispatch(createInvoice(data));
-    dispatch(closeNewSidebar());
-    dispatch(resetItem());
+    setTimeout(() => {
+      dispatch(closeNewSidebar());
+      dispatch(resetItem());
+    }, 3000);
   };
 
   const handleDiscard = () => {
@@ -36,13 +42,25 @@ const NewBtn = () => {
 
   return (
     <Wrapper>
-      <button className='sidebar-btn discard' onClick={handleDiscard}>
+      <button
+        className='sidebar-btn discard'
+        type='button'
+        onClick={handleDiscard}
+      >
         Discard
       </button>
-      <button className='sidebar-btn draft' onClick={handleSaveDraft}>
+      <button
+        className='sidebar-btn draft'
+        type='button'
+        onClick={handleSaveDraft}
+      >
         Save as Draft
       </button>
-      <button className='sidebar-btn send' onClick={handleSaveSend}>
+      <button
+        className='sidebar-btn send'
+        type='button'
+        onClick={handleSaveSend}
+      >
         Save & Send
       </button>
     </Wrapper>

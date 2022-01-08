@@ -1,11 +1,10 @@
-import React from 'react';
 import styled from 'styled-components';
 
 const StatusButton = ({ status }) => {
   return (
     <Wrapper className={status}>
       <div>
-        <span className="circle"></span>
+        <span className='circle'></span>
         {status}
       </div>
     </Wrapper>

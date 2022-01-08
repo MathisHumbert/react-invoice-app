@@ -19,6 +19,8 @@ export const SET_ITEM = 'SET_ITEM';
 export const RESET_ITEM = 'RESET_ITEM';
 
 // dataActions
+export const DISPLAY_DATA_ALERT = 'DISPLAY_DATA_ALERT';
+export const CLEAR_DATA_ALERT = 'CLEAR_DATA_ALERT';
 export const START_FETCH = 'START_FETCH';
 export const ERROR_FETCH = 'ERRPR_FETCH';
 export const GET_ALL_INVOICES = 'GET_ALL_INVOICES';
@@ -28,8 +30,8 @@ export const DELETE_INVOICE = 'DELETE_INVOICE';
 export const CREATE_INVOICE = 'CREATE_INVOICE';
 
 // userActions
-export const DISPLAY_ALERT = 'DISPLAY_ALERT';
-export const CLEAR_ALERT = 'CLEAR_ALERT';
+export const DISPLAY_USER_ALERT = 'DISPLAY_USER_ALERT';
+export const CLEAR_USER_ALERT = 'CLEAR_USER_ALERT';
 export const SETUP_USER_BEGIN = 'SETUP_USER_BEGIN';
 export const SETUP_USER_SUCCESS = 'SETUP_USER_SUCCESS';
 export const SETUP_USER_ERROR = 'SETUP_USER_ERROR';

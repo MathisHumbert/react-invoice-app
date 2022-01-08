@@ -2,9 +2,11 @@ import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
 import { closeEditSidebar } from '../../redux/actions/toggleActions';
 import { checkEmptyInput } from '../../utils/helpers';
-import { updateInvoice } from '../../redux/actions/dataActions';
+import {
+  updateInvoice,
+  displayDataAlert,
+} from '../../redux/actions/dataActions';
 import { resetItem } from '../../redux/actions/formActions';
-import { displayAlert } from '../../redux/actions/userActions';
 
 const EditBtn = () => {
   const dispatch = useDispatch();
@@ -13,14 +15,16 @@ const EditBtn = () => {
   const handleSaveSend = () => {
     const emptyInputs = checkEmptyInput(data.items);
     if (emptyInputs) {
-      dispatch(displayAlert());
+      dispatch(displayDataAlert());
       return;
     }
 
     const invoice = { ...data, status: 'pending' };
     dispatch(updateInvoice(data._id, invoice));
-    dispatch(closeEditSidebar());
-    dispatch(resetItem());
+    setTimeout(() => {
+      dispatch(closeEditSidebar());
+      dispatch(resetItem());
+    }, 3000);
   };
 
   const handleDiscard = () => {

@@ -1,4 +1,3 @@
-import React from 'react';
 import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 import InvoiceForm from '../Inputs/InvoiceForm';
@@ -9,7 +8,7 @@ const SidebarEdit = ({ id }) => {
 
   return (
     <Wrapper className={isEditSidebarOpen ? 'open' : null}>
-      <div className="container">
+      <div className='container'>
         <header>
           <GoBack />
           <h1>
@@ -17,7 +16,7 @@ const SidebarEdit = ({ id }) => {
             {id.substring(18, 24).toUpperCase()}
           </h1>
         </header>
-        <InvoiceForm type="edit" />
+        <InvoiceForm type='edit' />
       </div>
     </Wrapper>
   );

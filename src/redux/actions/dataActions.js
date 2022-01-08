@@ -1,5 +1,7 @@
 import axios from 'axios';
 import {
+  DISPLAY_DATA_ALERT,
+  CLEAR_DATA_ALERT,
   ERROR_FETCH,
   GET_ALL_INVOICES,
   GET_SINGLE_INVOICE,
@@ -8,6 +10,15 @@ import {
   DELETE_INVOICE,
   CREATE_INVOICE,
 } from './actions';
+
+export const displayDataAlert = () => {
+  return (dispatch) => {
+    dispatch({ type: DISPLAY_DATA_ALERT });
+    setTimeout(() => {
+      dispatch({ type: CLEAR_DATA_ALERT });
+    }, 3000);
+  };
+};
 
 export const getAllInvoices = () => {
   return (dispatch) => {
@@ -44,6 +55,9 @@ export const updateInvoice = (id, data) => {
         dispatch({ type: UPDATE_INVOICE, payload: response.data });
       })
       .catch((error) => console.log(error));
+    setTimeout(() => {
+      dispatch({ type: CLEAR_DATA_ALERT });
+    }, 3000);
   };
 };
 
@@ -56,6 +70,9 @@ export const deleteInvoice = (id) => {
         dispatch({ type: DELETE_INVOICE });
       })
       .catch((error) => console.log(error));
+    setTimeout(() => {
+      dispatch({ type: CLEAR_DATA_ALERT });
+    }, 3000);
   };
 };
 
@@ -69,5 +86,8 @@ export const createInvoice = (data) => {
         dispatch({ type: CREATE_INVOICE, payload: response.data });
       })
       .catch((error) => console.log(error));
+    setTimeout(() => {
+      dispatch({ type: CLEAR_DATA_ALERT });
+    }, 3000);
   };
 };

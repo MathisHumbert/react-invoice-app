@@ -1,4 +1,3 @@
-import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 import {
@@ -16,7 +15,7 @@ const Footer = () => {
     <Wrapper>
       {single_invoice.status !== 'paid' && (
         <button
-          className="sidebar-btn edit"
+          className='sidebar-btn edit'
           onClick={() => {
             dispatch(openEditSidebar());
             dispatch(setItem(single_invoice));
@@ -26,14 +25,14 @@ const Footer = () => {
         </button>
       )}
       <button
-        className="sidebar-btn delete"
+        className='sidebar-btn delete'
         onClick={() => dispatch(toggleDeletion())}
       >
         Delete
       </button>
       {single_invoice.status === 'pending' && (
         <button
-          className="sidebar-btn paid"
+          className='sidebar-btn paid'
           onClick={() =>
             dispatch(updateInvoice(single_invoice._id, { status: 'paid' }))
           }

@@ -1,7 +1,7 @@
 import axios from 'axios';
 import {
-  CLEAR_ALERT,
-  DISPLAY_ALERT,
+  CLEAR_USER_ALERT,
+  DISPLAY_USER_ALERT,
   SETUP_USER_BEGIN,
   SETUP_USER_ERROR,
   SETUP_USER_SUCCESS,
@@ -18,11 +18,11 @@ const removeUserFromLocalStorage = () => {
   localStorage.removeItem('token');
 };
 
-export const displayAlert = () => {
+export const displayUserAlert = () => {
   return (dispatch) => {
-    dispatch({ type: DISPLAY_ALERT });
+    dispatch({ type: DISPLAY_USER_ALERT });
     setTimeout(() => {
-      dispatch({ type: CLEAR_ALERT });
+      dispatch({ type: CLEAR_USER_ALERT });
     }, 3000);
   };
 };
@@ -44,7 +44,7 @@ export const setupUser = (formUser, type, alertText) => {
         dispatch({ type: SETUP_USER_ERROR, payload: error.response.data.msg })
       );
     setTimeout(() => {
-      dispatch({ type: CLEAR_ALERT });
+      dispatch({ type: CLEAR_USER_ALERT });
     }, 3000);
   };
 };

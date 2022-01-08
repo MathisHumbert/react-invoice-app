@@ -7,14 +7,14 @@ import SingleInput from './SingleInput';
 
 const AllInvoices = () => {
   const dispatch = useDispatch();
-  const { all_invoices, isLoading, isError } = useSelector(
+  const { all_invoices, isLoading, isError, reset } = useSelector(
     (state) => state.dataReducer
   );
 
   useEffect(() => {
     dispatch(getAllInvoices());
     // eslint-disable-next-line
-  }, []);
+  }, [reset]);
 
   if (isLoading) {
     return <h1>Loading...</h1>;

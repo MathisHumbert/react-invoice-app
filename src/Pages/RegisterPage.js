@@ -2,9 +2,9 @@ import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
-import Alert from '../components/Alert';
+import { AlertUser } from '../components';
 import Logo from '../components/Logo';
-import { displayAlert, setupUser } from '../redux/actions/userActions';
+import { displayUserAlert, setupUser } from '../redux/actions/userActions';
 
 const inititalState = {
   name: '',
@@ -30,7 +30,7 @@ const RegisterPage = () => {
     const { name, email, password, isMember } = values;
 
     if (!email || !password || (!isMember && !name)) {
-      dispatch(displayAlert());
+      dispatch(displayUserAlert());
       return;
     }
 
@@ -67,7 +67,7 @@ const RegisterPage = () => {
           <h1>Invoice App</h1>
         </header>
         <h1 className='title'>{values.isMember ? 'Login' : 'Register'}</h1>
-        {showAlert && <Alert />}
+        {showAlert && <AlertUser />}
         {!values.isMember && (
           <div className='input-container'>
             <label htmlFor='name'>Name</label>

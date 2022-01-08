@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components';
 import { useSelector } from 'react-redux';
 
@@ -11,14 +10,14 @@ const TopInfo = () => {
   } = single_invoice;
   return (
     <Wrapper>
-      <div className="right">
+      <div className='right'>
         <h3>
           <span>#</span>
           {_id.substring(18, 24).toUpperCase()}
         </h3>
         <p>{description}</p>
       </div>
-      <div className="left">
+      <div className='left'>
         <p>{street}</p>
         <p>{city}</p>
         <p>{postCode}</p>

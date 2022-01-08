@@ -1,6 +1,6 @@
 import {
-  CLEAR_ALERT,
-  DISPLAY_ALERT,
+  CLEAR_USER_ALERT,
+  DISPLAY_USER_ALERT,
   LOGOUT_USER,
   SETUP_USER_BEGIN,
   SETUP_USER_ERROR,
@@ -20,7 +20,7 @@ const inititalState = {
 };
 
 const userReducer = (state = inititalState, { type, payload }) => {
-  if (type === DISPLAY_ALERT) {
+  if (type === DISPLAY_USER_ALERT) {
     return {
       ...state,
       showAlert: true,
@@ -28,7 +28,7 @@ const userReducer = (state = inititalState, { type, payload }) => {
       alertType: 'danger',
     };
   }
-  if (type === CLEAR_ALERT) {
+  if (type === CLEAR_USER_ALERT) {
     return {
       ...state,
       showAlert: false,

@@ -6,12 +6,12 @@ import {
   createNewItem,
   deleteItem,
 } from '../../redux/actions/formActions';
-import { Input, Alert } from '..';
+import { Input, AlertData } from '..';
 
 const ItemInput = () => {
   const dispatch = useDispatch();
   const { items } = useSelector((state) => state.formReducer);
-  const { showAlert } = useSelector((state) => state.userReducer);
+  const { showAlert } = useSelector((state) => state.dataReducer);
 
   const handleItemChange = (e, id) => {
     dispatch(handleItemInfo(e.target.name, e.target.value, id));
@@ -78,7 +78,7 @@ const ItemInput = () => {
         + Add New Item
       </button>
 
-      {showAlert && <Alert />}
+      {showAlert && <AlertData />}
     </Wrapper>
   );
 };
