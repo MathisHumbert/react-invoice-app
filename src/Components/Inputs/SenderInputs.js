@@ -2,64 +2,53 @@ import React from 'react';
 import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
 import { handleSenderInfo } from '../../redux/actions/formActions';
+import { Input } from '..';
 
 const SenderInputs = () => {
   const dispatch = useDispatch();
   const { senderAddress } = useSelector((state) => state.formReducer);
+  const handleSenderChange = (e) => {
+    dispatch(handleSenderInfo(e.target.name, e.target.value));
+  };
 
   return (
     <Wrapper>
       <h4>Bill From</h4>
       {/* Street Address */}
-      <div className="single-input">
-        <label htmlFor="street">Street Address</label>
-        <input
-          type="text"
-          name="street"
-          id="street"
-          value={senderAddress.street}
-          onChange={(e) => dispatch(handleSenderInfo(e))}
-          className="input"
-        />
-      </div>
+      <Input
+        labelText='Street Address'
+        type='text'
+        name='street'
+        value={senderAddress.street}
+        handleChange={handleSenderChange}
+      />
+
       {/* 3 inputs */}
-      <div className="input-container">
+      <div className='input-container'>
         {/* City */}
-        <div className="single-input">
-          <label htmlFor="city">City</label>
-          <input
-            type="text"
-            name="city"
-            id="city"
-            value={senderAddress.city}
-            onChange={(e) => dispatch(handleSenderInfo(e))}
-            className="input"
-          />
-        </div>
+        <Input
+          labelText='City'
+          type='text'
+          name='city'
+          value={senderAddress.city}
+          handleChange={handleSenderChange}
+        />
         {/* Post Code */}
-        <div className="single-input">
-          <label htmlFor="postCode">Post Code</label>
-          <input
-            type="text"
-            name="postCode"
-            id="postCode"
-            value={senderAddress.postCode}
-            onChange={(e) => dispatch(handleSenderInfo(e))}
-            className="input"
-          />
-        </div>
+        <Input
+          labelText='Post Code'
+          type='text'
+          name='postCode'
+          value={senderAddress.postCode}
+          handleChange={handleSenderChange}
+        />
         {/* Country */}
-        <div className="single-input">
-          <label htmlFor="country">Country</label>
-          <input
-            type="text"
-            name="country"
-            id="country"
-            value={senderAddress.country}
-            onChange={(e) => dispatch(handleSenderInfo(e))}
-            className="input"
-          />
-        </div>
+        <Input
+          labelText='Country'
+          type='text'
+          name='country'
+          value={senderAddress.country}
+          handleChange={handleSenderChange}
+        />
       </div>
     </Wrapper>
   );

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
 import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
@@ -25,14 +25,14 @@ const TermInput = () => {
     );
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     setActiveTerm(paymentTerms);
   }, [paymentTerms]);
 
   return (
     <Wrapper>
       <button
-        type="button"
+        type='button'
         onClick={() => setIsAsideOpen(!isAsideOpen)}
         className={isAsideOpen ? 'open' : null}
       >
@@ -40,9 +40,9 @@ const TermInput = () => {
           Next {activeTerm} Day{activeTerm > 1 ? 's' : ''}
         </h3>
         {isAsideOpen ? (
-          <FaChevronUp className="icon" />
+          <FaChevronUp className='icon' />
         ) : (
-          <FaChevronDown className="icon" />
+          <FaChevronDown className='icon' />
         )}
       </button>
       <aside
@@ -51,7 +51,7 @@ const TermInput = () => {
       >
         {termsData.map((item, index) => {
           return (
-            <div className="single-item" key={index}>
+            <div className='single-item' key={index}>
               <h3
                 className={item.term === activeTerm ? 'active' : null}
                 onClick={() => handleClick(item.term)}

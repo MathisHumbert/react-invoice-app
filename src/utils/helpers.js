@@ -75,7 +75,7 @@ export const checkEmptyInput = (items) => {
 };
 
 export const resetBorder = () => {
-  const inputs = document.querySelectorAll('.input');
+  const inputs = document.querySelectorAll('input');
   const emptyField = document.querySelector('.empty-field');
   const noItem = document.querySelector('.no-item');
 

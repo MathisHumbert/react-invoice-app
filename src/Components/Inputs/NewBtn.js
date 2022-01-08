@@ -10,11 +10,21 @@ const NewBtn = () => {
   const dispatch = useDispatch();
   const data = useSelector((state) => state.formReducer);
   console.log(data);
+  const handleSaveSend = () => {
+    const EmptyInputs = checkEmptyInput(data);
+    console.log(EmptyInputs);
+    // if (!checkEmptyInput(data.items)) {
+    //   const invoice = { ...data, status: 'pending' };
+    //   dispatch(createInvoice(invoice));
+    //   dispatch(closeNewSidebar());
+    //   dispatch(resetItem());
+    // }
+  };
 
   return (
     <Wrapper>
       <button
-        className="sidebar-btn discard"
+        className='sidebar-btn discard'
         onClick={() => {
           dispatch(resetItem());
           dispatch(closeNewSidebar());
@@ -23,7 +33,7 @@ const NewBtn = () => {
         Discard
       </button>
       <button
-        className="sidebar-btn draft"
+        className='sidebar-btn draft'
         onClick={() => {
           dispatch(createInvoice(data));
           dispatch(resetItem());
@@ -32,17 +42,7 @@ const NewBtn = () => {
       >
         Save as Draft
       </button>
-      <button
-        className="sidebar-btn send"
-        onClick={() => {
-          if (!checkEmptyInput(data.items)) {
-            const invoice = { ...data, status: 'pending' };
-            dispatch(createInvoice(invoice));
-            dispatch(closeNewSidebar());
-            dispatch(resetItem());
-          }
-        }}
-      >
+      <button className='sidebar-btn send' onClick={handleSaveSend}>
         Save & Send
       </button>
     </Wrapper>

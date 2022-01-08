@@ -11,27 +11,27 @@ import {
   SET_ITEM,
 } from './actions';
 
-export const handleSenderInfo = (e) => {
+export const handleSenderInfo = (name, value) => {
   return (dispatch) =>
     dispatch({
       type: HANDLE_SENDER_INFO,
-      payload: { name: e.target.name, value: e.target.value },
+      payload: { name, value },
     });
 };
 
-export const handleClientInfo = (e) => {
+export const handleClientInfo = (name, value) => {
   return (dispatch) =>
     dispatch({
       type: HANDLE_CLIENT_INFO,
-      payload: { name: e.target.name, value: e.target.value },
+      payload: { name, value },
     });
 };
 
-export const handleGeneralInfo = (e) => {
+export const handleGeneralInfo = (name, value) => {
   return (dispatch) =>
     dispatch({
       type: HANDLE_GENERAL_INFO,
-      payload: { name: e.target.name, value: e.target.value },
+      payload: { name, value },
     });
 };
 
@@ -44,11 +44,11 @@ export const handleTermInfo = (term) => {
   return (dispatch) => dispatch({ type: HANDLE_TERM_INFO, payload: term });
 };
 
-export const handleItemInfo = (e, id) => {
+export const handleItemInfo = (name, value, id) => {
   return (dispatch) =>
     dispatch({
       type: HANDLE_ITEM_INFO,
-      payload: { name: e.target.name, value: e.target.value, id },
+      payload: { name, value, id },
     });
 };
 
@@ -64,6 +64,6 @@ export const setItem = (item) => {
   return (dispatch) => dispatch({ type: SET_ITEM, payload: item });
 };
 
-export const resetItem = (item) => {
+export const resetItem = () => {
   return (dispatch) => dispatch({ type: RESET_ITEM });
 };

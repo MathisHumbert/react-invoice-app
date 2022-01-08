@@ -7,116 +7,95 @@ import {
 } from '../../redux/actions/formActions';
 import DateInput from './DateInput';
 import TermInput from './TermInput';
+import { Input } from '..';
 
 const ClientInputs = () => {
   const dispatch = useDispatch();
   const { clientAddress, clientName, clientEmail, description } = useSelector(
     (state) => state.formReducer
   );
+  const handleClientChange = (e) => {
+    dispatch(handleClientInfo(e.target.name, e.target.value));
+  };
+  const handleGeneralChange = (e) => {
+    dispatch(handleGeneralInfo(e.target.name, e.target.value));
+  };
 
   return (
     <Wrapper>
       <h4>Bill To</h4>
       {/* Name */}
-      <div className="single-input">
-        <label htmlFor="name">Client's Name</label>
-        <input
-          type="text"
-          name="clientName"
-          id="name"
-          value={clientName}
-          onChange={(e) => dispatch(handleGeneralInfo(e))}
-          className="input"
-        />
-      </div>
+      <Input
+        labelText={`Client's Name`}
+        type='text'
+        name='clientName'
+        value={clientName}
+        handleChange={handleGeneralChange}
+      />
       {/* Email */}
-      <div className="single-input">
-        <label htmlFor="email">Client's Email</label>
-        <input
-          type="text"
-          name="clientEmail"
-          id="email"
-          value={clientEmail}
-          onChange={(e) => dispatch(handleGeneralInfo(e))}
-          className="input"
-        />
-      </div>
+      <Input
+        labelText={`Client's Email`}
+        type='text'
+        name='clientEmail'
+        value={clientEmail}
+        handleChange={handleGeneralChange}
+      />
       {/* Street Address */}
-      <div className="single-input">
-        <label htmlFor="street">Street Address</label>
-        <input
-          type="text"
-          name="street"
-          id="street"
-          value={clientAddress.street}
-          onChange={(e) => dispatch(handleClientInfo(e))}
-          className="input"
-        />
-      </div>
+      <Input
+        labelText='Street Address'
+        type='text'
+        name='street'
+        value={clientAddress.street}
+        handleChange={handleClientChange}
+      />
       {/* 3 inputs */}
-      <div className="input-container">
+      <div className='input-container'>
         {/* City */}
-        <div className="single-input">
-          <label htmlFor="city">City</label>
-          <input
-            type="text"
-            name="city"
-            id="city"
-            value={clientAddress.city}
-            onChange={(e) => dispatch(handleClientInfo(e))}
-            className="input"
-          />
-        </div>
+        <Input
+          labelText='City'
+          type='text'
+          name='city'
+          value={clientAddress.city}
+          handleChange={handleClientChange}
+        />
         {/* Post Code */}
-        <div className="single-input">
-          <label htmlFor="postCode">Post Code</label>
-          <input
-            type="text"
-            name="postCode"
-            id="postCode"
-            value={clientAddress.postCode}
-            onChange={(e) => dispatch(handleClientInfo(e))}
-            className="input"
-          />
-        </div>
+        <Input
+          labelText='Post Code'
+          type='text'
+          name='postCode'
+          value={clientAddress.postCode}
+          handleChange={handleClientChange}
+        />
         {/* Country */}
-        <div className="single-input">
-          <label htmlFor="country">Country</label>
-          <input
-            type="text"
-            name="country"
-            id="country"
-            value={clientAddress.country}
-            onChange={(e) => dispatch(handleClientInfo(e))}
-            className="input"
-          />
-        </div>
+        <Input
+          labelText='Country'
+          type='text'
+          name='country'
+          value={clientAddress.country}
+          handleChange={handleClientChange}
+        />
       </div>
       {/* 2 inputs */}
-      <div className="input-two-container">
+      <div className='input-two-container'>
         {/* Date */}
-        <div className="single-input">
-          <label htmlFor="date">Invoice Date</label>
+        <div className='single-input'>
+          <label htmlFor='date'>Invoice Date</label>
           <DateInput />
         </div>
         {/* Terms */}
-        <div className="single-input">
+        <div className='single-input'>
           <label>Payement Terms</label>
           <TermInput />
         </div>
       </div>
       {/* Description */}
-      <div className="single-input">
-        <label htmlFor="description">Project Description</label>
-        <input
-          type="text"
-          name="description"
-          id="description"
-          value={description}
-          onChange={(e) => dispatch(handleGeneralInfo(e))}
-          className="input"
-        />
-      </div>
+      <Input
+        labelText='Project Description'
+        type='text'
+        name='description'
+        value={description}
+        handleChange={handleGeneralChange}
+      />
     </Wrapper>
   );
 };

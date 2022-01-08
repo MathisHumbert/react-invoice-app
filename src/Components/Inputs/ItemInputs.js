@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components';
 import { FaTrash } from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux';
@@ -7,10 +6,14 @@ import {
   createNewItem,
   deleteItem,
 } from '../../redux/actions/formActions';
+import { Input } from '..';
 
 const ItemInput = () => {
   const dispatch = useDispatch();
   const { items } = useSelector((state) => state.formReducer);
+  const handleItemChange = (e, id) => {
+    dispatch(handleItemInfo(e.target.name, e.target.value, id));
+  };
 
   return (
     <Wrapper>
@@ -25,68 +28,57 @@ const ItemInput = () => {
             key={id}
           >
             {/* Name */}
-            <div className="single-input">
-              <label htmlFor="name">Item Name</label>
-              <input
-                type="text"
-                name="name"
-                id="name"
-                value={name}
-                onChange={(e) => dispatch(handleItemInfo(e, id))}
-                className="input"
-              />
-            </div>
+            <Input
+              labelText='Item Name'
+              type='text'
+              name='name'
+              value={name}
+              id={id}
+              handleChange={handleItemChange}
+            />
             {/* Quantity */}
-            <div className="single-input">
-              <label htmlFor="quantity">Qty.</label>
-              <input
-                type="number"
-                name="quantity"
-                id="quantity"
-                placeholder="1"
-                value={quantity}
-                onChange={(e) => dispatch(handleItemInfo(e, id))}
-                className="input"
-              />
-            </div>
+            <Input
+              labelText='Qty.'
+              type='number'
+              name='quantity'
+              value={quantity}
+              id={id}
+              handleChange={handleItemChange}
+            />
             {/* Price */}
-            <div className="single-input">
-              <label htmlFor="price">Price</label>
-              <input
-                type="number"
-                name="price"
-                id="price"
-                placeholder="156.99"
-                value={price}
-                onChange={(e) => dispatch(handleItemInfo(e, id))}
-                className="input"
-              />
-            </div>
+            <Input
+              labelText='Price'
+              type='number'
+              name='price'
+              value={price}
+              id={id}
+              handleChange={handleItemChange}
+            />
             {/* Total */}
-            <div className="single-input total">
+            <div className='single-input total'>
               <p>Total</p>
               <p>{total}</p>
             </div>
-            <div
-              className="icon-container"
-              onClick={() => dispatch(deleteItem(id))}
-            >
-              <FaTrash className="icon" />
+
+            <div className='delete-item-container'>
+              <button type='button' onClick={() => dispatch(deleteItem(id))}>
+                <FaTrash className='icon' />
+              </button>
             </div>
           </div>
         );
       })}
       <button
-        type="button"
-        className="sidebar-btn"
+        type='button'
+        className='sidebar-btn'
         onClick={() => dispatch(createNewItem())}
       >
         + Add New Item
       </button>
 
-      <div className="empty-container">
-        <span className="empty-field">- All fields must be added</span>
-        <span className="no-item">- An item must be added</span>
+      <div className='empty-container'>
+        <span className='empty-field'>- All fields must be added</span>
+        <span className='no-item'>- An item must be added</span>
       </div>
     </Wrapper>
   );
@@ -118,7 +110,7 @@ const Wrapper = styled.div`
     }
   }
 
-  .icon-container {
+  .delete-item-container {
     position: relative;
 
     .icon {
@@ -128,6 +120,10 @@ const Wrapper = styled.div`
       right: 7px;
       color: #888eb0;
       font-size: 15px;
+
+      &:hover {
+        color: var(--red-color);
+      }
     }
   }
 
