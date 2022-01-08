@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import StatusButton from '../StatusButton';
@@ -14,8 +13,8 @@ const SingleInput = ({ _id, clientName, createdAt, items, status }) => {
           <span>#</span>
           {_id.substring(18, 24).toUpperCase()}
         </h4>
-        <p className="date">{formatDate(createdAt)}</p>
-        <p className="name">{clientName === '' ? 'unknown' : clientName}</p>
+        <p className='date'>{formatDate(createdAt)}</p>
+        <p className='name'>{clientName === '' ? 'unknown' : clientName}</p>
         <h3>{formatPrice(total)}</h3>
         <StatusButton status={status} />
       </Wrapper>

@@ -1,4 +1,3 @@
-import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { toggleFilters } from '../../redux/actions/toggleActions';
 import { filtersData } from '../../utils/constants';
@@ -9,7 +8,6 @@ const FilterForm = () => {
   const { isFiltersOpen } = useSelector((state) => state.toggleReducer);
 
   const handleSubmit = (e) => {
-    console.log(e.target.name);
     setTimeout(() => {
       dispatch(toggleFilters());
     }, 400);
@@ -19,9 +17,9 @@ const FilterForm = () => {
     <Wrapper className={isFiltersOpen ? 'active' : null}>
       {filtersData.map((item, index) => {
         return (
-          <div className="single-input" key={index}>
+          <div className='single-input' key={index}>
             <input
-              type="checkbox"
+              type='checkbox'
               name={item}
               id={item}
               onChange={handleSubmit}

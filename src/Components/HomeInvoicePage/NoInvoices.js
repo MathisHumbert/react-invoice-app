@@ -1,11 +1,10 @@
-import React from 'react';
 import styled from 'styled-components';
 import image from '../../assets/illustration-empty.svg';
 
 const NoInvoices = () => {
   return (
     <Wrapper>
-      <img src={image} alt="no-input-img" />
+      <img src={image} alt='no-input-img' />
       <h1>There is nothing here</h1>
       <p>
         Create an invoice by clicking the <br /> <span>New</span> button and get

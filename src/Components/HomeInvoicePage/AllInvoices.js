@@ -1,17 +1,17 @@
-import React from 'react';
+import { useEffect } from 'react';
 import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllInvoices } from '../../redux/actions/dataActions';
 import NoInvoices from './NoInvoices';
 import SingleInput from './SingleInput';
 
-const Inputs = () => {
+const AllInvoices = () => {
   const dispatch = useDispatch();
   const { all_invoices, isLoading, isError } = useSelector(
     (state) => state.dataReducer
   );
 
-  React.useEffect(() => {
+  useEffect(() => {
     dispatch(getAllInvoices());
     // eslint-disable-next-line
   }, []);
@@ -44,4 +44,4 @@ const Wrapper = styled.section`
   gap: 1rem;
   margin-bottom: 2rem;
 `;
-export default Inputs;
+export default AllInvoices;

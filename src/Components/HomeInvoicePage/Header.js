@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components';
 import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
 import { useSelector, useDispatch } from 'react-redux';
@@ -12,22 +11,22 @@ const Header = () => {
 
   return (
     <Wrapper>
-      <div className="left">
+      <div className='left'>
         <h1>Invoices</h1>
         <p>7 invoices</p>
       </div>
-      <div className="right">
+      <div className='right'>
         <div>
           <button
-            type="button"
-            className="filter-btn"
+            type='button'
+            className='filter-btn'
             onClick={() => dispatch(toggleFilters())}
           >
             <p>Filter</p>
             {isFiltersOpen ? (
-              <FaChevronUp className="icon" />
+              <FaChevronUp className='icon' />
             ) : (
-              <FaChevronDown className="icon" />
+              <FaChevronDown className='icon' />
             )}
           </button>
           <FilterForm />

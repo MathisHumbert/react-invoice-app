@@ -1,8 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Header from '../components/HomeInvoicePage/Header';
-import AllInvoices from '../components/HomeInvoicePage/AllInvoices';
-import SidebarNew from '../components/HomeInvoicePage/SidebarNew';
+import { Header, AllInvoices, SidebarNew } from '../components/HomeInvoicePage';
 
 const HomeInvoicePage = () => {
   return (

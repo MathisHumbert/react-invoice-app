@@ -1,4 +1,3 @@
-import React from 'react';
 import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 import GoBack from './GoBack';
@@ -9,12 +8,12 @@ const SidebarNew = () => {
 
   return (
     <Wrapper className={isNewSidebarOpen ? 'open' : null}>
-      <div className="container">
+      <div className='container'>
         <header>
           <GoBack />
           <h1>New Invoice</h1>
         </header>
-        <InvoiceForm type="new" />
+        <InvoiceForm type='new' />
       </div>
     </Wrapper>
   );
