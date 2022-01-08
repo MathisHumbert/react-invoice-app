@@ -24,7 +24,7 @@ const NewBtn = () => {
     setTimeout(() => {
       dispatch(closeNewSidebar());
       dispatch(resetItem());
-    }, 3000);
+    }, 1500);
   };
 
   const handleSaveDraft = () => {
@@ -32,7 +32,7 @@ const NewBtn = () => {
     setTimeout(() => {
       dispatch(closeNewSidebar());
       dispatch(resetItem());
-    }, 3000);
+    }, 1500);
   };
 
   const handleDiscard = () => {

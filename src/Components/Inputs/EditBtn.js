@@ -24,7 +24,7 @@ const EditBtn = () => {
     setTimeout(() => {
       dispatch(closeEditSidebar());
       dispatch(resetItem());
-    }, 3000);
+    }, 1500);
   };
 
   const handleDiscard = () => {
