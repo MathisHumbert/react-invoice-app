@@ -29,7 +29,7 @@ const Wrapper = styled.aside`
   padding-top: 2rem;
   overflow: scroll;
   overflow-x: hidden;
-  transition: width 0.5s linear;
+  transition: var(--long-transition);
 
   &.open {
     width: 100%;
@@ -42,7 +42,6 @@ const Wrapper = styled.aside`
   .container {
     padding: 0 24px;
     opacity: 0;
-    transition: opacity 0.3s linear;
   }
 
   header {

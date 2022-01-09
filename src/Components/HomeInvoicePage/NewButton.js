@@ -29,10 +29,9 @@ const Wrapper = styled.button`
   line-height: 0;
   padding: 6px;
   padding-right: 10px;
-  transition: background 0.3s linear;
 
   &:hover {
-    background: #9277ff;
+    background: var(--purple-hover-color);
   }
 
   p {

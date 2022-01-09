@@ -14,12 +14,16 @@
   --orange-color: #ff8f00;
   --green-color: #33d69f;
   --special-color: #888eb0;
+  --purple-hover-color: #9277ff;
+  --transition: all 0.5s ease-in-out;
+  --long-transition: all 0.8s ease-in-out;
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  transition: var(--transition);
 }
 
 #root {

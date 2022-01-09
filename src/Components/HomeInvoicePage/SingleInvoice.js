@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import StatusButton from '../StatusButton';
 import { formatDate, formatPrice } from '../../utils/helpers';
 
-const SingleInput = ({ _id, clientName, createdAt, items, status }) => {
+const SingleInvoice = ({ _id, clientName, createdAt, items, status }) => {
   const { total } = items[0];
 
   return (
@@ -30,7 +30,6 @@ const Wrapper = styled.article`
   border-radius: 8px;
   box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
   border: 2px solid transparent;
-  transition: border 0.3s linear;
 
   &:hover {
     border-color: var(--purple-color);
@@ -80,4 +79,4 @@ const Wrapper = styled.article`
     cursor: inherit;
   }
 `;
-export default SingleInput;
+export default SingleInvoice;

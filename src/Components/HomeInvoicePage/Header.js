@@ -8,14 +8,14 @@ import NewButton from './NewButton';
 const Header = () => {
   const dispatch = useDispatch();
   const { isFiltersOpen } = useSelector((state) => state.toggleReducer);
-  const { all_invoices } = useSelector((state) => state.dataReducer);
+  const { invoices } = useSelector((state) => state.dataReducer);
 
   return (
     <Wrapper>
       <div className='left'>
         <h1>Invoices</h1>
         <p>
-          {all_invoices.length} invoice{all_invoices.length > 1 && 's'}
+          {invoices.length} invoice{invoices.length > 1 && 's'}
         </p>
       </div>
       <div className='right'>

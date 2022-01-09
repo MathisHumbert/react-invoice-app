@@ -47,11 +47,10 @@ const Wrapper = styled.nav`
     .icon {
       font-size: 20px;
       color: var(--secondary-color);
-      transition: color 0.3s linear;
       cursor: pointer;
 
       &:hover {
-        color: #dfe3fa;
+        color: var(--border-color);
       }
     }
   }

@@ -34,7 +34,6 @@ const Wrapper = styled.div`
     background: transparent;
     font-weight: 600;
     color: var(--secondary-color);
-    transition: color 0.3s linear;
     cursor: pointer;
 
     &:hover {

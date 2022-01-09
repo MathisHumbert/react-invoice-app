@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllInvoices } from '../../redux/actions/dataActions';
 import NoInvoices from './NoInvoices';
-import SingleInput from './SingleInput';
+import SingleInvoice from './SingleInvoice';
 
 const AllInvoices = () => {
   const dispatch = useDispatch();
@@ -31,7 +31,7 @@ const AllInvoices = () => {
   return (
     <Wrapper>
       {invoices.map((item) => {
-        return <SingleInput key={item._id} {...item} />;
+        return <SingleInvoice key={item._id} {...item} />;
       })}
     </Wrapper>
   );

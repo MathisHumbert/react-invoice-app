@@ -66,7 +66,6 @@ const Wrapper = styled.form`
   z-index: 2;
   padding: 0 24px;
   opacity: 0;
-  transition: height 0.4s linear, opacity 0.4s linear;
   box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
     rgba(0, 0, 0, 0.22) 0px 15px 12px;
 
