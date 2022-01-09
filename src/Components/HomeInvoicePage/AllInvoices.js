@@ -7,7 +7,7 @@ import SingleInput from './SingleInput';
 
 const AllInvoices = () => {
   const dispatch = useDispatch();
-  const { all_invoices, isLoading, isError, reset } = useSelector(
+  const { invoices, isLoading, isError, reset } = useSelector(
     (state) => state.dataReducer
   );
 
@@ -24,13 +24,13 @@ const AllInvoices = () => {
     return <h1>Error</h1>;
   }
 
-  if (all_invoices.length === 0) {
+  if (invoices.length === 0) {
     return <NoInvoices />;
   }
 
   return (
     <Wrapper>
-      {all_invoices.map((item) => {
+      {invoices.map((item) => {
         return <SingleInput key={item._id} {...item} />;
       })}
     </Wrapper>

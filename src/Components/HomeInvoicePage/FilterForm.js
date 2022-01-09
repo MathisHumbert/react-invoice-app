@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { toggleFilters } from '../../redux/actions/toggleActions';
+import { filterAllInvoices } from '../../redux/actions/dataActions';
 import { filtersData } from '../../utils/constants';
 import styled from 'styled-components';
 
@@ -16,10 +17,10 @@ const FilterForm = () => {
       if (input.name === name) {
         if (mainFilter !== name) {
           setMainFilter(name);
-          // dispatch()
+          dispatch(filterAllInvoices(name));
         } else {
           setMainFilter('all');
-          // dispatch()
+          dispatch(filterAllInvoices('all'));
         }
       }
     });

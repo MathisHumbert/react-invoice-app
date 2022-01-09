@@ -9,10 +9,12 @@ import {
   GET_SINGLE_INVOICE,
   START_FETCH,
   UPDATE_INVOICE,
+  FILTER_ALL_INVOICES,
 } from '../actions/actions';
 
 const initialState = {
   all_invoices: [],
+  invoices: [],
   single_invoice: [],
   isLoading: true,
   isError: false,
@@ -46,7 +48,12 @@ const dataReducer = (state = initialState, { type, payload }) => {
     return { ...state, isLoading: true, isError: true };
   }
   if (type === GET_ALL_INVOICES) {
-    return { ...state, all_invoices: payload, isLoading: false };
+    return {
+      ...state,
+      all_invoices: payload,
+      invoices: payload,
+      isLoading: false,
+    };
   }
   if (type === GET_SINGLE_INVOICE) {
     return { ...state, single_invoice: payload, isLoading: false };
@@ -74,6 +81,15 @@ const dataReducer = (state = initialState, { type, payload }) => {
       alertType: 'success',
       reset: uniqid(),
     };
+  }
+  if (type === FILTER_ALL_INVOICES) {
+    if (payload === 'all') {
+      return { ...state, invoices: state.all_invoices };
+    }
+    const invoices = state.all_invoices.filter(
+      (item) => item.status === payload
+    );
+    return { ...state, invoices };
   }
   return state;
 };

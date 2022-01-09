@@ -10,6 +10,7 @@ import {
   UPDATE_INVOICE,
   DELETE_INVOICE,
   CREATE_INVOICE,
+  FILTER_ALL_INVOICES,
 } from './actions';
 
 export const displayDataAlert = () => {
@@ -111,4 +112,8 @@ export const createInvoice = (data) => {
       dispatch({ type: CLEAR_DATA_ALERT });
     }, 1500);
   };
+};
+
+export const filterAllInvoices = (filter) => {
+  return (dispatch) => dispatch({ type: FILTER_ALL_INVOICES, payload: filter });
 };
