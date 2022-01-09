@@ -15,6 +15,7 @@
   --green-color: #33d69f;
   --special-color: #888eb0;
   --purple-hover-color: #9277ff;
+  --red-hover-color: #ff9797;
   --transition: all 0.5s ease-in-out;
   --long-transition: all 0.8s ease-in-out;
 }
@@ -95,6 +96,7 @@ button {
   letter-spacing: -0.25px;
   font-family: 'Spartan', sans-serif;
   transition: border 0.3s linear;
+  cursor: pointer;
 }
 
 .input:focus {

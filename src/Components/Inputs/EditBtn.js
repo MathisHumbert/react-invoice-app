@@ -79,11 +79,19 @@ const Wrapper = styled.div`
   .cancel {
     background: var(--ternary-bcg);
     color: var(--secondary-color);
+
+    &:hover {
+      background: var(--border-color);
+    }
   }
 
   .send {
     background: var(--purple-color);
     color: var(--white-color);
+
+    &:hover {
+      background: var(--purple-hover-color);
+    }
   }
 `;
 export default EditBtn;

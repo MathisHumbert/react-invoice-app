@@ -151,6 +151,10 @@ const Wrapper = styled.div`
     color: var(--secondary-color);
     padding: 0;
     width: 100%;
+
+    &:hover {
+      background: var(--border-color);
+    }
   }
 `;
 export default ItemInput;

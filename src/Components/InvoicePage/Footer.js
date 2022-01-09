@@ -67,11 +67,19 @@ const Wrapper = styled.footer`
   .delete {
     background: var(--red-color);
     color: var(--white-color);
+
+    &:hover {
+      background: var(--red-hover-color);
+    }
   }
 
   .paid {
     background: var(--purple-color);
     color: var(--white-color);
+
+    &:hover {
+      background: var(--purple-hover-color);
+    }
   }
 `;
 export default Footer;

@@ -22,6 +22,7 @@ const DateInput = () => {
         dispatch(handleDateInfo(getTodayDate(date), 'createdAt'));
       }}
       id='date'
+      className='input'
     />
   );
 };
