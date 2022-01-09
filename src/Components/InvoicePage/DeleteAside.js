@@ -50,7 +50,7 @@ const Wrapper = styled.aside`
   align-items: center;
   justify-content: center;
   padding: 0 24px;
-  transition: all 0.6s linear;
+  transition: var(--long-transition);
 
   &.open {
     z-index: 99;

@@ -58,6 +58,10 @@ const Wrapper = styled.footer`
   .edit {
     background: var(--ternary-bcg);
     color: var(--secondary-color);
+
+    &:hover {
+      background: var(--border-color);
+    }
   }
 
   .delete {

@@ -27,6 +27,12 @@ const Wrapper = styled.button`
   line-height: 0;
   gap: 24px;
 
+  &:hover {
+    h4 {
+      color: var(--secondary-color);
+    }
+  }
+
   h4 {
     color: var(--primary-color);
     margin-top: 3px;

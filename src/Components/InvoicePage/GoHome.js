@@ -15,12 +15,19 @@ const GoHome = () => {
 
 const Wrapper = styled.button`
   background: transparent;
+
   a {
     text-decoration: none;
     display: flex;
     align-items: center;
     line-height: 0;
     gap: 24px;
+  }
+
+  &:hover {
+    h4 {
+      color: var(--secondary-color);
+    }
   }
 
   h4 {
