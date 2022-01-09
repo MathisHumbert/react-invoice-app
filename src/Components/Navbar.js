@@ -1,18 +1,34 @@
+import { useEffect } from 'react';
 import styled from 'styled-components';
 import { BsFillSunFill, BsFillMoonFill } from 'react-icons/bs';
 import { UserImage, Logo } from './';
+import { useDispatch, useSelector } from 'react-redux';
+import { toggleTheme } from '../redux/actions/toggleActions';
 
 const Navbar = () => {
-  const light = true;
+  const dispatch = useDispatch();
+  const { theme } = useSelector((state) => state.toggleReducer);
+
+  useEffect(() => {
+    if (theme) {
+      document.documentElement.className = 'light-theme';
+    } else {
+      document.documentElement.className = 'dark-theme';
+    }
+  }, [theme]);
+
   return (
     <Wrapper>
       <Logo />
       <div className='right'>
-        {light ? (
-          <BsFillMoonFill className='icon' />
-        ) : (
-          <BsFillSunFill className='icon' />
-        )}
+        <button type='button' onClick={() => dispatch(toggleTheme())}>
+          {theme ? (
+            <BsFillMoonFill className='icon' />
+          ) : (
+            <BsFillSunFill className='icon' />
+          )}
+        </button>
+
         <div className='vr'></div>
         <UserImage />
       </div>
@@ -21,7 +37,7 @@ const Navbar = () => {
 };
 
 const Wrapper = styled.nav`
-  background: var(--secondary-bcg);
+  background: var(--navbar-bcg);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -42,6 +58,10 @@ const Wrapper = styled.nav`
       width: 32px;
       height: 32px;
       border-radius: 50%;
+    }
+
+    button {
+      background: transparent;
     }
 
     .icon {

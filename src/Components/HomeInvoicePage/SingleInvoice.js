@@ -50,7 +50,7 @@ const Wrapper = styled.article`
     top: 24px;
 
     span {
-      color: var(--secondary-color);
+      color: var(--special-color);
     }
   }
 

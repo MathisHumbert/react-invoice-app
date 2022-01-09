@@ -5,6 +5,7 @@ import {
   TOGGLE_DELETION,
   OPEN_EDIT_SIDEBAR,
   CLOSE_EDIT_SIDEBAR,
+  TOGGLE_THEME,
 } from './actions';
 
 export const toggleFilters = () => {
@@ -37,4 +38,8 @@ export const closeEditSidebar = () => {
 
 export const toggleDeletion = () => {
   return (dispatch) => dispatch({ type: TOGGLE_DELETION });
+};
+
+export const toggleTheme = () => {
+  return (dispatch) => dispatch({ type: TOGGLE_THEME });
 };

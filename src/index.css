@@ -3,12 +3,13 @@
 :root {
   --primary-color: #0c0e16;
   --secondary-color: #7e88c3;
-  --white-color: #fff;
   --primary-bcg: #f8f8fb;
   --main-bcg: #fff;
   --secondary-bcg: #373b53;
   --ternary-bcg: #f9fafe;
   --border-color: #dfe3fa;
+  --navbar-bcg: #373b53;
+  --white-color: #fff;
   --red-color: #ec5757;
   --purple-color: #7c5dfa;
   --orange-color: #ff8f00;
@@ -20,11 +21,31 @@
   --long-transition: all 0.8s ease-in-out;
 }
 
+html.dark-theme {
+  --primary-color: #fff;
+  --secondary-color: #dfe3fa;
+  --primary-bcg: #141625;
+  --main-bcg: #1e2139;
+  --secondary-bcg: #0c0e16;
+  --ternary-bcg: #252945;
+  --border-color: #252945;
+  --navbar-bcg: #1e2139;
+  --special-color: #777f98;
+}
+
+/* 
+btn / btn hover color
+navbar color
+landing / login page
+set theme local storage 
+tablet / desktop view
+*/
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  transition: var(--transition);
+  transition: background 0.5s ease-in-out, color 0.5s ease-in-out;
 }
 
 #root {
@@ -97,6 +118,7 @@ button {
   font-family: 'Spartan', sans-serif;
   transition: border 0.3s linear;
   cursor: pointer;
+  background: var(--main-bcg);
 }
 
 .input:focus {

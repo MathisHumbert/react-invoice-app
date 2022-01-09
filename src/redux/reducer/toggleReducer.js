@@ -5,6 +5,7 @@ import {
   TOGGLE_DELETION,
   OPEN_EDIT_SIDEBAR,
   CLOSE_EDIT_SIDEBAR,
+  TOGGLE_THEME,
 } from '../actions/actions';
 
 const inititalState = {
@@ -12,6 +13,7 @@ const inititalState = {
   isEditSidebarOpen: false,
   isNewSidebarOpen: false,
   isDeletionOpen: false,
+  theme: true,
 };
 
 const toggleReducer = (state = inititalState, { type, payload }) => {
@@ -37,6 +39,10 @@ const toggleReducer = (state = inititalState, { type, payload }) => {
 
   if (type === TOGGLE_DELETION) {
     return { ...state, isDeletionOpen: !state.isDeletionOpen };
+  }
+
+  if (type === TOGGLE_THEME) {
+    return { ...state, theme: !state.theme };
   }
 
   return state;

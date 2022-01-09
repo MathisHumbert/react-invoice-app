@@ -39,7 +39,7 @@ const Wrapper = styled.article`
 
   h3 {
     span {
-      color: var(--secondary-color);
+      color: var(--special-color);
     }
   }
 `;

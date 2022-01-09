@@ -54,7 +54,7 @@ const Wrapper = styled.aside`
       font-size: 24px;
 
       span {
-        color: var(--secondary-color);
+        color: var(--special-color);
       }
     }
   }
