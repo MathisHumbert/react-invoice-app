@@ -78,7 +78,7 @@ button {
   font-family: inherit;
 }
 
-input {
+.input {
   width: 100%;
   margin-top: 10px;
   border: 1px solid var(--border-color);
@@ -93,16 +93,16 @@ input {
   transition: border 0.3s linear;
 }
 
-input:focus {
+.input:focus {
   outline: none;
   border: 1px solid var(--purple-color);
 }
 
-input.empty {
+.input.empty {
   border: 1px solid var(--red-color);
 }
 
-input::placeholder {
+.input::placeholder {
   color: var(--primary-color);
   opacity: 0.5;
 }

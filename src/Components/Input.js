@@ -8,6 +8,7 @@ const Input = ({ labelText, type, name, value, handleChange, id }) => {
         id={name}
         value={value}
         onChange={(e) => (id ? handleChange(e, id) : handleChange(e))}
+        className='input'
       />
     </div>
   );

@@ -42,21 +42,19 @@ const DeleteAside = () => {
 };
 const Wrapper = styled.aside`
   position: fixed;
-  top: 0;
-  right: 0;
-  left: 0;
-  height: 0;
-  overflow: hidden;
+  inset: 0;
+  z-index: -1;
+  opacity: 0;
   background: rgba(0, 0, 0, 0.5);
-  z-index: 3;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 0 24px;
-  transition: height 0.6s linear;
+  transition: all 0.6s linear;
 
   &.open {
-    height: 100%;
+    z-index: 99;
+    opacity: 1;
   }
 
   .deletion {

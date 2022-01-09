@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { toggleFilters } from '../../redux/actions/toggleActions';
 import { filtersData } from '../../utils/constants';
@@ -6,8 +7,22 @@ import styled from 'styled-components';
 const FilterForm = () => {
   const dispatch = useDispatch();
   const { isFiltersOpen } = useSelector((state) => state.toggleReducer);
+  const [mainFilter, setMainFilter] = useState('all');
+  const inputs = document.querySelectorAll('.filter-input');
 
   const handleSubmit = (e) => {
+    const name = e.target.name;
+    inputs.forEach((input) => {
+      if (input.name === name) {
+        if (mainFilter !== name) {
+          setMainFilter(name);
+          // dispatch()
+        } else {
+          setMainFilter('all');
+          // dispatch()
+        }
+      }
+    });
     setTimeout(() => {
       dispatch(toggleFilters());
     }, 400);
@@ -23,7 +38,8 @@ const FilterForm = () => {
               name={item}
               id={item}
               onChange={handleSubmit}
-              // checked={false}
+              className='filter-input'
+              checked={item === mainFilter && true}
             />
             <label htmlFor={item}>{item}</label>
           </div>
