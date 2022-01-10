@@ -36,13 +36,13 @@ const EditBtn = () => {
     <Wrapper>
       <button
         type='button'
-        className='sidebar-btn cancel'
+        className='main-btn prmiary'
         onClick={handleDiscard}
       >
         Cancel
       </button>
       <button
-        className='sidebar-btn send'
+        className='main-btn purple'
         type='button'
         onClick={handleSaveSend}
       >
@@ -74,24 +74,6 @@ const Wrapper = styled.div`
       rgba(0, 0, 0, 0.0001) 0%,
       rgba(0, 0, 0, 0.1) 100%
     );
-  }
-
-  .cancel {
-    background: var(--ternary-bcg);
-    color: var(--secondary-color);
-
-    &:hover {
-      background: var(--border-color);
-    }
-  }
-
-  .send {
-    background: var(--purple-color);
-    color: var(--white-color);
-
-    &:hover {
-      background: var(--purple-hover-color);
-    }
   }
 `;
 export default EditBtn;

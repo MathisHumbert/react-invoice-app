@@ -43,21 +43,17 @@ const NewBtn = () => {
   return (
     <Wrapper>
       <button
-        className='sidebar-btn discard'
+        className='main-btn primary'
         type='button'
         onClick={handleDiscard}
       >
         Discard
       </button>
-      <button
-        className='sidebar-btn draft'
-        type='button'
-        onClick={handleSaveDraft}
-      >
+      <button className='main-btn dark' type='button' onClick={handleSaveDraft}>
         Save as Draft
       </button>
       <button
-        className='sidebar-btn send'
+        className='main-btn purple'
         type='button'
         onClick={handleSaveSend}
       >
@@ -89,33 +85,6 @@ const Wrapper = styled.div`
       rgba(0, 0, 0, 0.0001) 0%,
       rgba(0, 0, 0, 0.1) 100%
     );
-  }
-
-  .discard {
-    background: var(--ternary-bcg);
-    color: var(--secondary-color);
-
-    &:hover {
-      background: var(--border-color);
-    }
-  }
-
-  .draft {
-    background: var(--secondary-bcg);
-    color: var(--special-color);
-
-    &:hover {
-      background: var(--primary-color);
-    }
-  }
-
-  .send {
-    background: var(--purple-color);
-    color: var(--white-color);
-
-    &:hover {
-      background: var(--purple-hover-color);
-    }
   }
 `;
 export default NewBtn;

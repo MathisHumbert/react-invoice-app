@@ -19,14 +19,14 @@ const DeleteAside = () => {
         </p>
         <div className='buttons'>
           <button
-            className='sidebar-btn cancel'
+            className='main-btn primary'
             onClick={() => dispatch(toggleDeletion())}
           >
             Cancel
           </button>
           <Link to='/'>
             <button
-              className='sidebar-btn delete'
+              className='main-btn red'
               onClick={() => {
                 dispatch(deleteInvoice(single_invoice._id));
                 dispatch(toggleDeletion());
@@ -75,20 +75,8 @@ const Wrapper = styled.aside`
     justify-content: flex-end;
   }
 
-  .cancel {
-    width: 91px;
-    background: var(--ternary-bcg);
-    color: var(--secondary-color);
-  }
-
   a {
     text-decoration: none;
-  }
-
-  .delete {
-    width: 91px;
-    background: var(--red-color);
-    color: var(--white-color);
   }
 `;
 

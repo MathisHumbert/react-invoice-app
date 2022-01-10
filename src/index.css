@@ -179,6 +179,14 @@ label {
   background: var(--border-color);
 }
 
+.main-btn.dark {
+  background: var(--secondary-bcg);
+  color: var(--special-color);
+}
+.main-btn.dark:hover {
+  background: var(--primary-color);
+}
+
 .alert {
   margin-top: 24px;
   width: 100%;
