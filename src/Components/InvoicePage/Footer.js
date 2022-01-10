@@ -15,7 +15,7 @@ const Footer = () => {
     <Wrapper>
       {single_invoice.status !== 'paid' && (
         <button
-          className='sidebar-btn edit'
+          className='main-btn primary'
           onClick={() => {
             dispatch(openEditSidebar());
             dispatch(setItem(single_invoice));
@@ -25,14 +25,14 @@ const Footer = () => {
         </button>
       )}
       <button
-        className='sidebar-btn delete'
+        className='main-btn red'
         onClick={() => dispatch(toggleDeletion())}
       >
         Delete
       </button>
       {single_invoice.status === 'pending' && (
         <button
-          className='sidebar-btn paid'
+          className='main-btn purple'
           onClick={() =>
             dispatch(updateInvoice(single_invoice._id, { status: 'paid' }))
           }
@@ -54,32 +54,5 @@ const Wrapper = styled.footer`
   gap: 8px;
   background: var(--main-bcg);
   padding: 24px;
-
-  .edit {
-    background: var(--ternary-bcg);
-    color: var(--secondary-color);
-
-    &:hover {
-      background: var(--border-color);
-    }
-  }
-
-  .delete {
-    background: var(--red-color);
-    color: var(--white-color);
-
-    &:hover {
-      background: var(--red-hover-color);
-    }
-  }
-
-  .paid {
-    background: var(--purple-color);
-    color: var(--white-color);
-
-    &:hover {
-      background: var(--purple-hover-color);
-    }
-  }
 `;
 export default Footer;
