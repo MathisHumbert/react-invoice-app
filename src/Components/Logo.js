@@ -37,5 +37,14 @@ const Wrapper = styled.div`
     z-index: 1;
     border-top-left-radius: 20px;
   }
+
+  @media (min-width: 768px) {
+    width: 80px;
+    height: 80px;
+
+    img {
+      width: 32px;
+    }
+  }
 `;
 export default Logo;

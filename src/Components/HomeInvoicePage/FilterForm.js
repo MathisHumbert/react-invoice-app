@@ -136,5 +136,9 @@ const Wrapper = styled.form`
   input[type='checkbox']:checked {
     background: var(--purple-color);
   }
+
+  @media (min-width: 768px) {
+    width: 192px;
+  }
 `;
 export default FilterForm;

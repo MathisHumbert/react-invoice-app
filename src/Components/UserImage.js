@@ -21,7 +21,7 @@ const UserImage = () => {
 
 const Wrapper = styled.div`
   display: flex;
-  gap: 1rem;
+  gap: 24px;
   align-items: center;
 
   h3 {
@@ -39,6 +39,10 @@ const Wrapper = styled.div`
     &:hover {
       color: #dfe3fa;
     }
+  }
+
+  @media (min-width: 768px) {
+    gap: 32px;
   }
 `;
 export default UserImage;

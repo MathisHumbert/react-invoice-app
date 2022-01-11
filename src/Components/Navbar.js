@@ -28,7 +28,6 @@ const Navbar = () => {
             <BsFillSunFill className='icon' />
           )}
         </button>
-
         <div className='vr'></div>
         <UserImage />
       </div>
@@ -41,6 +40,8 @@ const Wrapper = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  height: 72px;
+  min-height: 72px;
 
   .right {
     display: flex;
@@ -71,6 +72,20 @@ const Wrapper = styled.nav`
 
       &:hover {
         color: #dfe3fa;
+      }
+    }
+  }
+
+  @media (min-width: 768px) {
+    height: 80px;
+    min-height: 80px;
+
+    .right {
+      gap: 32px;
+      margin-right: 32px;
+
+      .vr {
+        height: 80px;
       }
     }
   }

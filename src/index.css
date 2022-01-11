@@ -105,6 +105,7 @@ h4 {
   letter-spacing: -0.25px;
   line-height: 15px;
   color: var(--primary-color);
+  font-weight: 600;
 }
 
 p {
@@ -227,4 +228,18 @@ label {
 
 .icon {
   transition: 0.1s all ease-in-out;
+}
+
+.large {
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  h1 {
+    font-size: 32px;
+    letter-spacing: -1px;
+  }
+  .large {
+    display: inline-block;
+  }
 }

@@ -14,7 +14,9 @@ const NewButton = () => {
       <span>
         <FaPlus className='icon' />
       </span>
-      <p>New</p>
+      <p>
+        New <p className='large'>Invoice</p>
+      </p>
     </Wrapper>
   );
 };
@@ -25,7 +27,7 @@ const Wrapper = styled.button`
   align-items: center;
   gap: 10px;
   color: var(--white-color);
-  border-radius: 20px;
+  border-radius: 24px;
   line-height: 0;
   padding: 6px;
   padding-right: 10px;
@@ -51,6 +53,10 @@ const Wrapper = styled.button`
     .icon {
       font-size: 12px;
     }
+  }
+
+  @media (min-width: 768px) {
+    padding: 8px 10px;
   }
 `;
 export default NewButton;

@@ -15,7 +15,8 @@ const Header = () => {
       <div className='left'>
         <h1>Invoices</h1>
         <p>
-          {invoices.length} invoice{invoices.length > 1 && 's'}
+          <p className='large'>There are </p> {invoices.length} total invoice
+          {invoices.length > 1 && 's'}
         </p>
       </div>
       <div className='right'>
@@ -25,11 +26,13 @@ const Header = () => {
             className='filter-btn'
             onClick={() => dispatch(toggleFilters())}
           >
-            <p>Filter</p>
+            <p>
+              Filter <p className='large'>by status</p>
+            </p>
             {isFiltersOpen ? (
-              <FaChevronUp className='icon' />
+              <FaChevronUp className='filter-icon icon' />
             ) : (
-              <FaChevronDown className='icon' />
+              <FaChevronDown className='filter-icon icon' />
             )}
           </button>
           <FilterForm />
@@ -49,6 +52,7 @@ const Wrapper = styled.header`
 
   h1 {
     margin-bottom: 4px;
+    margin-top: 0;
   }
 
   .right {
@@ -72,6 +76,22 @@ const Wrapper = styled.header`
     .icon {
       font-size: 9px;
       color: var(--purple-color);
+    }
+  }
+
+  @media (min-width: 768px) {
+    margin: 56px 0;
+
+    h1 {
+      margin-bottom: 8px;
+    }
+
+    .right {
+      gap: 40px;
+    }
+
+    .filter-icon {
+      margin-left: 10px;
     }
   }
 `;

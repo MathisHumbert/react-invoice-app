@@ -15,5 +15,9 @@ const HomeInvoicePage = () => {
 const Wrapper = styled.main`
   width: calc(100% - 48px);
   margin: 0 auto;
+
+  @media (min-width: 768px) {
+    width: calc(100% - 96px);
+  }
 `;
 export default HomeInvoicePage;
