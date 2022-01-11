@@ -42,5 +42,21 @@ const Wrapper = styled.article`
       color: var(--special-color);
     }
   }
+
+  @media (min-width: 768px) {
+    display: flex;
+    justify-content: space-between;
+
+    .left {
+      margin-top: 0;
+      p {
+        text-align: right;
+      }
+    }
+
+    h3 {
+      margin-bottom: 10px;
+    }
+  }
 `;
 export default TopInfo;

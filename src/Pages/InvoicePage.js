@@ -51,5 +51,12 @@ const Wrapper = styled.main`
   padding-top: 2rem;
   padding-bottom: 150px;
   position: relative;
+
+  @media (min-width: 768px) {
+    width: calc(100% - 96px);
+    padding-top: 48px;
+    min-height: inherit;
+    height: 100%;
+  }
 `;
 export default InvoicePage;

@@ -73,5 +73,9 @@ const Wrapper = styled.article`
       }
     }
   }
+
+  @media (min-width: 768px) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 `;
 export default BottomInfo;

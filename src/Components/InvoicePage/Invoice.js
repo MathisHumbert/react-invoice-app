@@ -19,5 +19,9 @@ const Wrapper = styled.section`
   padding: 24px;
   margin-top: 13px;
   border-radius: 8px;
+
+  @media (min-width: 768px) {
+    padding: 32px;
+  }
 `;
 export default Invoice;

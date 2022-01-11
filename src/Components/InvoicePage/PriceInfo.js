@@ -21,8 +21,10 @@ const PriceInfo = () => {
               <div className='item' key={index}>
                 <h4 className='name'>{name}</h4>
                 <h4 className='quantity'>
-                  {quantity} x {formatPrice(price)}
+                  {quantity}
+                  <h4 className='small'> x {formatPrice(price)}</h4>
                 </h4>
+                <h4 className='price'>{formatPrice(price)}</h4>
                 <h4 className='total'>{formatPrice(total)}</h4>
               </div>
             );
@@ -60,6 +62,10 @@ const Wrapper = styled.article`
     h1 {
       color: var(--white-color);
     }
+
+    h1 {
+      font-size: 24px;
+    }
   }
 
   .title {
@@ -86,6 +92,66 @@ const Wrapper = styled.article`
     bottom: 50%;
     right: 0;
     transform: translateY(50%);
+  }
+
+  .price {
+    display: none;
+  }
+
+  @media (min-width: 768px) {
+    .top {
+      padding: 32px;
+    }
+
+    .title {
+      display: grid;
+      grid-template-columns: 40% 10% 25% 25%;
+
+      p {
+        text-align: right;
+
+        &:first-child {
+          text-align: left;
+        }
+      }
+    }
+
+    .items {
+      margin-top: 32px;
+    }
+
+    .item {
+      display: grid;
+      grid-template-columns: 40% 10% 25% 25%;
+
+      h4 {
+        text-align: right;
+      }
+
+      .name {
+        text-align: left;
+      }
+
+      .quantity {
+        margin-top: 0;
+        margin-right: 15px;
+      }
+    }
+
+    .small {
+      display: none;
+    }
+
+    .price {
+      display: block;
+    }
+
+    .total {
+      position: relative;
+      bottom: inherit;
+      right: inherit;
+      transform: translateY(0);
+    }
   }
 `;
 

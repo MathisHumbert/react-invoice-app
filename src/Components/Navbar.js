@@ -22,7 +22,7 @@ const Navbar = () => {
       <Logo />
       <div className='right'>
         <button type='button' onClick={() => dispatch(toggleTheme())}>
-          {theme ? (
+          {theme === 'light' ? (
             <BsFillMoonFill className='icon' />
           ) : (
             <BsFillSunFill className='icon' />
