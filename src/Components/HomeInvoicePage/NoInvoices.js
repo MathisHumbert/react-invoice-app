@@ -7,8 +7,11 @@ const NoInvoices = () => {
       <img src={image} alt='no-input-img' />
       <h1>There is nothing here</h1>
       <p>
-        Create an invoice by clicking the <br /> <span>New</span> button and get
-        started
+        Create an invoice by clicking the <br />{' '}
+        <span>
+          New <p className='large'>Invoice</p>
+        </span>{' '}
+        button and get started
       </p>
     </Wrapper>
   );
@@ -37,6 +40,11 @@ const Wrapper = styled.article`
 
   img {
     width: 70%;
+    max-width: 600px;
+  }
+
+  @media (min-width: 768px) {
+    margin-top: 6rem;
   }
 `;
 export default NoInvoices;

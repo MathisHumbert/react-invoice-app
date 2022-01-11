@@ -36,7 +36,7 @@ const Wrapper = styled.button`
   }
 
   .icon {
-    font-size: 9px;
+    font-size: 12px;
     color: var(--purple-color);
   }
 `;

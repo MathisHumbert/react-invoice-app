@@ -40,8 +40,11 @@ const AllInvoices = () => {
 const Wrapper = styled.section`
   display: flex;
   flex-direction: column;
-
   gap: 1rem;
   margin-bottom: 2rem;
+
+  @media (min-width: 768px) {
+    gap: 24px;
+  }
 `;
 export default AllInvoices;

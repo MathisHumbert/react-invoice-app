@@ -238,7 +238,9 @@ label {
   h1 {
     font-size: 32px;
     letter-spacing: -1px;
+    line-height: auto;
   }
+
   .large {
     display: inline-block;
   }

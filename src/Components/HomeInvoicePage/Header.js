@@ -74,7 +74,7 @@ const Wrapper = styled.header`
     }
 
     .icon {
-      font-size: 9px;
+      font-size: 12px;
       color: var(--purple-color);
     }
   }

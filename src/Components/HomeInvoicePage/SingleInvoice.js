@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { FaChevronRight } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import StatusButton from '../StatusButton';
 import { formatDate, formatPrice } from '../../utils/helpers';
@@ -7,7 +8,7 @@ const SingleInvoice = ({ _id, clientName, createdAt, items, status }) => {
   const { total } = items[0];
 
   return (
-    <Link to={`/invoice/${_id}`}>
+    <Link to={`/invoice/${_id}`} style={{ textDecoration: 'none' }}>
       <Wrapper>
         <h4>
           <span>#</span>
@@ -17,6 +18,9 @@ const SingleInvoice = ({ _id, clientName, createdAt, items, status }) => {
         <p className='name'>{clientName === '' ? 'unknown' : clientName}</p>
         <h3>{formatPrice(total)}</h3>
         <StatusButton status={status} />
+        <span className='right-icon'>
+          <FaChevronRight />
+        </span>
       </Wrapper>
     </Link>
   );
@@ -79,6 +83,40 @@ const Wrapper = styled.article`
     right: 24px;
     bottom: 24px;
     cursor: inherit;
+  }
+
+  .right-icon {
+    display: none;
+  }
+
+  @media (min-width: 768px) {
+    width: 100%;
+    height: 100%;
+    min-height: 72px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr) auto;
+    align-items: center;
+    padding: 0 24px;
+
+    a,
+    h4,
+    .name,
+    .date,
+    h3,
+    button {
+      position: inherit;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+
+    .right-icon {
+      display: block;
+      width: 100%;
+      font-size: 12px;
+      color: var(--purple-color);
+    }
   }
 `;
 export default SingleInvoice;

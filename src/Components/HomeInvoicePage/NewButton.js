@@ -56,7 +56,7 @@ const Wrapper = styled.button`
   }
 
   @media (min-width: 768px) {
-    padding: 8px 10px;
+    padding: 8px 14px 8px 10px;
   }
 `;
 export default NewButton;
