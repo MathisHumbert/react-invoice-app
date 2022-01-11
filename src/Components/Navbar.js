@@ -66,11 +66,11 @@ const Wrapper = styled.nav`
 
     .icon {
       font-size: 20px;
-      color: var(--secondary-color);
+      color: var(--navbar-color);
       cursor: pointer;
 
       &:hover {
-        color: var(--border-color);
+        color: #dfe3fa;
       }
     }
   }

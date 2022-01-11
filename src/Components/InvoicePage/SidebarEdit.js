@@ -28,9 +28,10 @@ const Wrapper = styled.aside`
   left: 0;
   bottom: 0;
   width: 0;
-  background: var(--main-bcg);
+  background: var(--sidebar-bcg);
   padding-top: 2rem;
   overflow: scroll;
+  overflow-x: hidden;
   transition: var(--long-transition);
 
   &.open {

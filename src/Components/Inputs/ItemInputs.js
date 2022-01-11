@@ -72,7 +72,7 @@ const ItemInput = () => {
       })}
       <button
         type='button'
-        className='sidebar-btn'
+        className='main-btn primary'
         onClick={() => dispatch(createNewItem())}
       >
         + Add New Item
@@ -145,16 +145,10 @@ const Wrapper = styled.div`
     -moz-appearance: textfield;
   }
 
-  .sidebar-btn {
+  .main-btn {
     margin-top: 48px;
-    background: var(--ternary-bcg);
-    color: var(--secondary-color);
     padding: 0;
     width: 100%;
-
-    &:hover {
-      background: var(--border-color);
-    }
   }
 `;
 export default ItemInput;

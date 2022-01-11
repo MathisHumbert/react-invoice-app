@@ -9,14 +9,22 @@
   --ternary-bcg: #f9fafe;
   --border-color: #dfe3fa;
   --navbar-bcg: #373b53;
+  --navbar-color: #7e88c3;
+  --sidebar-bcg: #fff;
   --white-color: #fff;
   --red-color: #ec5757;
   --purple-color: #7c5dfa;
   --orange-color: #ff8f00;
   --green-color: #33d69f;
   --special-color: #888eb0;
+  --primary-hover-color: #dfe3fa;
   --purple-hover-color: #9277ff;
   --red-hover-color: #ff9797;
+  --dark-btn-bcg: #373b53;
+  --dark-btn-color: #888eb0;
+  --dark-btn-hover-bcg: #0c0e16;
+  --draft-color: #373b53;
+  --draft-bcg: rgba(55, 59, 83, 0.05);
   --transition: all 0.5s ease-in-out;
   --long-transition: all 0.8s ease-in-out;
 }
@@ -30,14 +38,23 @@ html.dark-theme {
   --ternary-bcg: #252945;
   --border-color: #252945;
   --navbar-bcg: #1e2139;
+  --navbar-color: #858bb2;
   --special-color: #777f98;
+  --sidebar-bcg: #141625;
+  --primary-hover-color: #fff;
+  --dark-btn-bcg: #373b53;
+  --dark-btn-color: #dfe3fa;
+  --dark-btn-hover-bcg: #1e2139;
+  --draft-color: #dfe3fa;
+  --draft-bcg: rgba(223, 227, 250, 0.05);
 }
 
 /* 
 btn / btn hover color
 navbar color
 landing / login page refactor code
-set theme local storage 
+set theme local storage
+icon hover 
 tablet / desktop view
 */
 
@@ -50,6 +67,7 @@ tablet / desktop view
 
 #root {
   overflow-x: hidden;
+  background: var(--primary-bcg);
 }
 
 .stop-scrolling {
@@ -116,9 +134,9 @@ button {
   line-height: 0;
   letter-spacing: -0.25px;
   font-family: 'Spartan', sans-serif;
-  transition: border 0.3s linear;
   cursor: pointer;
   background: var(--main-bcg);
+  transition: var(--transition);
 }
 
 .input:focus {
@@ -175,15 +193,16 @@ label {
 }
 
 .main-btn.primary:hover {
-  background: var(--border-color);
+  background: var(--primary-hover-color);
+  color: #7e88c3;
 }
 
 .main-btn.dark {
-  background: var(--secondary-bcg);
-  color: var(--special-color);
+  background: var(--dark-btn-bcg);
+  color: var(--dark-btn-color);
 }
 .main-btn.dark:hover {
-  background: var(--primary-color);
+  background: var(--dark-btn-hover-bcg);
 }
 
 .alert {
@@ -204,4 +223,8 @@ label {
 .alert-success {
   background: rgba(51, 214, 159, 0.3);
   color: var(--green-color);
+}
+
+.icon {
+  transition: 0.1s all ease-in-out;
 }

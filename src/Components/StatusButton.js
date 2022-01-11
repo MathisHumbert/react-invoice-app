@@ -45,11 +45,11 @@ const Wrapper = styled.button`
     }
   }
   &.draft {
-    background: rgba(55, 59, 83, 0.05);
-    color: var(--secondary-bcg);
+    background: var(--draft-bcg);
+    color: var(--draft-color);
 
     .circle {
-      background: var(--secondary-bcg);
+      background: var(--draft-color);
     }
   }
 

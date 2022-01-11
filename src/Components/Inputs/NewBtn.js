@@ -64,8 +64,7 @@ const NewBtn = () => {
 };
 
 const Wrapper = styled.div`
-  background: var(--main-bcg);
-
+  background: var(--sidebar-bcg);
   display: flex;
   margin-top: 88px;
   padding: 24px 0;

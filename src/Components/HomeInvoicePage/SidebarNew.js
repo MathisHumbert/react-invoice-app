@@ -25,7 +25,7 @@ const Wrapper = styled.aside`
   left: 0;
   bottom: 0;
   width: 0;
-  background: var(--main-bcg);
+  background: var(--sidebar-bcg);
   padding-top: 2rem;
   overflow: scroll;
   overflow-x: hidden;
@@ -42,6 +42,7 @@ const Wrapper = styled.aside`
   .container {
     padding: 0 24px;
     opacity: 0;
+    transition: opacity 0.6s ease-in-out;
   }
 
   header {

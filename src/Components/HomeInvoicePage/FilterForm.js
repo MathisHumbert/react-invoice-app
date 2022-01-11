@@ -68,6 +68,8 @@ const Wrapper = styled.form`
   opacity: 0;
   box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
     rgba(0, 0, 0, 0.22) 0px 15px 12px;
+  transition: color 0.5s ease-in-out, background 0.5s ease-in-out,
+    height 0.8s ease-in-out, opacity 0.8s ease-in-out;
 
   &:first-child {
     padding-top: 2rem;

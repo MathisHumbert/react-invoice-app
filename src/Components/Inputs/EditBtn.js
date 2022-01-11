@@ -36,7 +36,7 @@ const EditBtn = () => {
     <Wrapper>
       <button
         type='button'
-        className='main-btn prmiary'
+        className='main-btn primary'
         onClick={handleDiscard}
       >
         Cancel
@@ -53,7 +53,7 @@ const EditBtn = () => {
 };
 
 const Wrapper = styled.div`
-  background: var(--main-bcg);
+  background: var(--sidebar-bcg);
   display: flex;
   justify-content: flex-end;
   margin-top: 88px;

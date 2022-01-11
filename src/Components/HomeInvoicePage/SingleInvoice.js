@@ -30,6 +30,8 @@ const Wrapper = styled.article`
   border-radius: 8px;
   box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
   border: 2px solid transparent;
+  transition: color 0.5s ease-in-out, background 0.5s ease-in-out,
+    border 0.3s ease-in-out;
 
   &:hover {
     border-color: var(--purple-color);

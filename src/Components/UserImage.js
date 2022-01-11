@@ -26,14 +26,14 @@ const Wrapper = styled.div`
 
   h3 {
     text-align: center;
-    color: var(--secondary-color);
+    color: var(--navbar-color);
     text-transform: capitalize;
   }
 
   button {
     background: transparent;
     font-weight: 600;
-    color: var(--secondary-color);
+    color: var(--navbar-color);
     cursor: pointer;
 
     &:hover {
