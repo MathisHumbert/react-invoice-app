@@ -75,5 +75,12 @@ const Wrapper = styled.div`
       rgba(0, 0, 0, 0.1) 100%
     );
   }
+
+  @media (min-width: 768px) {
+    &::after {
+      left: -48px;
+      width: calc(100% + 96px);
+    }
+  }
 `;
 export default EditBtn;

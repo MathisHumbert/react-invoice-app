@@ -22,7 +22,7 @@ const PriceInfo = () => {
                 <h4 className='name'>{name}</h4>
                 <h4 className='quantity'>
                   {quantity}
-                  <h4 className='small'> x {formatPrice(price)}</h4>
+                  <span className='small'> x {formatPrice(price)}</span>
                 </h4>
                 <h4 className='price'>{formatPrice(price)}</h4>
                 <h4 className='total'>{formatPrice(total)}</h4>

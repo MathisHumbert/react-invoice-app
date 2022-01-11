@@ -11,11 +11,11 @@ const NewButton = () => {
       className='new-btn'
       onClick={() => dispatch(openNewSidebar())}
     >
-      <span>
+      <span className='icon-container'>
         <FaPlus className='icon' />
       </span>
       <p>
-        New <p className='large'>Invoice</p>
+        New <span className='large'>Invoice</span>
       </p>
     </Wrapper>
   );
@@ -40,7 +40,7 @@ const Wrapper = styled.button`
     color: var(--white-color);
   }
 
-  span {
+  .icon-container {
     width: 32px;
     height: 32px;
     background: var(--white-color);

@@ -42,5 +42,9 @@ const Wrapper = styled.button`
     font-size: 12px;
     color: var(--purple-color);
   }
+
+  @media (min-width: 768px) {
+    display: none;
+  }
 `;
 export default GoBack;

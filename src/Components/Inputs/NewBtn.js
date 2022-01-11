@@ -49,16 +49,22 @@ const NewBtn = () => {
       >
         Discard
       </button>
-      <button className='main-btn dark' type='button' onClick={handleSaveDraft}>
-        Save as Draft
-      </button>
-      <button
-        className='main-btn purple'
-        type='button'
-        onClick={handleSaveSend}
-      >
-        Save & Send
-      </button>
+      <div className='btn-container'>
+        <button
+          className='main-btn dark'
+          type='button'
+          onClick={handleSaveDraft}
+        >
+          Save as Draft
+        </button>
+        <button
+          className='main-btn purple'
+          type='button'
+          onClick={handleSaveSend}
+        >
+          Save & Send
+        </button>
+      </div>
     </Wrapper>
   );
 };
@@ -70,6 +76,11 @@ const Wrapper = styled.div`
   padding: 24px 0;
   gap: 8px;
   position: relative;
+
+  .btn-container {
+    display: flex;
+    gap: 8px;
+  }
 
   &::after {
     position: absolute;
@@ -84,6 +95,15 @@ const Wrapper = styled.div`
       rgba(0, 0, 0, 0.0001) 0%,
       rgba(0, 0, 0, 0.1) 100%
     );
+  }
+
+  @media (min-width: 768px) {
+    justify-content: space-between;
+
+    &::after {
+      left: -48px;
+      width: calc(100% + 96px);
+    }
   }
 `;
 export default NewBtn;

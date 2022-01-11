@@ -123,6 +123,10 @@ button {
   font-family: inherit;
 }
 
+aside {
+  z-index: 5;
+}
+
 .input {
   width: 100%;
   margin-top: 10px;
@@ -234,6 +238,18 @@ label {
   display: none;
 }
 
+.rest-aside {
+  position: fixed;
+  inset: 0;
+  top: 80px;
+  z-index: -1;
+  opacity: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  transition: var(--long-transition);
+  cursor: pointer;
+}
+
 @media screen and (min-width: 768px) {
   h1 {
     font-size: 32px;
@@ -243,5 +259,10 @@ label {
 
   .large {
     display: inline-block;
+  }
+
+  .rest-aside.open {
+    z-index: 3;
+    opacity: 1;
   }
 }

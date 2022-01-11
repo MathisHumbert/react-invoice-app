@@ -8,9 +8,9 @@ const NoInvoices = () => {
       <h1>There is nothing here</h1>
       <p>
         Create an invoice by clicking the <br />{' '}
-        <span>
-          New <p className='large'>Invoice</p>
-        </span>{' '}
+        <strong>
+          New <span className='large'>Invoice</span>
+        </strong>{' '}
         button and get started
       </p>
     </Wrapper>

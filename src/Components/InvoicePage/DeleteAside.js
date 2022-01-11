@@ -50,10 +50,11 @@ const Wrapper = styled.aside`
   align-items: center;
   justify-content: center;
   padding: 0 24px;
+
   transition: var(--long-transition);
 
   &.open {
-    z-index: 99;
+    z-index: 5;
     opacity: 1;
   }
 
@@ -61,6 +62,7 @@ const Wrapper = styled.aside`
     background: var(--main-bcg);
     padding: 32px;
     border-radius: 8px;
+    max-width: 380px;
 
     p {
       margin-top: 18px;
@@ -77,6 +79,13 @@ const Wrapper = styled.aside`
 
   a {
     text-decoration: none;
+  }
+
+  @media (min-width: 768px) {
+    .deletion {
+      padding: 48px;
+      max-width: 428px;
+    }
   }
 `;
 

@@ -15,7 +15,8 @@ const Header = () => {
       <div className='left'>
         <h1>Invoices</h1>
         <p>
-          <p className='large'>There are </p> {invoices.length} total invoice
+          <span className='large'>There are </span> {invoices.length} total
+          invoice
           {invoices.length > 1 && 's'}
         </p>
       </div>
@@ -27,7 +28,7 @@ const Header = () => {
             onClick={() => dispatch(toggleFilters())}
           >
             <p>
-              Filter <p className='large'>by status</p>
+              Filter <span className='large'>by status</span>
             </p>
             {isFiltersOpen ? (
               <FaChevronUp className='filter-icon icon' />

@@ -12,6 +12,7 @@ const Logo = () => {
 const Wrapper = styled.div`
   width: 72px;
   height: 72px;
+  max-height: 72px;
   display: grid;
   place-items: center;
   background: var(--purple-color);
@@ -41,6 +42,7 @@ const Wrapper = styled.div`
   @media (min-width: 768px) {
     width: 80px;
     height: 80px;
+    max-height: 80px;
 
     img {
       width: 32px;
