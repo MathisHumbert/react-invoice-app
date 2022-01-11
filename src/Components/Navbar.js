@@ -10,7 +10,7 @@ const Navbar = () => {
   const { theme } = useSelector((state) => state.toggleReducer);
 
   useEffect(() => {
-    if (theme) {
+    if (theme === 'light') {
       document.documentElement.className = 'light-theme';
     } else {
       document.documentElement.className = 'dark-theme';

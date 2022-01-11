@@ -50,6 +50,8 @@ export const setupUser = (formUser, type, alertText) => {
 };
 
 export const logoutUser = () => {
+  const root = document.getElementById('root');
+  root.classList.remove('stop-scrolling');
   return (dispatch) => {
     dispatch({ type: LOGOUT_USER });
     removeUserFromLocalStorage();

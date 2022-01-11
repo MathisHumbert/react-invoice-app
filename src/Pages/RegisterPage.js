@@ -3,8 +3,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { AlertUser } from '../components';
-import Logo from '../components/Logo';
+import { Logo, Input } from '../components';
 import { displayUserAlert, setupUser } from '../redux/actions/userActions';
+import { setTheme } from '../utils/helpers';
 
 const inititalState = {
   name: '',
@@ -53,6 +54,10 @@ const RegisterPage = () => {
     }
   }, [user, navigate]);
 
+  useEffect(() => {
+    setTheme();
+  }, []);
+
   const handleChange = (e) => {
     setValues({ ...values, [e.target.name]: e.target.value });
   };
@@ -69,35 +74,33 @@ const RegisterPage = () => {
         <h1 className='title'>{values.isMember ? 'Login' : 'Register'}</h1>
         {showAlert && <AlertUser />}
         {!values.isMember && (
-          <div className='input-container'>
-            <label htmlFor='name'>Name</label>
-            <input
-              type='text'
-              name='name'
-              onChange={handleChange}
-              value={values.name}
-            />
-          </div>
+          <Input
+            labelText='Name'
+            type='text'
+            name='name'
+            handleChange={handleChange}
+            value={values.name}
+          />
         )}
-        <div className='input-container'>
-          <label htmlFor='email'>Email</label>
-          <input
-            type='email'
-            name='email'
-            onChange={handleChange}
-            value={values.email}
-          />
-        </div>
-        <div className='input-container'>
-          <label htmlFor='password'>Password</label>
-          <input
-            type='password'
-            name='password'
-            onChange={handleChange}
-            value={values.password}
-          />
-        </div>
-        <button type='submit' className='submit-btn' disabled={isLoading}>
+        <Input
+          labelText='Email'
+          type='email'
+          name='email'
+          handleChange={handleChange}
+          value={values.email}
+        />
+        <Input
+          labelText='Password'
+          type='password'
+          name='password'
+          handleChange={handleChange}
+          value={values.password}
+        />
+        <button
+          type='submit'
+          className='submit-btn main-btn purple'
+          disabled={isLoading}
+        >
           Submit
         </button>
         <h3>
@@ -120,6 +123,7 @@ const Wrapper = styled.main`
   padding: 2rem 24px;
 
   form {
+    position: relative;
     width: 100%;
     background: var(--main-bcg);
     padding: 24px;
@@ -128,51 +132,30 @@ const Wrapper = styled.main`
     display: flex;
     flex-direction: column;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 6px;
+      background: var(--purple-color);
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+    }
   }
 
   header {
     display: flex;
     gap: 24px;
     align-items: center;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
     align-self: center;
   }
 
-  .input-container {
+  .single-input {
     margin-top: 24px;
-  }
-
-  input {
-    background: transparent;
-    width: 100%;
-    margin-top: 10px;
-    border: 1px solid var(--border-color);
-    padding: 17px 0 17px 20px;
-    border-radius: 4px;
-    font-size: 16px;
-    font-weight: 400;
-    color: var(--primary-color);
-    line-height: 0;
-    letter-spacing: -0.25px;
-    font-family: 'Spartan', sans-serif;
-    transition: border 0.3s linear;
-
-    &:focus {
-      outline: none;
-      border: 1px solid var(--purple-color);
-    }
-
-    &::placeholder {
-      color: var(--primary-color);
-      opacity: 0.5;
-    }
-  }
-
-  label {
-    color: var(--secondary-color);
-    font-size: 12px;
-    line-height: 15px;
-    letter-spacing: -0.25px;
   }
 
   .title {
@@ -186,8 +169,7 @@ const Wrapper = styled.main`
     border-radius: 6px;
     text-transform: capitalize;
     line-height: 0;
-    background: var(--purple-color);
-    color: var(--white-color);
+    width: 100%;
   }
 
   .toggle-btn {
@@ -196,15 +178,15 @@ const Wrapper = styled.main`
     line-height: 24px;
     background: transparent;
     color: var(--purple-color);
+
+    &:hover {
+      color: var(--purple-hover-color);
+    }
   }
 
   h3 {
     text-align: center;
     margin-top: 24px;
-
-    a {
-      color: var(--purple-color);
-    }
   }
 `;
 

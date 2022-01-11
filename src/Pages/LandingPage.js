@@ -1,11 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { FaTwitter, FaGithub } from 'react-icons/fa';
 import { SiFrontendmentor } from 'react-icons/si';
 import Logo from '../components/Logo';
+import { setTheme } from '../utils/helpers';
 
 const LandingPage = () => {
+  useEffect(() => {
+    setTheme();
+  }, []);
+
   return (
     <Wrapper>
       <div className='container'>
@@ -26,7 +31,7 @@ const LandingPage = () => {
             end
           </p>
           <Link to='/register'>
-            <button className='login' type='button'>
+            <button className='main-btn purple' type='button'>
               Login / Register
             </button>
           </Link>
@@ -34,17 +39,17 @@ const LandingPage = () => {
         <ul className='icon-container'>
           <li>
             <a href='https://twitter.com/Mathis1Humbert'>
-              <FaTwitter />
+              <FaTwitter className='icon' />
             </a>
           </li>
           <li>
             <a href='https://github.com/MathisHumbert'>
-              <FaGithub />
+              <FaGithub className='icon' />
             </a>
           </li>
           <li>
             <a href='https://www.frontendmentor.io/profile/MathisHumbert'>
-              <SiFrontendmentor />
+              <SiFrontendmentor className='icon' />
             </a>
           </li>
         </ul>
@@ -85,14 +90,12 @@ const Wrapper = styled.main`
     text-decoration: none;
   }
 
-  .login {
+  .main-btn {
     margin-top: 24px;
     padding: 20px;
     border-radius: 6px;
     text-transform: capitalize;
     line-height: 0;
-    background: var(--purple-color);
-    color: var(--white-color);
   }
 
   ul {
@@ -104,10 +107,10 @@ const Wrapper = styled.main`
       list-style-type: none;
     }
 
-    a {
+    .icon {
       color: var(--primary-color);
       font-size: 24px;
-      transition: color 0.3s linear;
+      transition: color 0.1s ease-in-out;
 
       &:hover {
         color: var(--purple-color);

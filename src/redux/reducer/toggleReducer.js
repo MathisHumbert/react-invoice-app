@@ -8,12 +8,14 @@ import {
   TOGGLE_THEME,
 } from '../actions/actions';
 
+const localTheme = localStorage.getItem('theme');
+
 const inititalState = {
   isFiltersOpen: false,
   isEditSidebarOpen: false,
   isNewSidebarOpen: false,
   isDeletionOpen: false,
-  theme: true,
+  theme: localTheme || 'light',
 };
 
 const toggleReducer = (state = inititalState, { type, payload }) => {
@@ -42,7 +44,9 @@ const toggleReducer = (state = inititalState, { type, payload }) => {
   }
 
   if (type === TOGGLE_THEME) {
-    return { ...state, theme: !state.theme };
+    let theme = state.theme === 'light' ? 'dark' : 'light';
+    localStorage.setItem('theme', theme);
+    return { ...state, theme };
   }
 
   return state;

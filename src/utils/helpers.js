@@ -61,6 +61,15 @@ export const checkEmptyInput = (items) => {
   return emptyFlag;
 };
 
+export const setTheme = () => {
+  const theme = localStorage.getItem('theme');
+  if (theme === 'light') {
+    document.documentElement.className = 'light-theme';
+  } else {
+    document.documentElement.className = 'dark-theme';
+  }
+};
+
 // input text date helper function
 // export const checkValidDate = (date) => {
 //   let splitDate = date.split('-');
