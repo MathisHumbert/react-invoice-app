@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { FaTwitter, FaGithub } from 'react-icons/fa';
 import { SiFrontendmentor } from 'react-icons/si';
 import Logo from '../components/Logo';
+import img from '../assets/undraw_payments_re_77x0.svg';
 import { setTheme } from '../utils/helpers';
 
 const LandingPage = () => {
