@@ -89,5 +89,33 @@ const Wrapper = styled.nav`
       }
     }
   }
+
+  @media (min-width: 1440px) {
+    height: 100vw;
+    position: fixed;
+    width: 103px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+
+    .nav-logo {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 103px;
+      height: 103px;
+    }
+
+    .right {
+      position: fixed;
+      bottom: 32px;
+      flex-direction: column;
+      align-items: center;
+
+      .vr {
+        height: 1px;
+        width: 103px;
+      }
+    }
+  }
 `;
 export default Navbar;

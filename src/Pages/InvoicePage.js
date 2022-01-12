@@ -34,12 +34,14 @@ const InvoicePage = () => {
 
   return (
     <Wrapper>
-      <GoHome />
-      <Header status={single_invoice.status} />
-      <Invoice />
-      <Footer />
-      <DeleteAside />
-      <SidebarEdit id={id} />
+      <div className='container'>
+        <GoHome />
+        <Header status={single_invoice.status} />
+        <Invoice />
+        <Footer />
+        <DeleteAside />
+        <SidebarEdit id={id} />
+      </div>
     </Wrapper>
   );
 };
@@ -57,6 +59,18 @@ const Wrapper = styled.main`
     padding-top: 48px;
     min-height: inherit;
     height: 100%;
+  }
+
+  @media (min-width: 1440px) {
+    width: 100%;
+    padding-left: 103px;
+    display: grid;
+    justify-items: center;
+
+    .container {
+      width: 100%;
+      max-width: 1220px;
+    }
   }
 `;
 export default InvoicePage;

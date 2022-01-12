@@ -93,6 +93,12 @@ const Wrapper = styled.aside`
       padding: 0 46px;
     }
   }
+
+  @media (min-width: 1440px) {
+    top: 0;
+    left: 103px;
+    max-width: 719px;
+  }
 `;
 
 export default SidebarNew;

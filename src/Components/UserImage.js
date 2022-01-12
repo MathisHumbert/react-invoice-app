@@ -44,5 +44,14 @@ const Wrapper = styled.div`
   @media (min-width: 768px) {
     gap: 32px;
   }
+
+  @media (min-width: 1440px) {
+    flex-direction: column;
+
+    img {
+      width: 40px;
+      height: 40px;
+    }
+  }
 `;
 export default UserImage;

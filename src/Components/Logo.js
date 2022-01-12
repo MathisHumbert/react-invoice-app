@@ -3,7 +3,7 @@ import logo from '../assets/logo.svg';
 
 const Logo = () => {
   return (
-    <Wrapper>
+    <Wrapper className='nav-logo'>
       <img src={logo} alt='main-logo' />
     </Wrapper>
   );

@@ -22,6 +22,11 @@ const Wrapper = styled.section`
 
   @media (min-width: 768px) {
     padding: 32px;
+    height: fit-content;
+  }
+  @media (min-width: 768px) {
+    padding: 48px;
+    height: fit-content;
   }
 `;
 export default Invoice;

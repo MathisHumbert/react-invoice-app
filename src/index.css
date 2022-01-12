@@ -49,15 +49,6 @@ html.dark-theme {
   --draft-bcg: rgba(223, 227, 250, 0.05);
 }
 
-/* 
-btn / btn hover color
-navbar color
-landing / login page refactor code
-set theme local storage
-icon hover 
-tablet / desktop view
-*/
-
 * {
   margin: 0;
   padding: 0;
@@ -264,5 +255,12 @@ label {
   .rest-aside.open {
     z-index: 3;
     opacity: 1;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .rest-aside {
+    top: 0px;
+    left: 103px;
   }
 }
